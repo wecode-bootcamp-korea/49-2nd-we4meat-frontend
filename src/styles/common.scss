@@ -1,0 +1,30 @@
+@charset "utf-8";
+@import './reset';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: initial;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+}
