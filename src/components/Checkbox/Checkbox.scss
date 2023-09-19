@@ -1,0 +1,62 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/theme';
+
+@mixin theme(
+  $theme,
+  $grayscale-1,
+  $grayscale-2,
+  $grayscale-3,
+  $grayscale-4,
+  $grayscale-5,
+  $grayscale-6,
+  $grayscale-7
+) {
+  [theme='#{$theme}'] {
+    @include ThemeTransition;
+    .label {
+      display: flex;
+      position: relative;
+      .checkbox {
+        position: absolute;
+        z-index: -1;
+        width: 1px;
+        height: 1px;
+        & + span::before {
+          content: '';
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          margin-right: 10px;
+          border: 1px solid $grayscale-4;
+          vertical-align: top;
+        }
+        &:checked + span::after {
+          content: '';
+          position: absolute;
+          top: 5px;
+          left: 4px;
+          width: 7px;
+          height: 3px;
+          border-style: solid;
+          border-width: 0 0 1.5px 1.5px;
+          transform: rotate(-45deg) scale(1);
+        }
+      }
+    }
+  }
+}
+
+@each $theme, $grayscale-1, $grayscale-2, $grayscale-3, $grayscale-4,
+  $grayscale-5, $grayscale-6, $grayscale-7 in $pallette
+{
+  @include theme(
+    $theme,
+    $grayscale-1,
+    $grayscale-2,
+    $grayscale-3,
+    $grayscale-4,
+    $grayscale-5,
+    $grayscale-6,
+    $grayscale-7
+  );
+}
