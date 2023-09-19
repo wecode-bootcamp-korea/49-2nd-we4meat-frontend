@@ -1,0 +1,51 @@
+@import '../../styles/partials/mixin.scss';
+
+.btn {
+  @include FlexCenter;
+  width: 180px;
+  height: 60px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #333;
+  color: #fff;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &[color='bg-black'] {
+    background-color: #000;
+  }
+
+  &[color='bg-gray'] {
+    background-color: #888;
+  }
+
+  &[color='bg-red'] {
+    background-color: #e92d44;
+  }
+
+  &[icon='kakao'] {
+    background-color: #fae100;
+    color: #3c1e1e;
+    border-radius: 4px;
+  }
+
+  &[icon='naver'] {
+    background-color: #1ec800;
+    border-radius: 4px;
+  }
+
+  &[full='full'] {
+    width: 100%;
+  }
+
+  &[outLine='outLine'] {
+    border: 1px solid #e92d44;
+    background-color: transparent;
+    border-radius: 4px;
+    color: #e92d44;
+  }
+}
