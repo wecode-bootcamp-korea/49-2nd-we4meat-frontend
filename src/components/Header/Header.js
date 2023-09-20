@@ -7,7 +7,7 @@ import LoginItemGroup from '../LoginItemGroup/LoginItemGroup';
 const Header = () => {
   return (
     <header>
-      <div className="headerWrap">
+      <div className="headerWrap inner-wrap">
         <div className="leftWrap">
           <Icon iconName="logo-white" text="정사각" size="logo" nav="/login" />
           <Nav text="쇼핑하기" />

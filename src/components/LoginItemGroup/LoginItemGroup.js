@@ -1,8 +1,8 @@
 import React from 'react';
-import './LoginGroup.scss';
+import './LoginItemGroup.scss';
 import Nav from '../Nav/Nav';
 
-const LoginGroup = () => {
+const LoginItemGroup = () => {
   return (
     <ul className="navList">
       <Nav text="공지사항" />
@@ -13,4 +13,4 @@ const LoginGroup = () => {
   );
 };
 
-export default LoginGroup;
+export default LoginItemGroup;
