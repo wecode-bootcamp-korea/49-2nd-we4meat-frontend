@@ -10,7 +10,9 @@ const Header = () => {
       <div className="headerWrap inner-wrap">
         <div className="leftWrap">
           <Icon iconName="logo-white" text="정사각" size="logo" nav="/login" />
-          <Nav text="쇼핑하기" />
+          <ul className="font-big">
+            <Nav text="쇼핑하기" />
+          </ul>
         </div>
         <div className="rightWrap">
           <LoginItemGroup />

@@ -1,13 +1,15 @@
 import React from 'react';
 import './Nav.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = props => {
-  const { text, className } = props;
+  const { text, className, nav } = props;
+  const navigate = useNavigate(nav);
 
   return (
-    <ul>
-      <li className={className}>{text}</li>
-    </ul>
+    <li className={className} onClick={navigate()}>
+      {text}
+    </li>
   );
 };
 
