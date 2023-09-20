@@ -1,24 +1,25 @@
 @charset "utf-8";
 
 // other colors
-$blue: #2d71f7;
-$navy: #083e7f;
-$red: #ff3636;
+$red: #e92d44;
+$blue: #4bb8ce;
 
 // grayscale
 $grayscale-1: #000;
-$grayscale-2: #999;
-$grayscale-3: #ccc;
-$grayscale-4: #e0e0e0;
-$grayscale-5: #fafafa;
-$grayscale-6: #fff;
-$grayscale-7: #e6e6e6;
+$grayscale-2: #191919;
+$grayscale-3: #333;
+$grayscale-4: #888;
+$grayscale-5: #eee;
+$grayscale-6: #f5f5f5;
+$grayscale-7: #fff;
 
 $pallette: (
-    (lightTheme, #000, #999, #ccc, #e0e0e0, #fafafa, #fff),
-    (darkTheme, #fff, #fafafa, #e0e0e0, #ccc, #999, #000)
+  (lightTheme, #000, #191919, #333, #888, #eee, #f5f5f5, #fff),
+  (darkTheme, #fff, #f5f5f5, #eee, #888, #333, #191919, #000)
 );
 
 @mixin ThemeTransition {
-    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+  transition:
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out;
 }
