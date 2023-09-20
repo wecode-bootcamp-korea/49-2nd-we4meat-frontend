@@ -3,22 +3,21 @@ import Radio from '../Radio/Radio';
 import './RadioGroup.scss';
 
 const RadioGroup = props => {
-  const { name, defaultChecked } = props;
+  const { name, data } = props;
 
   return (
     <div className="radio-group">
-      <Radio
-        name={name}
-        value="dawn"
-        text="새벽배송"
-        defaultChecked={defaultChecked === 'dawn'}
-      />
-      <Radio
-        name={name}
-        value="day"
-        text="당일배송"
-        defaultChecked={defaultChecked === 'day'}
-      />
+      {data.map(item => {
+        return (
+          <Radio
+            key={item.id}
+            name={name}
+            value={item.value}
+            text={item.text}
+            defaultChecked={item.defaultChecked}
+          />
+        );
+      })}
     </div>
   );
 };
