@@ -1,0 +1,17 @@
+@import '../../styles/partials/mixin.scss';
+
+ul {
+  display: flex;
+  gap: 16px;
+}
+
+li {
+  @include FlexCenter;
+  height: 100%;
+  font-size: 18px;
+  color: #fff;
+}
+
+.small {
+  font-size: 14px;
+}
