@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
+import Header from './components/Header/Header';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const Router = () => {
@@ -15,6 +16,7 @@ const Router = () => {
     <div id="outer-wrap" theme="lightTheme">
       <div className="inner-wrap">
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
