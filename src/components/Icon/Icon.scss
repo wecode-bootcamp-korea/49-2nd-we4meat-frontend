@@ -1,0 +1,21 @@
+@import '../../styles//partials/mixin.scss';
+
+.iconWrap {
+  @include FlexCenter;
+  gap: 8px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &[size='logo'] {
+    img {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

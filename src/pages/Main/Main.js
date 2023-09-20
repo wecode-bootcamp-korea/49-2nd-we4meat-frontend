@@ -3,7 +3,7 @@ import Button from '../../components/Button/Button';
 import './Main.scss';
 
 const Main = () => {
-  return <div className="main"></div>;
+  return <div className="main" />;
 };
 
 export default Main;
