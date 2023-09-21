@@ -14,16 +14,14 @@ const Router = () => {
 
   return (
     <div id="outer-wrap" theme="lightTheme">
-      <div className="inner-wrap">
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </BrowserRouter>
-        <input id="theme-switcher" type="checkbox" onClick={themeSwitcher} />
-      </div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+      <input id="theme-switcher" type="checkbox" onClick={themeSwitcher} />
     </div>
   );
 };

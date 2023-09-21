@@ -1,6 +1,7 @@
 @import '../../styles/partials/mixin.scss';
 
-header {
+.header {
+  @include Position(sticky, $top: 0);
   width: 100%;
   background-color: #000;
 
