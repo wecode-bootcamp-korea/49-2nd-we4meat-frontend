@@ -1,19 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Nav.scss';
-import { useNavigate } from 'react-router-dom';
 
 const Nav = props => {
   const { text, className, scale, nav } = props;
-  const navigate = useNavigate();
-  const goToPage = () => {
-    navigate(`/${nav}`);
-  };
 
   return (
     <li className={className}>
-      <button type="button" scale={scale} onClick={goToPage}>
+      <Link to={`/${nav}`} scale={scale}>
         {text}
-      </button>
+      </Link>
     </li>
   );
 };

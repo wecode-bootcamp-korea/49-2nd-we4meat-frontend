@@ -1,6 +1,6 @@
 import React from 'react';
-import './LoginItemGroup.scss';
 import Nav from '../Nav/Nav';
+import './LoginItemGroup.scss';
 
 const LoginItemGroup = () => {
   return (

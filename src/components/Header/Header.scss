@@ -2,20 +2,20 @@ header {
   width: 100%;
   background-color: #000;
 
-  .headerWrap {
+  .header-wrap {
     display: flex;
     align-items: center;
     min-width: 1184px;
     height: 96px;
     padding: 24px 38px;
 
-    .leftWrap {
+    .left-wrap {
       display: flex;
       gap: 32px;
       width: 50%;
     }
 
-    .rightWrap {
+    .right-wrap {
       display: flex;
       justify-content: end;
       align-items: center;
