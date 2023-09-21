@@ -12,7 +12,7 @@ const Header = () => {
         <div className="left-wrap">
           <LinkGoIcon iconName="logo-white" text="정사각" scale="big" nav="" />
           <ul>
-            <Nav text="쇼핑하기" scale="big" />
+            <Nav text="쇼핑하기" className="shopping-wrap" />
           </ul>
         </div>
         <div className="right-wrap">
