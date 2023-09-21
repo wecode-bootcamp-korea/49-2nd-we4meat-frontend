@@ -1,0 +1,11 @@
+@charset 'utf-8';
+@import '../../styles/partials/theme.scss';
+@import '../../styles/partials/mixin.scss';
+
+.product-title {
+  font-size: 18px;
+  font-weight: 800;
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}

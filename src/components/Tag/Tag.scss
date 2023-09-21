@@ -1,0 +1,18 @@
+@charset 'utf-8';
+@import '../../styles/partials/theme.scss';
+@import '../../styles/partials/mixin.scss';
+
+.tag {
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  span {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 800;
+    color: $blue;
+    background-color: $grayscale-7;
+    border: 2px solid $blue;
+    border-radius: 20px;
+  }
+}
