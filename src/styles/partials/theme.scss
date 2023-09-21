@@ -9,13 +9,14 @@ $grayscale-1: #000;
 $grayscale-2: #191919;
 $grayscale-3: #333;
 $grayscale-4: #888;
-$grayscale-5: #eee;
-$grayscale-6: #f5f5f5;
-$grayscale-7: #fff;
+$grayscale-5: #c2c2c2;
+$grayscale-6: #eee;
+$grayscale-7: #f5f5f5;
+$grayscale-8: #fff;
 
 $pallette: (
-  (lightTheme, #000, #191919, #333, #888, #eee, #f5f5f5, #fff),
-  (darkTheme, #fff, #f5f5f5, #eee, #888, #333, #191919, #000)
+  (lightTheme, #000, #191919, #333, #888, #c2c2c2, #eee, #f5f5f5, #fff),
+  (darkTheme, #fff, #f5f5f5, #eee, #c2c2c2, #888, #333, #191919, #000)
 );
 
 @mixin ThemeTransition {

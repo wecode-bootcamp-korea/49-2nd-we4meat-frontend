@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -7,8 +7,6 @@ import 'swiper/css/pagination';
 import './Event.scss';
 
 const Event = () => {
-  const swiperRef = useRef();
-
   return (
     <div className="event">
       <Swiper
@@ -54,7 +52,7 @@ const Event = () => {
           <button type="button" className="swiper-prev-btn">
             Prev
           </button>
-          <span className="event-swiper-pagination"></span>
+          <span className="event-swiper-pagination" />
           <button type="button" className="swiper-next-btn">
             Next
           </button>
