@@ -6,53 +6,71 @@
   width: 80%;
   margin: 100px auto 0;
   background-color: #ccc;
-  outline: 2px solid red;
 
   .product {
     width: 30%;
+    outline: 2px solid #000;
 
     .content {
       width: 100%;
       height: 400px;
+      margin-bottom: 30px;
       @include FlexCenter;
       flex-direction: column;
+      background-color: $grayscale-5;
       position: relative;
-      outline: 2px solid lime;
       .tag {
         position: absolute;
-        left: 0;
-        top: 0;
+        left: 20px;
+        top: 30px;
         span {
-          padding: 8px 15px;
+          padding: 5px 10px;
+          font-size: 14px;
           font-weight: 800;
           color: $blue;
+          background-color: $grayscale-7;
           border: 2px solid $blue;
           border-radius: 20px;
         }
       }
-      .contentImage {
+      .content-image {
         width: 150px;
         height: 150px;
+        cursor: pointer;
         img {
           width: 100%;
         }
       }
 
-      .cartButton {
+      .cart-button {
         width: 70px;
         height: 70px;
         background-color: $grayscale-7;
         border: 2px solid $grayscale-5;
         border-radius: 100%;
         position: absolute;
-        right: 0;
-        bottom: 0;
-        //outline: 2px solid blue;
+        right: 20px;
+        bottom: 20px;
         @include FlexCenter;
 
         img {
           width: 60%;
         }
+      }
+    }
+
+    .product-text {
+      .product-title {
+        font-size: 18px;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+      .product-info {
+        font-size: 16px;
+        color: #9b9b9b;
+        cursor: pointer;
       }
     }
   }

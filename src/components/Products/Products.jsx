@@ -26,18 +26,20 @@ function Products(props) {
             <div className="tag">
               <span>무항생제</span>
             </div>
-            <div className="contentImage">
+            <div className="content-image">
               <img src="/images/pig.png" alt="" />
             </div>
-            <div className="cartButton">
+            <div className="cart-button">
               <button>
                 <img src="/images/cart.png" alt="" />
               </button>
             </div>
           </div>
-          <div>
-            <strong>초신선 무항생제 돼지 삼겹살 구이용</strong>
-            <span>기준가 22,800원/600g</span>
+          <div className="product-text">
+            <strong className="product-title">
+              초신선 무항생제 돼지 삼겹살 구이용
+            </strong>
+            <span className="product-info">기준가 22,800원/600g</span>
           </div>
         </li>
       </ul>
