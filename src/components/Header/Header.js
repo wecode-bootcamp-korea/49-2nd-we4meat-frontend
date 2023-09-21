@@ -1,21 +1,24 @@
 import React from 'react';
+import LinkGoIcon from './LinkGoIcon/LinkGoIcon';
+import Nav from './Nav/Nav';
+import LoginItemGroup from './LoginItemGroup/LoginItemGroup';
+import SubNav from './SubNav/SubNav';
 import './Header.scss';
-import Icon from '../Icon/Icon';
-import Nav from '../Nav/Nav';
-import LoginItemGroup from '../LoginItemGroup/LoginItemGroup';
 
 const Header = () => {
   return (
     <header>
-      <div className="headerWrap inner-wrap">
-        <div className="leftWrap">
-          <Icon iconName="logo-white" text="정사각" size="logo" nav="/login" />
-          <Nav text="쇼핑하기" />
+      <div className="header-wrap inner-wrap">
+        <div className="left-wrap">
+          <LinkGoIcon iconName="logo-white" text="정사각" scale="big" nav="" />
+          <ul>
+            <Nav text="쇼핑하기" className="shopping-wrap" />
+          </ul>
         </div>
-        <div className="rightWrap">
+        <div className="right-wrap">
           <LoginItemGroup />
-          <Icon iconName="shopping-cart" />
-          <Icon iconName="menu" />
+          <LinkGoIcon iconName="shopping-cart" nav="" />
+          <SubNav />
         </div>
       </div>
     </header>

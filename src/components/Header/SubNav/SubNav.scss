@@ -1,6 +1,6 @@
-@import '../../styles//partials/mixin.scss';
+@import '../../../styles//partials/mixin.scss';
 
-.iconWrap {
+.icon-wrap {
   @include FlexCenter;
   gap: 8px;
   font-size: 30px;
@@ -10,12 +10,5 @@
   img {
     width: 32px;
     height: 32px;
-  }
-
-  &[size='logo'] {
-    img {
-      width: 48px;
-      height: 48px;
-    }
   }
 }
