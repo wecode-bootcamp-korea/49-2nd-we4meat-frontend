@@ -1,8 +1,8 @@
 @charset "utf-8";
 @import '../../styles/partials/mixin';
 
-.event {
-  width: 576px;
+.event-swiper-wrap {
+  width: 592px;
   height: 176px;
   .swiper {
     position: relative;
@@ -10,6 +10,11 @@
     height: inherit;
     font-size: 13px;
     line-height: 1;
+    .swiper-slide {
+      a {
+        display: block;
+      }
+    }
     .controller {
       position: absolute;
       left: 8px;

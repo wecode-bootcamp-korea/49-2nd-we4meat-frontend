@@ -48,7 +48,8 @@
   display: flex;
   gap: $gap;
   flex-wrap: nowrap;
-  & > div {
+  & > div,
+  & > li {
     width: percentage($columns / 4);
   }
 }
