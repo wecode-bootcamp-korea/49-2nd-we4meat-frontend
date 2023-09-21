@@ -16,7 +16,7 @@ const Router = () => {
     <div id="outer-wrap" theme="lightTheme">
       <div className="inner-wrap">
         <BrowserRouter>
-          {/* <Header /> */}
+          <Header />
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />

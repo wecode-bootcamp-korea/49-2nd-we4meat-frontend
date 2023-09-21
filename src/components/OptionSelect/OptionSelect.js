@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './OptionSelect.scss';
 
-const OptionSelect = props => {
+const OptionSelect = () => {
+  const [optionList, setOptionList] = useState();
+  const handleOption = e => {
+    setOptionList(e.target.value);
+  };
   return (
     <div className="optionSelect">
-      <p>옵션</p>
-      <label htmlFor="thickness">
-        <select id="thickness">
-          <option>보통(16mm)</option>
-          <option>얇게(11mm)</option>
-          <option>두껍(24mm)</option>
-        </select>
-      </label>
+      <p className="op-name">옵션</p>
+      <button onClick={handleOption} optionList={optionList} />
     </div>
   );
 };
