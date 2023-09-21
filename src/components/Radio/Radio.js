@@ -12,18 +12,17 @@ const Radio = props => {
   } = props;
 
   return (
-    <>
-      <label className="label">
-        <input
-          type={type}
-          className={className}
-          name={name}
-          value={value}
-          defaultChecked={defaultChecked}
-        />
-        <span>{text}</span>
-      </label>
-    </>
+    <label className="label">
+      <input
+        type={type}
+        className={className}
+        name={name}
+        value={value}
+        defaultChecked={defaultChecked}
+        tab-index="0"
+      />
+      <span>{text}</span>
+    </label>
   );
 };
 

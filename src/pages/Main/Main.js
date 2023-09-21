@@ -1,14 +1,8 @@
 import React from 'react';
 import './Main.scss';
 
-import Event from '../../components/Event/Event';
-
 const Main = () => {
-  return (
-    <div className="main">
-      <Event />
-    </div>
-  );
+  return <div className="main">main</div>;
 };
 
 export default Main;

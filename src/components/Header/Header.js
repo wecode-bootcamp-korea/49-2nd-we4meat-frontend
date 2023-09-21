@@ -7,7 +7,7 @@ import './Header.scss';
 
 const Header = () => {
   return (
-    <header>
+    <header className="header">
       <div className="header-wrap inner-wrap">
         <div className="left-wrap">
           <LinkGoIcon iconName="logo-white" text="정사각" scale="big" nav="" />
