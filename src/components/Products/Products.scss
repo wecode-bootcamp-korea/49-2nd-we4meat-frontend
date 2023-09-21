@@ -1,0 +1,59 @@
+@charset 'utf-8';
+@import '../../styles/partials/theme.scss';
+@import '../../styles/partials/mixin.scss';
+
+.product-list {
+  width: 80%;
+  margin: 100px auto 0;
+  background-color: #ccc;
+  outline: 2px solid red;
+
+  .product {
+    width: 30%;
+
+    .content {
+      width: 100%;
+      height: 400px;
+      @include FlexCenter;
+      flex-direction: column;
+      position: relative;
+      outline: 2px solid lime;
+      .tag {
+        position: absolute;
+        left: 0;
+        top: 0;
+        span {
+          padding: 8px 15px;
+          font-weight: 800;
+          color: $blue;
+          border: 2px solid $blue;
+          border-radius: 20px;
+        }
+      }
+      .contentImage {
+        width: 150px;
+        height: 150px;
+        img {
+          width: 100%;
+        }
+      }
+
+      .cartButton {
+        width: 70px;
+        height: 70px;
+        background-color: $grayscale-7;
+        border: 2px solid $grayscale-5;
+        border-radius: 100%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        //outline: 2px solid blue;
+        @include FlexCenter;
+
+        img {
+          width: 60%;
+        }
+      }
+    }
+  }
+}
