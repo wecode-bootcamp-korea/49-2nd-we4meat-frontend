@@ -2,7 +2,7 @@ import React from 'react';
 import './Input.scss';
 
 function Input(props) {
-  const { type, className = 'input', name, placeholder } = props;
+  const { type, className, name, placeholder } = props;
   return (
     <label>
       <input
