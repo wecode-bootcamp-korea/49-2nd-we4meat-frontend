@@ -1,0 +1,14 @@
+@import '../../styles/partials/mixin.scss';
+
+.count-wrap {
+  display: flex;
+  align-items: center;
+  width: 380px;
+  height: 55px;
+  color: #fff;
+
+  p {
+    @include FlexCenter;
+    width: 100%;
+  }
+}

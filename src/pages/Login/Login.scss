@@ -8,11 +8,12 @@
   $grayscale-3,
   $grayscale-4,
   $grayscale-5,
-  $grayscale-6
+  $grayscale-6,
+  $grayscale-7,
+  $grayscale-8
 ) {
   [theme='#{$theme}'] {
     @include ThemeTransition;
-    background-color: $grayscale-6;
     .login {
       color: $grayscale-1;
     }
@@ -20,7 +21,7 @@
 }
 
 @each $theme, $grayscale-1, $grayscale-2, $grayscale-3, $grayscale-4,
-  $grayscale-5, $grayscale-6 in $pallette
+  $grayscale-5, $grayscale-6, $grayscale-7, $grayscale-8 in $pallette
 {
   @include theme(
     $theme,
@@ -29,6 +30,8 @@
     $grayscale-3,
     $grayscale-4,
     $grayscale-5,
-    $grayscale-6
+    $grayscale-6,
+    $grayscale-7,
+    $grayscale-8
   );
 }

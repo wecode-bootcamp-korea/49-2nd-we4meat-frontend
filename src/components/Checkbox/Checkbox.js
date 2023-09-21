@@ -5,12 +5,10 @@ const Checkbox = props => {
   const { type = 'checkbox', className = 'checkbox', name, text } = props;
 
   return (
-    <>
-      <label className="label">
-        <input type={type} className={className} name={name} />
-        <span>{text}</span>
-      </label>
-    </>
+    <label className="label">
+      <input type={type} className={className} name={name} tab-index="0" />
+      <span>{text}</span>
+    </label>
   );
 };
 

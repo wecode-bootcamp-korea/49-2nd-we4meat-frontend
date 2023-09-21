@@ -14,24 +14,22 @@ const Button = props => {
   } = props;
 
   return (
-    <>
-      <button
-        className="btn"
-        type={type}
-        color={color}
-        full={full}
-        outLine={outLine}
-        name={name}
-        icon={icon}
-        // onClick={onClick}
-        disabled={disabled}
-      >
-        {icon?.length > 0 && (
-          <img src={process.env.PUBLIC_URL + `/${icon}.png`} alt={`${icon}`} />
-        )}
-        {name}
-      </button>
-    </>
+    <button
+      className="btn"
+      type={type}
+      color={color}
+      full={full}
+      outLine={outLine}
+      name={name}
+      icon={icon}
+      // onClick={onClick}
+      disabled={disabled}
+    >
+      {icon?.length > 0 && (
+        <img src={process.env.PUBLIC_URL + `/${icon}.png`} alt={`${icon}`} />
+      )}
+      {name}
+    </button>
   );
 };
 

@@ -1,15 +1,11 @@
 import React from 'react';
 import './Main.scss';
-import '../../components/OptionSelect/OptionSelect';
-
-import Event from '../../components/Event/Event';
-import OptionSelect from '../../components/OptionSelect/OptionSelect';
+import Count from '../../components/Count/Count';
 
 const Main = () => {
   return (
     <div className="main">
-      <Event />
-      <OptionSelect />
+      <Count />
     </div>
   );
 };
