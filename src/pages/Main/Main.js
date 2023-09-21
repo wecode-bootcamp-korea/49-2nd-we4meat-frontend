@@ -1,13 +1,12 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
 import './Main.scss';
 
-import Input from '../../components/Input/Input';
+import Event from '../../components/Event/Event';
 
 const Main = () => {
   return (
     <div className="main">
-      <Input />
+      <Event />
     </div>
   );
 };
