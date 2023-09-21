@@ -3,15 +3,18 @@ import './Icon.scss';
 import { useNavigate } from 'react-router-dom';
 
 const Icon = props => {
-  const { iconName, text, size, nav } = props;
-  const navigate = useNavigate(nav);
+  const { iconName, text, scale, nav } = props;
+  const navigate = useNavigate();
+  const goToPage = () => {
+    navigate(`${nav}`);
+  };
 
   return (
-    <button className="iconWrap" onClick={navigate()}>
+    <button className="iconWrap" onClick={goToPage}>
       <img
         src={process.env.PUBLIC_URL + `/images/${iconName}.png`}
         alt={iconName}
-        size={size}
+        scale={scale}
       />
       {text}
     </button>
