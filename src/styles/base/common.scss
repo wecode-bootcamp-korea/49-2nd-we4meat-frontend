@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import './reset', '../partials/mixin', '../partials/theme', '../layout/layout';
+@import './reset', '../partials/mixin', '../partials/variables';
 
 * {
   box-sizing: border-box;
@@ -29,27 +29,13 @@ main {
   width: 100%;
 }
 
-#theme-switcher {
-  @include Position(fixed, $top: 0, $right: 0);
-  z-index: 100;
-  appearance: none;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  background-size: cover;
-  background-position: center;
+#root {
+  min-height: 100vh;
 }
 
-[theme='darkTheme'] {
-  #theme-switcher {
-    background-image: url(../../../public/images/ic_light_theme.png);
-  }
-}
-
-[theme='lightTheme'] {
-  #theme-switcher {
-    background-image: url(../../../public/images/ic_dark_theme.png);
-  }
+.inner-wrap {
+  width: 1184px;
+  margin: 0 auto;
 }
 
 // 웹 접근성 처리
