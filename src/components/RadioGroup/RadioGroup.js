@@ -3,6 +3,11 @@ import Radio from '../Radio/Radio';
 import './RadioGroup.scss';
 
 const RadioGroup = props => {
+  // props
+  // name: [String]
+  // value: [String]
+  // text: [String]
+  // defaultChecked: [String]
   const { name, data } = props;
 
   return (
