@@ -1,12 +1,12 @@
 @charset "utf-8";
-@import '../../styles/partials/mixin', '../../styles/partials/theme';
+@import '../../../styles/partials/mixin.scss';
 
 .big-banner {
   width: 100%;
   height: 560px;
-  background: url(../../../public/images/main/@big_banner.jpg) no-repeat
+  background: url(../../../../public/images/main/@big_banner.jpg) no-repeat
     center/cover;
-  & > a {
+  a {
     @include Ir();
     display: block;
     width: 100%;

@@ -1,7 +1,7 @@
 import React from 'react';
-import BigBanner from '../../components/BigBanner/BigBanner';
-import EventBanners from '../../components/EventBanners/EventBanners';
-import ListBanner from '../../components/ListBanner/ListBanner';
+import BigBanner from './BigBanner/BigBanner';
+import EventBanners from './EventBanners/EventBanners';
+import ListBanner from './ListBanner/ListBanner';
 import './Main.scss';
 import OptionElement from '../../components/OptionElement/OptionElement';
 

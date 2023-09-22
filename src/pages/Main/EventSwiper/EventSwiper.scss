@@ -1,5 +1,4 @@
 @charset "utf-8";
-@import '../../styles/partials/mixin';
 
 .event-swiper-wrap {
   width: 592px;
@@ -44,10 +43,10 @@
         font-size: 1px;
         color: transparent;
         &.swiper-prev-btn {
-          background-image: url(../../../public/images/swiper/swiper_prev.png);
+          background-image: url(../../../../public/images/swiper/swiper_prev.png);
         }
         &.swiper-next-btn {
-          background-image: url(../../../public/images/swiper/swiper_next.png);
+          background-image: url(../../../../public/images/swiper/swiper_next.png);
         }
       }
     }

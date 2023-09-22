@@ -1,37 +1,5 @@
 @charset "utf-8";
-@import '../../styles/partials/mixin', '../../styles/partials/theme';
-
-@mixin theme(
-  $theme,
-  $grayscale-1,
-  $grayscale-2,
-  $grayscale-3,
-  $grayscale-4,
-  $grayscale-5,
-  $grayscale-6,
-  $grayscale-7,
-  $grayscale-8
-) {
-  [theme='#{$theme}'] {
-    @include ThemeTransition;
-    .login {
-      color: $grayscale-1;
-    }
-  }
-}
-
-@each $theme, $grayscale-1, $grayscale-2, $grayscale-3, $grayscale-4,
-  $grayscale-5, $grayscale-6, $grayscale-7, $grayscale-8 in $pallette
-{
-  @include theme(
-    $theme,
-    $grayscale-1,
-    $grayscale-2,
-    $grayscale-3,
-    $grayscale-4,
-    $grayscale-5,
-    $grayscale-6,
-    $grayscale-7,
-    $grayscale-8
-  );
+@import '../../../src/styles/partials/variables.scss';
+.login {
+  color: $grayscale-1;
 }
