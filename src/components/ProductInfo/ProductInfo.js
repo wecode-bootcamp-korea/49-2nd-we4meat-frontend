@@ -13,3 +13,7 @@ function ProductInfo(props) {
 }
 
 export default ProductInfo;
+//props
+//price: [string] 가격
+//weight: [string] 중량
+////className: [string]'product-info'

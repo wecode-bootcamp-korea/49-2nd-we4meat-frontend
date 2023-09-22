@@ -18,3 +18,6 @@ function Products({ className = 'products' }) {
 }
 
 export default Products;
+
+//props
+//className: [string]'products'

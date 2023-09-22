@@ -3,7 +3,7 @@ import ProductTitle from '../ProductTitle/ProductTitle';
 import ProductInfo from '../ProductInfo/ProductInfo';
 import './ProductText.scss';
 
-function ProductText({ className = 'Product-text' }) {
+function ProductText({ className = 'product-text' }) {
   return (
     <div className={className}>
       <ProductTitle />
@@ -13,3 +13,6 @@ function ProductText({ className = 'Product-text' }) {
 }
 
 export default ProductText;
+
+//props
+////className: [string]'product-text'

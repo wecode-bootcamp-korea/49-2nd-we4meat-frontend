@@ -15,3 +15,5 @@ function ProductContent({ className = 'product-content' }) {
 }
 
 export default ProductContent;
+//props
+//className: [string]'product-content'
