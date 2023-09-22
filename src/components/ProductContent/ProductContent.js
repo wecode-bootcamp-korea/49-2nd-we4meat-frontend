@@ -16,4 +16,4 @@ function ProductContent({ className = 'product-content' }) {
 
 export default ProductContent;
 //props
-//className: [string]'product-content'
+//className: [string]'product-content','inventory' - 상품준비중 class
