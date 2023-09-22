@@ -1,15 +1,15 @@
 import React from 'react';
 import Tag from '../Tag/Tag';
 import ProductImg from '../ProductListImg/ProductImg';
-import Cart from '../Cart/Cart';
+import CartButton from '../CartButton/CartButton';
 import './ProductContent.scss';
 
-function ProductContent({ className = 'product-content' }) {
+function ProductContent({ className }) {
   return (
-    <div className={className}>
+    <div className={`product-content ${className}`}>
       <Tag />
       <ProductImg />
-      <Cart />
+      <CartButton />
     </div>
   );
 }

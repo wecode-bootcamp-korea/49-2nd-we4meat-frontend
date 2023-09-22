@@ -1,9 +1,9 @@
 import React from 'react';
 import './Tag.scss';
 
-function Tag({ className = 'tag' }) {
+function Tag({ className }) {
   return (
-    <div className={className}>
+    <div className={`tag ${className}`}>
       <span>무항생제</span>
     </div>
   );

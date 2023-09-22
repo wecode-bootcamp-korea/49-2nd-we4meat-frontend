@@ -4,10 +4,10 @@ import ProductContent from '../ProductContent/ProductContent';
 import ProductText from '../../components/ProductText/ProductText';
 import './Products.scss';
 
-function Products({ className = 'products' }) {
+function Products({ className }) {
   return (
     <div>
-      <ul className={className}>
+      <ul className={`products ${className}`}>
         <Product>
           <ProductContent />
           <ProductText />
