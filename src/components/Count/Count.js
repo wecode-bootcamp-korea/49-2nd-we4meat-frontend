@@ -17,11 +17,11 @@ const Count = () => {
 
   return (
     <div className="count-wrap">
+      <p>수량</p>
       <CountSelect
         count={count}
         plus={handlePlusCount}
         minus={handleMinusCount}
-        scale="full"
       />
     </div>
   );
