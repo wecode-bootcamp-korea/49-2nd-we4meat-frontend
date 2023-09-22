@@ -1,10 +1,9 @@
 import React from 'react';
 import './Input.scss';
 
-function Input(props) {
-  const { type, className, name, placeholder } = props;
+function Input({ type, className, name, placeholder }) {
   return (
-    <label>
+    <label className={className}>
       <input
         type={type}
         className={className}
