@@ -28,13 +28,13 @@
     background-color: #e92d44;
   }
 
-  &[icon='kakao'] {
+  &[icon='sns-talk'] {
     background-color: #fae100;
     color: #3c1e1e;
     border-radius: 4px;
   }
 
-  &[icon='naver'] {
+  &[icon='sns-nav'] {
     background-color: #1ec800;
     border-radius: 4px;
   }
@@ -43,10 +43,14 @@
     width: 100%;
   }
 
-  &[outLine='outLine'] {
+  &[line='line'] {
     border: 1px solid #e92d44;
     background-color: transparent;
     border-radius: 4px;
     color: #e92d44;
+  }
+
+  &[scale='low'] {
+    height: 48px;
   }
 }
