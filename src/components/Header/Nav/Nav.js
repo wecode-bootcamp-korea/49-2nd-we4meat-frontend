@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Nav = props => {
-  const { text, className, nav } = props;
+  const { text, className, path } = props;
 
   return (
     <li className={className}>
-      <Link to={`/${nav}`}>{text}</Link>
+      <Link to={`/${path}`}>{text}</Link>
     </li>
   );
 };

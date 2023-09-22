@@ -2,13 +2,14 @@ import React from 'react';
 import Nav from '../Nav/Nav';
 import './LoginItemGroup.scss';
 
+const linkList = ['공지사항', '고객센터', '로그인', '회원가입'];
+
 const LoginItemGroup = () => {
   return (
     <ul className="login-list">
-      <Nav text="공지사항" />
-      <Nav text="고객센터" />
-      <Nav text="로그인" className="border-left" nav="login" />
-      <Nav text="회원가입" />
+      {linkList.map(link => {
+        return <Nav key={link} text={link} />;
+      })}
     </ul>
   );
 };
