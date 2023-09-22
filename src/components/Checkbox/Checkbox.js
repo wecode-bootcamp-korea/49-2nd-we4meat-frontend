@@ -5,11 +5,16 @@ const Checkbox = props => {
   // props
   // name: [String]
   // text: [String]
-  const { type = 'checkbox', className = 'checkbox', name, text } = props;
+  const { type = 'checkbox', className, name, text } = props;
 
   return (
     <label className="label">
-      <input type={type} className={className} name={name} tabIndex={0} />
+      <input
+        type={type}
+        className={`checkbox ${className}`}
+        name={name}
+        tabIndex={0}
+      />
       <span>{text}</span>
     </label>
   );

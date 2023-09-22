@@ -9,7 +9,7 @@ const Radio = props => {
   // defaultChecked: [String]
   const {
     type = 'radio',
-    className = 'radio',
+    className,
     name,
     value,
     text,
@@ -20,7 +20,7 @@ const Radio = props => {
     <label className="label">
       <input
         type={type}
-        className={className}
+        className={`radio ${className}`}
         name={name}
         value={value}
         defaultChecked={defaultChecked}
