@@ -9,3 +9,6 @@ function ProductTitle({ className = 'product-title' }) {
 }
 
 export default ProductTitle;
+
+//props
+//className: [string]'product-title'

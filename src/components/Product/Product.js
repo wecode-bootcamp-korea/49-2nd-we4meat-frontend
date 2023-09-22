@@ -10,3 +10,5 @@ function Product({ children, className = 'product' }) {
 }
 
 export default Product;
+//props
+//className: [string]'product'

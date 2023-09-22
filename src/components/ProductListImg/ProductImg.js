@@ -13,3 +13,6 @@ function ProductImg({ className = 'product-img' }) {
 }
 
 export default ProductImg;
+
+//props
+//className: [string]'product-img'

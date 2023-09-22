@@ -10,3 +10,6 @@ function Tag({ className = 'tag' }) {
 }
 
 export default Tag;
+
+//props
+//className: [string]'tag'
