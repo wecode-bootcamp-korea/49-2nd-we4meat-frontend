@@ -6,9 +6,10 @@ const Button = props => {
     type = 'button',
     color,
     full,
-    outLine,
+    line,
     name,
     icon,
+    scale,
     // onClick,
     disabled = false,
   } = props;
@@ -19,7 +20,9 @@ const Button = props => {
   // full: [string] full
   // outline: [string] outLine
   // name: [String] 내부텍스트
+  // scale: [string] low
   // disabled: [Boolean]
+  // icon: [string] sns-talk, sns-nav, 없으면 ""
 
   return (
     <button
@@ -27,14 +30,18 @@ const Button = props => {
       type={type}
       color={color}
       full={full}
-      outLine={outLine}
+      line={line}
       name={name}
       icon={icon}
+      scale={scale}
       // onClick={onClick}
       disabled={disabled}
     >
-      {icon?.length > 0 && (
-        <img src={process.env.PUBLIC_URL + `/${icon}.png`} alt={`${icon}`} />
+      {icon.length > 0 && (
+        <img
+          src={process.env.PUBLIC_URL + `/images/${icon}.png`}
+          alt={`${icon}`}
+        />
       )}
       {name}
     </button>
