@@ -1,11 +1,10 @@
 import React from 'react';
 import './ProductInfo.scss';
 
-function ProductInfo(props) {
-  const { price, weight, className = 'product-info' } = props;
+function ProductInfo({ price, weight, className }) {
   return (
     <div>
-      <span className={className}>
+      <span className={`product-info ${className}`}>
         기준가 {price}원/{weight}g
       </span>
     </div>
