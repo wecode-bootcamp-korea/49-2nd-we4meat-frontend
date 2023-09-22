@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import './LinkGoIcon.scss';
 
 const LinkGoIcon = props => {
-  const { iconName, text, scale, nav } = props;
+  const { iconName, text, scale, path } = props;
 
   return (
-    <Link to={`/${nav}`} className="icon-wrap">
+    <Link to={`/${path}`} className="icon-wrap">
       <img
         src={process.env.PUBLIC_URL + `/images/${iconName}.png`}
         alt={iconName}

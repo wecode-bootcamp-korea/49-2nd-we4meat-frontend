@@ -1,17 +1,39 @@
-// import React, { useState } from 'react';
-// import './OptionSelect.scss';
+import React, { useState } from 'react';
+import OptionElement from '../../components/OptionElement/OptionElement';
+import './OptionSelect.scss';
 
-// const OptionSelect = () => {
-//   const [optionList, setOptionList] = useState();
-//   const handleOption = e => {
-//     setOptionList(e.target.value);
-//   };
-//   return (
-//     <div className="optionSelect">
-//       <p className="op-name">옵션</p>
-//       <button onClick={handleOption} optionList={optionList} />
-//     </div>
-//   );
-// };
+const OptionSelect = props => {
+  const { category } = props;
 
-// export default OptionSelect;
+  if (category === '구이용') {
+    return (
+      <div className="option-select">
+        <p>보통(16mm)</p>
+        <OptionElement category={category} />
+      </div>
+    );
+  } else if (category === '돈까스용') {
+    return (
+      <div className="option-select">
+        <p>보통(16mm)</p>
+        <OptionElement category={category} />
+      </div>
+    );
+  } else if (category === '제육용') {
+    return (
+      <div className="option-select">
+        <p>제육용</p>
+        <OptionElement category={category} />
+      </div>
+    );
+  } else if (category === '수육용') {
+    return (
+      <div className="option-select">
+        <p>수육용</p>
+        <OptionElement category={category} />
+      </div>
+    );
+  }
+};
+
+export default OptionSelect;
