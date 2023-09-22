@@ -20,6 +20,10 @@
     &[scale='full'] {
       width: 298px;
     }
+
+    &[scale='small'] {
+      width: 100%;
+    }
   }
 
   button {

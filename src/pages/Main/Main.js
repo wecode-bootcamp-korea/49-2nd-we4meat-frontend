@@ -1,12 +1,19 @@
 import React from 'react';
+import BigBanner from '../../components/BigBanner/BigBanner';
+import EventBanners from '../../components/EventBanners/EventBanners';
+import ListBanner from '../../components/ListBanner/ListBanner';
 import './Main.scss';
-import Count from '../../components/Count/Count';
+import CountSelect from '../../components/CountSelect/CountSelect';
 
 const Main = () => {
   return (
-    <div className="main">
-      <Count />
-    </div>
+    <main className="main">
+      <BigBanner />
+      <CountSelect scale="full" />
+      <EventBanners />
+      {/* 제품 목록 컴포넌트 공간 */}
+      <ListBanner />
+    </main>
   );
 };
 

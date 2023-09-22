@@ -14,8 +14,14 @@
 ) {
   [theme='#{$theme}'] {
     @include ThemeTransition;
-    .main {
-      padding-bottom: 150px;
+    .event-banners {
+      padding: 48px 0 80px;
+      ul {
+        @include GridSystem(2);
+        li:last-child {
+          border-left: 1px $grayscale-5 solid;
+        }
+      }
     }
   }
 }

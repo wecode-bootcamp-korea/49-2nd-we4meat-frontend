@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import CountSelect from '../CountSelect/CountSelect';
-import './Count.scss';
+import './CountBox.scss';
 
-const Count = () => {
+const CountBox = () => {
   const [count, setCount] = useState(1);
   const handleMinusCount = () => {
     if (count === 1) {
@@ -27,4 +27,4 @@ const Count = () => {
   );
 };
 
-export default Count;
+export default CountBox;
