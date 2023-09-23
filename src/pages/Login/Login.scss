@@ -1,5 +1,27 @@
 @charset "utf-8";
-@import '../../../src/styles/partials/variables.scss';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
 .login {
-  color: $grayscale-1;
+  .page-subtitle {
+    font-size: 18px;
+    line-height: 43px;
+    font-weight: 700;
+    color: $grayscale-2;
+  }
+  .inner-wrap {
+    width: 328px;
+  }
+  .find-info {
+    padding: 20px 0 60px;
+    text-align: center;
+  }
+  .optional-notice {
+    padding: 20px 0 250px;
+    font-size: 16px;
+    text-align: center;
+    a {
+      margin-left: 5px;
+      color: $red;
+    }
+  }
 }

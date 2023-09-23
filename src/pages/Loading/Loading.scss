@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import '../../styles/partials/mixin', '../../styles/partials/theme';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
 
 .loading {
   @include Position(fixed, 0, 0, 0, 0);

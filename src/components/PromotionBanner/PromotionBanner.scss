@@ -1,0 +1,28 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.promotion-banner {
+  background-color: #70cbf1;
+  text-align: center;
+  a {
+    display: block;
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    line-height: 60px;
+    color: $grayscale-8;
+    text-align: center;
+    span {
+      padding-right: 30px;
+      background-image: url(../../../public/images/main/arrow-right.png);
+      background-position: right center;
+      background-size: 20px auto;
+      background-repeat: no-repeat;
+    }
+    strong {
+      padding-bottom: 2px;
+      border-bottom: 1px $grayscale-8 solid;
+      font-weight: 700;
+    }
+  }
+}
