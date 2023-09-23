@@ -4,7 +4,7 @@ import './BigBanner.scss';
 
 const BigBanner = () => {
   return (
-    <section class="big-banner">
+    <section className="big-banner">
       <Link to="/">빅 배너</Link>
     </section>
   );

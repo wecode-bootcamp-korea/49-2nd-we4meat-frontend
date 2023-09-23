@@ -1,6 +1,6 @@
 @charset 'utf-8';
-@import '../../styles/partials/theme.scss';
-@import '../../styles/partials/mixin.scss';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
 .product-info {
   font-size: 16px;
   color: #9b9b9b;
