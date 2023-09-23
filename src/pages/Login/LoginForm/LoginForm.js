@@ -35,13 +35,13 @@ const LoginForm = () => {
     ? true
     : false;
 
-  const submitForm = e => {
+  const submitUserInfo = e => {
     e.preventDefault();
     console.log('submit!');
   };
 
   return (
-    <form className="form" onChange={typingSentry} onSubmit={submitForm}>
+    <form className="form" onChange={typingSentry} onSubmit={submitUserInfo}>
       <fieldset>
         <legend>이메일 로그인</legend>
         <Input

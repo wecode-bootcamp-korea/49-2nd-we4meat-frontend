@@ -1,0 +1,12 @@
+@charset "utf-8";
+@import '../../styles/partials/variables';
+
+.optional-notice {
+  padding: 20px 0 250px;
+  font-size: 16px;
+  text-align: center;
+  a {
+    margin-left: 5px;
+    color: $red;
+  }
+}

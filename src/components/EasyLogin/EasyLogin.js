@@ -2,9 +2,14 @@ import React from 'react';
 import Button from '../../components/Button/Button';
 import './EasyLogin.scss';
 
-const EasyLogin = () => {
+const EasyLogin = props => {
+  const { title } = props;
+
   return (
     <div className="easy-login">
+      <h3 className="page-subtitle" tabIndex={0}>
+        {title}
+      </h3>
       <Button
         icon="sns-talk"
         full="full"
