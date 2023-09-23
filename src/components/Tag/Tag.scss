@@ -1,6 +1,6 @@
 @charset 'utf-8';
-@import '../../styles/partials/theme.scss';
-@import '../../styles/partials/mixin.scss';
+@import '../../styles/partials/mixin.scss',
+  '../../styles/partials/variables.scss';
 
 .tag {
   position: absolute;
@@ -12,7 +12,7 @@
     font-size: 14px;
     font-weight: 800;
     color: $blue;
-    background-color: $grayscale-7;
+    background-color: $grayscale-8;
     border: 2px solid $blue;
     border-radius: 20px;
   }

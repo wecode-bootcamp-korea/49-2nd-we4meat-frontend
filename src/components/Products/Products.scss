@@ -1,8 +1,9 @@
 @charset 'utf-8';
-@import '../../styles/partials/theme.scss';
-@import '../../styles/partials/mixin.scss';
-
+@import '../../styles/partials/mixin.scss',
+  '../../styles/partials/variables.scss';
 .products {
   width: 80%;
   margin: 100px auto 0;
+  display: flex;
+  flex-wrap: wrap;
 }
