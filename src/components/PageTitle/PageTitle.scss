@@ -1,0 +1,10 @@
+@charset "utf-8";
+@import '../../../src/styles/partials/variables.scss';
+
+.page-title {
+  padding: 60px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: $grayscale-2;
+  text-align: center;
+}
