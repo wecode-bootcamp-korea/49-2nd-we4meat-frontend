@@ -1,6 +1,5 @@
 @charset 'utf-8';
-@import '../../styles/partials/theme.scss';
-@import '../../styles/partials/mixin.scss';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
 
 .product-title {
   font-size: 18px;

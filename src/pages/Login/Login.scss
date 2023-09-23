@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import '../../../src/styles/partials/variables.scss';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
 
 .login {
   .page-subtitle {

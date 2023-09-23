@@ -37,7 +37,7 @@ const Button = props => {
       // onClick={onClick}
       disabled={disabled}
     >
-      {icon.length > 0 && (
+      {icon?.length > 0 && (
         <img
           src={process.env.PUBLIC_URL + `/images/${icon}.png`}
           alt={`${icon}`}
