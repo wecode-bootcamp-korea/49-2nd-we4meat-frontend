@@ -2,11 +2,7 @@ import React from 'react';
 import './Product.scss';
 
 function Product({ children, className }) {
-  return (
-    <div>
-      <li className={`product ${className}`}>{children}</li>
-    </div>
-  );
+  return <li className={`product ${className}`}>{children}</li>;
 }
 
 export default Product;
