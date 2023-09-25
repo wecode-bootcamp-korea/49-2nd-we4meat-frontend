@@ -1,40 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './UserInfoOverview.scss';
 
 const UserInfoOverview = () => {
-  const USER_RANK = [
-    {
-      rank: 'VIP',
-      path: "process.env.PUBLIC_URL + '/images/mypage/rank_vip.png",
-      text: 'VIP 등급 회원',
-    },
-    {
-      rank: '골드',
-      path: "process.env.PUBLIC_URL + '/images/mypage/rank_gold.png",
-      text: '골드 등급 회원',
-    },
-    {
-      rank: '실버',
-      path: "process.env.PUBLIC_URL + '/images/mypage/rank_silver.png",
-      text: '실버 등급 회원',
-    },
-    {
-      rank: '웰컴',
-      path: "process.env.PUBLIC_URL + '/images/mypage/rank_welcome.png",
-      text: '웰컴 등급 회원',
-    },
-  ];
+  const [userInfo, setUserInfo] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/userInfoMock.json')
+      .then(response => response.json())
+      .then(data => {
+        setUserInfo(data[0]);
+      });
+  }, []);
+
+  const { rank, name, wallet, coupon, buy, userNumber } = userInfo;
+
   return (
     <section className="user-info-overview">
       <div>
         <img
-          src={process.env.PUBLIC_URL + '/images/mypage/rank_welcome.png'}
-          alt="웰컴 등급 회원"
+          src={process.env.PUBLIC_URL + `/images/mypage/rank_${rank}.png`}
+          alt={`${rank} 등급 회원`}
         />
       </div>
       <div>
         <div>
-          <h3>Hello, 류창선님</h3>
+          <h3>Hello, {name}</h3>
           <button type="button">로그아웃</button>
         </div>
         <table>
@@ -57,11 +47,11 @@ const UserInfoOverview = () => {
           </thead>
           <tbody>
             <tr>
-              <td>[웰컴]</td>
-              <td>[0원]</td>
-              <td>[0개]</td>
-              <td>[0건]</td>
-              <td>[2309-5471-0258-2018]</td>
+              <td>[{rank?.toUpperCase()}]</td>
+              <td>[{wallet}원]</td>
+              <td>[{coupon}개]</td>
+              <td>[{buy}건]</td>
+              <td>[{userNumber}]</td>
             </tr>
           </tbody>
         </table>
