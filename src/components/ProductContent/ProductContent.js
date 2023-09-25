@@ -4,11 +4,11 @@ import ProductImg from '../ProductListImg/ProductImg';
 import CartButton from '../CartButton/CartButton';
 import './ProductContent.scss';
 
-function ProductContent({ className }) {
+function ProductContent({ className, img }) {
   return (
     <div className={`product-content ${className}`}>
       <Tag />
-      <ProductImg />
+      <ProductImg img={img} />
       <CartButton />
     </div>
   );

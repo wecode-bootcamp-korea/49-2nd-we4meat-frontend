@@ -10,6 +10,9 @@ function Products({ className }) {
   useEffect(() => {
     fetch('/data/mock.json', {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
       .then(res => res.json())
       .then(data => {
@@ -22,17 +25,13 @@ function Products({ className }) {
       <ul className={`products ${className}`}>
         {productList.map(product => {
           return (
-            <Product
-              key={product.id}
-              category_id={product.category_id}
-              inventory_id={product.inventory_id}
-              product_name={product.product_name}
-              product_img={product.product_img}
-              price={product.price}
-              weight={product.weight}
-            >
-              <ProductContent />
-              <ProductText />
+            <Product key={product.id}>
+              <ProductContent img={product.product_img} />
+              <ProductText
+                title={product.product_name}
+                price={product.price}
+                weight={product.weight}
+              />
             </Product>
           );
         })}
