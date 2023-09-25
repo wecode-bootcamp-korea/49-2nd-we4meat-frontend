@@ -1,0 +1,129 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.mypage {
+  padding-bottom: 150px;
+  .inner-wrap {
+    width: 980px;
+  }
+  .page-title {
+    padding: 100px 0 70px;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 400;
+    color: $grayscale-1;
+  }
+  .user-info-detail {
+    padding: 65px 0 100px;
+    .tabs {
+      text-align: center;
+      li {
+        display: inline-block;
+        padding: 0 65px;
+        button {
+          font-size: 20px;
+          font-weight: 700;
+          color: $grayscale-5;
+        }
+        &.selected {
+          button {
+            border-bottom: 1px $grayscale-1 solid;
+            color: $grayscale-1;
+          }
+        }
+      }
+    }
+    .tab-contents {
+      padding-top: 45px;
+    }
+    .order-details {
+      .no-order {
+        display: block;
+        padding: 70px 0 60px;
+        border-top: 1px $grayscale-1 solid;
+        font-size: 38px;
+        color: $grayscale-5;
+        text-align: center;
+      }
+    }
+    .order-list {
+      li {
+        border: 1px $grayscale-5 solid;
+        & + li {
+          margin-top: 50px;
+        }
+        a {
+          display: flex;
+          align-items: center;
+          height: 73px;
+          text-align: center;
+          & > span:not(.order) {
+            flex: 1;
+            display: inline-block;
+            font-size: 13px;
+            line-height: 22px;
+            span,
+            em {
+              @include Ellipsis($line: 1);
+            }
+            span {
+              color: $grayscale-5;
+            }
+          }
+          .order {
+            width: 84px;
+            font-size: 20px;
+            font-weight: 700;
+          }
+          .order-summary {
+            max-width: 300px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  @include FlexCenter;
+  .pagination-number {
+    padding: 0 30px;
+  }
+  button {
+    @include Ir;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    &.prev {
+      background-image: url(../../../public/images/swiper/swiper_prev.png);
+    }
+    &.next {
+      background-image: url(../../../public/images/swiper/swiper_next.png);
+    }
+  }
+  span {
+    position: relative;
+    display: inline-block;
+    padding: 0 14px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+  .present {
+    color: $grayscale-1;
+    &::after {
+      @include Position(absolute, $top: 50%, $right: 0);
+      content: '';
+      display: block;
+      width: 2px;
+      height: 22px;
+      background-color: $grayscale-5;
+      transform: translateY(-50%);
+    }
+  }
+  .total {
+    color: $grayscale-5;
+  }
+}
