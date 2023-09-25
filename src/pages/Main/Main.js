@@ -7,7 +7,7 @@ import './Main.scss';
 
 const Main = () => {
   return (
-    <main className="main">
+    <main id="main" className="main">
       <BigBanner />
       <EventBanners />
       <Products />
