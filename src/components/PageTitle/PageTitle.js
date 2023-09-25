@@ -3,7 +3,6 @@ import './PageTitle.scss';
 
 const PageTitle = props => {
   const { title } = props;
-  console.log(props);
 
   return (
     <h2 className="page-title" tabIndex={0}>
