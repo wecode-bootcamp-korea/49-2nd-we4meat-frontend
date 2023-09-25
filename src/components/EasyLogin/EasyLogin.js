@@ -4,7 +4,7 @@ import './EasyLogin.scss';
 
 const EasyLogin = () => {
   return (
-    <div className="easy-login">
+    <section className="easy-login">
       <Button
         icon="sns-talk"
         full="full"
@@ -12,7 +12,7 @@ const EasyLogin = () => {
         scale="low"
       />
       <Button icon="sns-nav" full="full" name="네이버로 시작하기" scale="low" />
-    </div>
+    </section>
   );
 };
 
