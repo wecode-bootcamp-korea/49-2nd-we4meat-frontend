@@ -3,6 +3,7 @@
 
 .pagination {
   @include FlexCenter;
+  margin-top: 50px;
   .pagination-number {
     padding: 0 30px;
   }

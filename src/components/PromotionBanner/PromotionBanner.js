@@ -8,7 +8,7 @@ const PromotionBanner = () => {
       <div className="inner-wrap">
         <Link to="/">
           <span>
-            정육각이 처음이라면 <strong>한달 동안 무료배송</strong>
+            정사각이 처음이라면 <strong>한달 동안 무료배송</strong>
           </span>
         </Link>
       </div>

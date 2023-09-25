@@ -5,7 +5,17 @@ import './BigBanner.scss';
 const BigBanner = () => {
   return (
     <section className="big-banner">
-      <Link to="/">빅 배너</Link>
+      <Link to="/list">
+        <span>
+          <span>오늘 저녁엔 초신선 어떠세요?</span>
+          <strong>
+            언제나 초신선
+            <br />
+            정사각
+          </strong>
+          <em>전체 상품 보러 가기</em>
+        </span>
+      </Link>
     </section>
   );
 };

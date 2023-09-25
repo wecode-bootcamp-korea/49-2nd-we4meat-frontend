@@ -1,14 +1,34 @@
 @charset "utf-8";
+@import '../../../styles/partials/variables';
 
 .list-banner {
   a {
-    display: block;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
     width: 100%;
     height: 208px;
-
-    // 임시 스타일링
-    font-size: 30px;
-    line-height: 208px;
-    text-align: center;
+    padding: 25px 200px 25px 100px;
+    background-color: $grayscale-6;
+    & > span {
+      flex: 1;
+      strong {
+        display: block;
+        font-size: 30px;
+        font-weight: 700;
+      }
+      span {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border: 1px $grayscale-1 solid;
+        border-radius: 5px;
+      }
+    }
+    img {
+      position: relative;
+      top: 50px;
+      width: 300px;
+    }
   }
 }

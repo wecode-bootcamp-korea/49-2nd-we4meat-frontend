@@ -1,9 +1,11 @@
 import React from 'react';
 import './Pagination.scss';
 
-const Pagination = () => {
+const Pagination = props => {
+  console.log(props);
+
   return (
-    <section className="pagination">
+    <div className="pagination">
       <button type="button" className="prev">
         prev
       </button>
@@ -14,7 +16,7 @@ const Pagination = () => {
       <button type="button" className="next">
         next
       </button>
-    </section>
+    </div>
   );
 };
 
