@@ -4,10 +4,14 @@ import ProductImg from '../ProductListImg/ProductImg';
 import CartButton from '../CartButton/CartButton';
 import './ProductContent.scss';
 
-function ProductContent({ className, img }) {
+function ProductContent({ className, img, inventory, title }) {
   return (
-    <div className={`product-content ${className}`}>
-      <Tag />
+    <div
+      className={`product-content ${className} ${
+        inventory === 2 ? 'inventory' : ''
+      }`}
+    >
+      {title.includes('무항생제') ? <Tag /> : ''}
       <ProductImg img={img} />
       <CartButton />
     </div>

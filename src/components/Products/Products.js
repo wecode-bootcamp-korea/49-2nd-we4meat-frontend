@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import BestTitle from '../BestTitle/BestTitle';
 import Product from '../Product/Product';
 import ProductContent from '../ProductContent/ProductContent';
 import ProductText from '../../components/ProductText/ProductText';
@@ -21,12 +22,17 @@ function Products({ className }) {
   }, []);
 
   return (
-    <div>
+    <div className="inner-wrap">
+      <BestTitle />
       <ul className={`products ${className}`}>
         {productList.map(product => {
           return (
             <Product key={product.id}>
-              <ProductContent img={product.product_img} />
+              <ProductContent
+                img={product.product_img}
+                inventory={product.inventory_id}
+                title={product.product_name}
+              />
               <ProductText
                 title={product.product_name}
                 price={product.price}
