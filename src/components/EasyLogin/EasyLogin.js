@@ -6,7 +6,7 @@ const EasyLogin = props => {
   const { title } = props;
 
   return (
-    <div className="easy-login">
+    <section className="easy-login">
       <h3 className="page-subtitle" tabIndex={0}>
         {title}
       </h3>
@@ -17,7 +17,7 @@ const EasyLogin = props => {
         scale="low"
       />
       <Button icon="sns-nav" full="full" name="네이버로 시작하기" scale="low" />
-    </div>
+    </section>
   );
 };
 

@@ -8,17 +8,17 @@ import './Login.scss';
 
 const Login = () => {
   return (
-    <section className="login">
+    <main id="main" className="login">
       <div className="inner-wrap">
         <PageTitle title="로그인" />
         <LoginForm />
-        <div className="find-info">
+        <section className="find-info">
           <Link to="/">아이디 / 비밀번호 찾기</Link>
-        </div>
+        </section>
         <EasyLogin title="SNS 간편 로그인" />
         <OptionalNotice />
       </div>
-    </section>
+    </main>
   );
 };
 
