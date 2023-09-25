@@ -2,5 +2,107 @@
 @import '../../styles/partials/mixin', '../../styles/partials/variables';
 
 .mypage {
-  position: relative;
+  .inner-wrap {
+    width: 980px;
+  }
+  .page-title {
+    padding: 100px 0 70px;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 400;
+    color: $grayscale-1;
+  }
+  .user-info-overview {
+    display: flex;
+    align-items: center;
+    & > div:first-child {
+      width: 100px;
+      img {
+        width: 100%;
+      }
+    }
+    & > div:last-child {
+      flex: 1;
+      padding-left: 40px;
+      div {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+      h3 {
+        display: inline-block;
+        font-size: 24px;
+        line-height: 1;
+        font-weight: 700;
+      }
+      button {
+        padding: 0;
+        border-bottom: 1px $grayscale-5 solid;
+        font-size: 16px;
+        font-weight: 700;
+        color: $grayscale-5;
+      }
+      table {
+        table-layout: fixed;
+        width: 100%;
+        margin-top: 24px;
+        border-collapse: collapse;
+        border-top: 2px $grayscale-1 solid;
+        line-height: 24px;
+        font-weight: 700;
+        text-align: left;
+        thead {
+          font-size: 16px;
+          color: $grayscale-1;
+          th {
+            padding-top: 15px;
+          }
+          th:last-child {
+            text-align: center;
+          }
+        }
+        tbody {
+          font-size: 14px;
+          color: $grayscale-5;
+          td:last-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .user-info-detail {
+    padding: 65px 0 100px;
+    .tabs {
+      text-align: center;
+      li {
+        display: inline-block;
+        padding: 0 65px;
+        button {
+          font-size: 20px;
+          font-weight: 700;
+          color: $grayscale-5;
+        }
+        &.selected {
+          button {
+            border-bottom: 1px $grayscale-1 solid;
+            color: $grayscale-1;
+          }
+        }
+      }
+    }
+    .tab-contents {
+      padding-top: 58px;
+    }
+    .order-details {
+      border-top: 1px $grayscale-1 solid;
+      .no-order {
+        display: block;
+        padding: 70px 0 60px;
+        font-size: 38px;
+        color: $grayscale-5;
+        text-align: center;
+      }
+    }
+  }
 }
