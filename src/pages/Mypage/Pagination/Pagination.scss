@@ -1,0 +1,47 @@
+@charset "utf-8";
+@import '../../../styles/partials/mixin', '../../../styles/partials/variables';
+
+.pagination {
+  @include FlexCenter;
+  margin-top: 50px;
+  .pagination-number {
+    padding: 0 30px;
+  }
+  button {
+    @include Ir;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    &.prev {
+      background-image: url(../../../../public/images/swiper/swiper_prev.png);
+    }
+    &.next {
+      background-image: url(../../../../public/images/swiper/swiper_next.png);
+    }
+  }
+  span {
+    position: relative;
+    display: inline-block;
+    padding: 0 14px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+  }
+  .present {
+    color: $grayscale-1;
+    &::after {
+      @include Position(absolute, $top: 50%, $right: 0);
+      content: '';
+      display: block;
+      width: 2px;
+      height: 22px;
+      background-color: $grayscale-5;
+      transform: translateY(-50%);
+    }
+  }
+  .total {
+    color: $grayscale-5;
+  }
+}

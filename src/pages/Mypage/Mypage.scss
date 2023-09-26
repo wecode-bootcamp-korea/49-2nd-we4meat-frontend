@@ -2,5 +2,15 @@
 @import '../../styles/partials/mixin', '../../styles/partials/variables';
 
 .mypage {
-  position: relative;
+  padding-bottom: 150px;
+  .inner-wrap {
+    width: 980px;
+  }
+  .page-title {
+    padding: 100px 0 70px;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 400;
+    color: $grayscale-1;
+  }
 }

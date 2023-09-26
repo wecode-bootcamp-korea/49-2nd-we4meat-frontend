@@ -1,0 +1,59 @@
+@charset "utf-8";
+@import '../../../styles/partials/mixin', '../../../styles/partials/variables';
+
+.order-details {
+  .no-order {
+    display: block;
+    padding: 70px 0 60px;
+    border-top: 1px $grayscale-1 solid;
+    font-size: 38px;
+    color: $grayscale-5;
+    text-align: center;
+  }
+  .order-list {
+    li {
+      position: relative;
+      border: 1px $grayscale-5 solid;
+      &:hover {
+        border-color: transparent;
+      }
+      &:hover::before {
+        @include Position(absolute, 0, 0, 0, 0);
+        content: '';
+        border: 2px $grayscale-1 solid;
+      }
+      & + li {
+        margin-top: 50px;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        height: 73px;
+        text-align: center;
+        & > span:not(.order) {
+          flex: 1;
+          display: inline-block;
+          font-size: 13px;
+          line-height: 22px;
+          span,
+          em {
+            @include Ellipsis($line: 1);
+          }
+          span {
+            color: $grayscale-5;
+          }
+        }
+        .order {
+          width: 84px;
+          font-size: 20px;
+          font-weight: 700;
+        }
+        .order-summary {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+}
