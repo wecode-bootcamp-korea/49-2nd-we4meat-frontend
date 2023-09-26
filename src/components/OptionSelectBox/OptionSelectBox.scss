@@ -1,1 +1,75 @@
-@import '../../styles/partials/mixin.scss';
+@import '../../styles/partials/mixin.scss',
+  '../../styles/partials/variables.scss';
+
+.option-select {
+  @include FlexCenter;
+  flex-direction: column;
+  width: 380px;
+  color: #fff;
+  padding-left: 14px;
+  position: relative;
+  z-index: 10;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &[scale='full'] {
+    padding: 0;
+  }
+
+  .text-wrap {
+    display: flex;
+    gap: 16px;
+
+    &[scale='full'] {
+      flex-direction: column;
+      width: 380px;
+      gap: 0;
+      padding: 0;
+    }
+
+    .option-img-wrap {
+      @include FlexCenter;
+      width: 317px;
+      border: 1px solid #888;
+      position: relative;
+
+      &[scale='full'] {
+        width: 380px;
+        border: none;
+      }
+
+      img {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        right: 20px;
+        color: #fff;
+      }
+
+      .first-option {
+        @include FlexCenter;
+        width: 317px;
+        height: 50px;
+
+        &[scale='full'] {
+          width: 100%;
+          color: #000;
+          border: 1px solid #888;
+        }
+      }
+    }
+
+    .text-align {
+      @include FlexCenter;
+
+      &[scale='full'] {
+        justify-content: start;
+        color: #000;
+        font-weight: bold;
+        padding-bottom: 8px;
+      }
+    }
+  }
+}
