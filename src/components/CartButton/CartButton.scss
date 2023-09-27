@@ -13,6 +13,11 @@
   bottom: 20px;
   @include FlexCenter;
 
+  &:hover {
+    background-color: $grayscale-1;
+    border: 2px solid $grayscale-1;
+  }
+
   img {
     width: 60%;
   }
