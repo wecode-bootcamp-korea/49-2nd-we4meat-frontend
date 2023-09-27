@@ -22,27 +22,29 @@ function Products({ className }) {
   }, []);
 
   return (
-    <div className="inner-wrap">
-      <BestTitle />
-      <ul className={`products ${className}`}>
-        {productList.map(product => {
-          return (
-            <Product key={product.id}>
-              <ProductContent
-                img={product.product_img}
-                inventory={product.inventory_id}
-                title={product.product_name}
-              />
-              <ProductText
-                title={product.product_name}
-                price={product.price}
-                weight={product.weight}
-              />
-            </Product>
-          );
-        })}
-      </ul>
-    </div>
+    <section className="products-section">
+      <div className="inner-wrap">
+        <BestTitle />
+        <ul className={`products ${className}`}>
+          {productList.map(product => {
+            return (
+              <Product key={product.id}>
+                <ProductContent
+                  img={product.product_img}
+                  inventory={product.inventory_id}
+                  title={product.product_name}
+                />
+                <ProductText
+                  title={product.product_name}
+                  price={product.price}
+                  weight={product.weight}
+                />
+              </Product>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
   );
 }
 
