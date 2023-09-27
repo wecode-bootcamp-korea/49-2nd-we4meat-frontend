@@ -19,7 +19,7 @@
     &:focus[data-validation='false'] {
       border-color: $red;
     }
-    &[data-validation='true'] {
+    &:focus[data-validation='true'] {
       border-color: $green;
     }
   }
