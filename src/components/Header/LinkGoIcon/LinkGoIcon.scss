@@ -11,7 +11,8 @@
   img {
     width: 32px;
     height: 32px;
-    &[scale='big'] {
+
+    &[data-scale='big'] {
       width: 42px;
       height: 42px;
     }

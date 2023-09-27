@@ -50,7 +50,7 @@
     color: #e92d44;
   }
 
-  &[scale='low'] {
+  &[data-scale='low'] {
     height: 48px;
   }
 }

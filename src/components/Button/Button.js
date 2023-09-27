@@ -18,7 +18,7 @@ const Button = props => {
   // type: [String] button, submit
   // color: [String] bg-black, bg-gray, bg-red
   // full: [string] full
-  // outline: [string] outLine
+  // line: [string] line
   // name: [String] 내부텍스트
   // scale: [string] low
   // disabled: [Boolean]
@@ -33,7 +33,7 @@ const Button = props => {
       line={line}
       name={name}
       icon={icon}
-      scale={scale}
+      data-scale={scale}
       // onClick={onClick}
       disabled={disabled}
     >
