@@ -9,6 +9,9 @@
     font-size: 38px;
     color: $grayscale-5;
     text-align: center;
+    & + button {
+      margin: 0 auto;
+    }
   }
   .order-list {
     li {
@@ -23,7 +26,7 @@
         border: 2px $grayscale-1 solid;
       }
       & + li {
-        margin-top: 50px;
+        margin-top: 25px;
       }
       a {
         display: flex;
