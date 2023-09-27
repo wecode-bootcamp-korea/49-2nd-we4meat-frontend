@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import BestTitle from '../BestTitle/BestTitle';
 import Product from '../Product/Product';
 import ProductContent from '../ProductContent/ProductContent';
 import ProductText from '../../components/ProductText/ProductText';
@@ -10,6 +11,9 @@ function Products({ className }) {
   useEffect(() => {
     fetch('/data/mock.json', {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
       .then(res => res.json())
       .then(data => {
@@ -18,21 +22,22 @@ function Products({ className }) {
   }, []);
 
   return (
-    <div>
+    <div className="inner-wrap">
+      <BestTitle />
       <ul className={`products ${className}`}>
         {productList.map(product => {
           return (
-            <Product
-              key={product.id}
-              category_id={product.category_id}
-              inventory_id={product.inventory_id}
-              product_name={product.product_name}
-              product_img={product.product_img}
-              price={product.price}
-              weight={product.weight}
-            >
-              <ProductContent />
-              <ProductText />
+            <Product key={product.id}>
+              <ProductContent
+                img={product.product_img}
+                inventory={product.inventory_id}
+                title={product.product_name}
+              />
+              <ProductText
+                title={product.product_name}
+                price={product.price}
+                weight={product.weight}
+              />
             </Product>
           );
         })}

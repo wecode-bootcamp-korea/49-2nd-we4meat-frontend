@@ -2,8 +2,6 @@
 @import '../../styles/partials/mixin', '../../styles/partials/variables';
 
 .products {
-  width: 80%;
-  margin: 100px auto 0;
   display: flex;
   flex-wrap: wrap;
 }

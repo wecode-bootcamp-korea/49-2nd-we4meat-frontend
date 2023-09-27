@@ -3,11 +3,11 @@ import ProductTitle from '../ProductTitle/ProductTitle';
 import ProductInfo from '../ProductInfo/ProductInfo';
 import './ProductText.scss';
 
-function ProductText({ className }) {
+function ProductText({ className, title, price, weight }) {
   return (
     <div className={`product-text ${className}`}>
-      <ProductTitle />
-      <ProductInfo />
+      <ProductTitle title={title} />
+      <ProductInfo price={price} weight={weight} />
     </div>
   );
 }
