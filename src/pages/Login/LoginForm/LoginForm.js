@@ -14,8 +14,6 @@ const LoginForm = () => {
 
   const { email, password } = userInfo;
 
-  const [isValidation, setIsValidation] = useState(false);
-
   const typingSentry = e => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
