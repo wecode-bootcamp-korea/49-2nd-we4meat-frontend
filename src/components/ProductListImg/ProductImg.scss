@@ -4,8 +4,9 @@
 .product-img {
   width: 150px;
   height: 150px;
-  cursor: pointer;
+  //cursor: pointer;
   img {
     width: 100%;
+    display: block;
   }
 }

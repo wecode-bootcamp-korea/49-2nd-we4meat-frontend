@@ -5,7 +5,7 @@ import ProductContent from '../ProductContent/ProductContent';
 import ProductText from '../../components/ProductText/ProductText';
 import './Products.scss';
 
-function Products({ className }) {
+function Products() {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function Products({ className }) {
     <section className="products-section">
       <div className="inner-wrap">
         <BestTitle />
-        <ul className={`products ${className}`}>
+        <ul className="products">
           {productList.map(product => {
             return (
               <Product key={product.id}>
