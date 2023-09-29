@@ -39,7 +39,7 @@ const OrderDetails = () => {
             {dataList?.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link to="/">
+                  <Link to={`/order/${item.id}`}>
                     <span className="order">{item.order}</span>
                     <span className="order-number">
                       <span>주문 번호</span>

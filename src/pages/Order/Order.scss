@@ -1,0 +1,121 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.order {
+  h3 {
+    font-size: 15px;
+    line-height: 36px;
+    font-weight: 700;
+  }
+  .subtitle-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  section + section {
+    margin-top: 45px;
+  }
+  .table-wrap {
+    padding: 12px 50px;
+    border: 1px $grayscale-5 solid;
+  }
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      font-weight: 400;
+      color: $grayscale-1;
+    }
+    td {
+      color: $grayscale-5;
+    }
+  }
+  .type-a {
+    th,
+    td {
+      padding: 20px 0;
+      font-size: 16px;
+      text-align: left;
+    }
+  }
+  .type-b {
+    th,
+    td {
+      font-size: 15px;
+      line-height: 39px;
+      text-align: center;
+    }
+    thead th {
+      padding: 15px 0;
+    }
+    tbody th,
+    tbody td {
+      border-bottom: 1px $grayscale-5 solid;
+    }
+    tbody tr:last-child th,
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+    tbody th {
+      color: $grayscale-5;
+    }
+  }
+  .type-c {
+    padding: 10px 22px;
+    th,
+    td {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    th {
+      color: $grayscale-5;
+      text-align: left;
+    }
+    td {
+      color: $grayscale-3;
+      text-align: right;
+    }
+    thead th,
+    thead td {
+      line-height: 56px;
+      border-bottom: 1px $grayscale-5 solid;
+    }
+    tbody th,
+    tbody td {
+      padding: 10px 0;
+    }
+    tbody tr:first-child th,
+    tbody tr:first-child td {
+      padding-top: 20px;
+    }
+  }
+  .total-payment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 22px;
+    background-color: $grayscale-1;
+    span {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 66px;
+      color: $grayscale-8;
+    }
+    span:last-child {
+      font-size: 22px;
+    }
+  }
+  .payment {
+    ul {
+      @include GridSystem(2);
+      li:first-child {
+        padding-right: 10px;
+      }
+      li:last-child {
+        padding-left: 10px;
+      }
+    }
+  }
+}
