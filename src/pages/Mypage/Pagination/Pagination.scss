@@ -15,7 +15,7 @@
   .direction {
     @include Ir;
     background-position: center;
-    background-size: 50%;
+    background-size: 30%;
     background-repeat: no-repeat;
     &.first {
       background-image: url(../../../../public/images/common/first.png);
