@@ -11,6 +11,7 @@ const Button = props => {
     icon,
     scale,
     onClick,
+    use,
     disabled = false,
   } = props;
 
@@ -20,7 +21,8 @@ const Button = props => {
   // full: [string] full
   // outline: [string] outLine
   // name: [String] 내부텍스트
-  // scale: [string] low
+  // scale: [string] low, small, smallest
+  // use: [string] review
   // disabled: [Boolean]
   // icon: [string] sns-talk, sns-nav, 없으면 ""
 
@@ -35,6 +37,7 @@ const Button = props => {
       icon={icon}
       scale={scale}
       onClick={onClick}
+      use={use}
       disabled={disabled}
     >
       {icon?.length > 0 && (
