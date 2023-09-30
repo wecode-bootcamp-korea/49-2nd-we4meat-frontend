@@ -253,23 +253,30 @@ const Order = () => {
           </section>
 
           {/* 리뷰 작성하기 버튼 클릭 시 모달 팝업 오픈 > 모달 팝업 내부에 넣을 소스 코드 */}
-          <section style={{ border: '5px red solid' }}>
+          <section className="review-form">
             <form>
               <fieldset>
                 <legend className="hidden">리뷰 작성 양식</legend>
-                <div>
-                  <textarea placeholder="내용을 입력해 주세요." />
-                </div>
                 <section className="file-upload">
-                  <div className="file-wrap">
-                    <input
-                      type="text"
-                      ref={nameInput}
-                      value={fileName}
-                      className="upload-name"
-                      readOnly
+                  <div className="left-area">
+                    <textarea placeholder="내용을 입력해 주세요." />
+                  </div>
+                  <div className="right-area">
+                    <div>
+                      <input
+                        type="text"
+                        ref={nameInput}
+                        value={fileName}
+                        className="upload-name"
+                        readOnly
+                      />
+                      <label htmlFor="file">이미지 선택</label>
+                    </div>
+                    <img
+                      className="preview"
+                      alt="업로드 사진 미리보기"
+                      src={file}
                     />
-                    <label htmlFor="file">이미지 선택</label>
                     <input
                       id="file"
                       type="file"
@@ -277,23 +284,15 @@ const Order = () => {
                       onChange={addFile}
                     />
                   </div>
-                  <div className="preview-area">
-                    <div className="preview-wrap">
-                      <img
-                        className="preview"
-                        alt="업로드 사진 미리보기"
-                        src={file}
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      name="리뷰 작성 완료"
-                      onClick={imageUpload}
-                    />
-                  </div>
                 </section>
               </fieldset>
             </form>
+            <Button
+              type="submit"
+              full="full"
+              name="리뷰 작성 완료"
+              onClick={imageUpload}
+            />
           </section>
 
           {/* Review 컴포넌트 테스트 */}
