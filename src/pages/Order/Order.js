@@ -6,6 +6,8 @@ import Input from '../../components/Input/Input';
 import Loading from '../../pages/Loading/Loading';
 import './Order.scss';
 
+import Review from '../../components/Review/Review';
+
 const Order = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -233,6 +235,9 @@ const Order = () => {
               </fieldset>
             </form>
           </section>
+
+          {/* Review 컴포넌트 테스트 */}
+          <Review />
         </div>
       </main>
     </>

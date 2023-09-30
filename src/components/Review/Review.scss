@@ -1,0 +1,19 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.review {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 30px;
+  border: 1px $grayscale-6 solid;
+  .left-area {
+    flex: 1;
+    height: 236px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .right-area {
+    width: 236px;
+    height: 236px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
