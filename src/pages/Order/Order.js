@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
-import Input from '../../components/Input/Input';
 import Loading from '../../pages/Loading/Loading';
 import './Order.scss';
 
@@ -12,6 +11,9 @@ const Order = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [fileName, setFileName] = useState('');
+  const [file, setFile] = useState('');
+  const nameInput = useRef();
 
   useEffect(() => {
     setLoading(true);
@@ -30,6 +32,30 @@ const Order = () => {
   };
 
   const { order, order_date, order_number, order_price, order_summary } = data;
+
+  const addFile = e => {
+    setFileName(e.target.files[0]?.name);
+
+    let reader = new FileReader();
+    reader.onload = function (e) {
+      setFile(e.target.result);
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
+
+  const imageUpload = e => {
+    e.preventDefault();
+    fetch('data/orderMock.json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      });
+  };
 
   return (
     <>
@@ -227,11 +253,45 @@ const Order = () => {
           </section>
 
           {/* 리뷰 작성하기 버튼 클릭 시 모달 팝업 오픈 > 모달 팝업 내부에 넣을 소스 코드 */}
-          <section style={{ backgroundColor: 'yellow' }}>
+          <section style={{ border: '5px red solid' }}>
             <form>
               <fieldset>
                 <legend className="hidden">리뷰 작성 양식</legend>
-                <Input />
+                <div>
+                  <textarea placeholder="내용을 입력해 주세요." />
+                </div>
+                <section className="file-upload">
+                  <div className="file-wrap">
+                    <input
+                      type="text"
+                      ref={nameInput}
+                      value={fileName}
+                      className="upload-name"
+                      readOnly
+                    />
+                    <label htmlFor="file">이미지 선택</label>
+                    <input
+                      id="file"
+                      type="file"
+                      accept="image/*"
+                      onChange={addFile}
+                    />
+                  </div>
+                  <div className="preview-area">
+                    <div className="preview-wrap">
+                      <img
+                        className="preview"
+                        alt="업로드 사진 미리보기"
+                        src={file}
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      name="리뷰 작성 완료"
+                      onClick={imageUpload}
+                    />
+                  </div>
+                </section>
               </fieldset>
             </form>
           </section>
