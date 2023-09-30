@@ -94,3 +94,19 @@
     }
   }
 }
+
+.btn-review-more {
+  display: block;
+  width: 60px;
+  margin: 80px auto 0;
+  padding: 50px 0 0 0;
+  background-image: url(../../../public/images/detail/plus.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 40px 40px;
+  span {
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 700;
+  }
+}
