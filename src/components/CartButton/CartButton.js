@@ -1,14 +1,15 @@
 import React from 'react';
+import { ReactComponent as CartIcon } from '../../svg/cart.svg';
 import './CartButton.scss';
 
-function CartButton({ className, type = 'button' }) {
+const CartButton = () => {
   return (
-    <div className={`cart-button ${className}`}>
-      <button type={`button ${type}`}>
-        <img src="/images/cart.png" alt="장바구니" />
+    <div className="cart-button">
+      <button type="button">
+        <CartIcon />
       </button>
     </div>
   );
-}
+};
 
 export default CartButton;

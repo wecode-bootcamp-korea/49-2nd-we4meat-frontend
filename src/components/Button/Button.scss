@@ -16,6 +16,34 @@
     height: 32px;
   }
 
+  &[scale='small'] {
+    width: 98px;
+    height: 34px;
+    font-size: 13px;
+    color: #000;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+  }
+
+  &[use='review'] {
+    border: none;
+    color: #fff;
+  }
+
+  &[scale='smallest'] {
+    width: 82px;
+    height: 28px;
+    font-size: 13px;
+    color: #000;
+    border: 1px solid #d3d3d3;
+    background-color: #f7f7f7;
+  }
+
+  &[scale='low'] {
+    height: 48px;
+  }
+
   &[color='bg-black'] {
     background-color: #000;
   }
@@ -50,7 +78,9 @@
     color: #e92d44;
   }
 
-  &[scale='low'] {
-    height: 48px;
+  &[border-radius='border'] {
+    width: 83px;
+    height: 34px;
+    border-radius: 5px;
   }
 }
