@@ -2,6 +2,9 @@ import React from 'react';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import Mypage from './pages/Mypage/Mypage';
+import Order from './pages/Order/Order';
+import OrderCoupon from './pages/Order/OrderCoupon/OrderCoupon';
+import OrderLast from './pages/Order/OrderLast/OrderLast';
 // import MypageView from './pages/MypageView/MypageView';
 import SkipNavigation from './components/SkipNavigation/SkipNavigation';
 import PromotionBanner from './components/PromotionBanner/PromotionBanner';
@@ -19,6 +22,9 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/mypage" element={<Mypage />} />
         {/* <Route path="/mypageView/:id" element={<MypageView />} /> */}
+        <Route path="/order" element={<Order />} />
+        <Route path="/order-coupon" element={<OrderCoupon />} />
+        <Route path="/order-last" element={<OrderLast />} />
       </Routes>
     </BrowserRouter>
   );
