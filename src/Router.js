@@ -10,6 +10,7 @@ import Order from './pages/Order/Order';
 import SkipNavigation from './components/SkipNavigation/SkipNavigation';
 import PromotionBanner from './components/PromotionBanner/PromotionBanner';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import TopButton from './components/TopButton/TopButton';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
@@ -29,6 +30,7 @@ const Router = () => {
         <Route path="/pay-last" element={<PayLast />} />
         <Route path="/order/:id" element={<Order />} />
       </Routes>
+      <Footer />
       <TopButton />
     </BrowserRouter>
   );
