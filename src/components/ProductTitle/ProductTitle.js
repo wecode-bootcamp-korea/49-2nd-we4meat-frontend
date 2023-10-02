@@ -1,9 +1,9 @@
 import React from 'react';
 import './ProductTitle.scss';
-function ProductTitle({ className }) {
+function ProductTitle({ className, title }) {
   return (
     <div className={`product-title ${className}`}>
-      <span>초신선 돼지 삼겹살 구이용</span>
+      <span>{title}</span>
     </div>
   );
 }

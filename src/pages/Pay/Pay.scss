@@ -1,0 +1,57 @@
+@import '../../styles/partials/mixin.scss';
+
+.order-wrap {
+  @include FlexCenter;
+  flex-direction: column;
+  width: 1180px;
+  margin: 100px auto;
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 43px;
+  }
+
+  .order-inner-wrap {
+    @include FlexCenter;
+    flex-direction: column;
+    width: 980px;
+
+    .order-table-wrap {
+      margin: 100px 0 60px 0;
+
+      table {
+        width: 980px;
+
+        caption {
+          margin-bottom: 18px;
+          font-size: 18px;
+          text-align: left;
+        }
+
+        tr {
+          width: 100%;
+          font-size: 13px;
+
+          th {
+            width: 20%;
+            padding: 18px 0 18px 18px;
+            text-align: left;
+            background-color: #efefef;
+            border: 1px solid #c2c2c2;
+          }
+
+          td {
+            padding: 18px 0 18px 18px;
+            border: 1px solid #c2c2c2;
+          }
+        }
+      }
+    }
+
+    .btn-wrap {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+  }
+}

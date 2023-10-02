@@ -3,7 +3,6 @@ import BigBanner from './BigBanner/BigBanner';
 import EventBanners from './EventBanners/EventBanners';
 import Products from '../../components/Products/Products';
 import ListBanner from './ListBanner/ListBanner';
-import './Main.scss';
 
 const Main = () => {
   return (

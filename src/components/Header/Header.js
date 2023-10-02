@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LinkGoIcon from './LinkGoIcon/LinkGoIcon';
 import Nav from './Nav/Nav';
 import LoginItemGroup from './LoginItemGroup/LoginItemGroup';
+import SubNavIcon from './SubNavIcon/SubNavIcon';
 import SubNav from './SubNav/SubNav';
 import './Header.scss';
 
 const Header = () => {
+  const [isSubnavOn, setIsSubnavOn] = useState(false);
+  const handleOpen = () => {
+    setIsSubnavOn(true);
+  };
+  const handleClose = () => {
+    setIsSubnavOn(false);
+  };
+
   return (
     <header className="header">
       <div className="header-wrap inner-wrap">
@@ -18,9 +27,15 @@ const Header = () => {
         <div className="right-wrap">
           <LoginItemGroup />
           <LinkGoIcon icon="shopping-cart" path="" />
-          <SubNav />
+
+          <SubNavIcon onClick={handleOpen} />
         </div>
       </div>
+      <SubNav
+        active={isSubnavOn}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+      />
     </header>
   );
 };

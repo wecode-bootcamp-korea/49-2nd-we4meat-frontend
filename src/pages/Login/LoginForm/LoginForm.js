@@ -40,7 +40,7 @@ const LoginForm = () => {
 
   const submitUserInfo = e => {
     e.preventDefault();
-
+    // setIsError(false);
     fetch('/data/responseData.json', {
       // 1. 실제 통신 시 POST
       // method: 'POST',
@@ -69,7 +69,7 @@ const LoginForm = () => {
         }
       })
       .catch(error => {
-        console.log(error);
+        // setIsError(true);
       });
   };
 
@@ -88,15 +88,17 @@ const LoginForm = () => {
         <Input
           type="email"
           name="email"
-          className="input-box login"
+          className="input login"
           placeholder="아이디(이메일 주소)를 입력하세요"
+          isValidation={emailValidationCheck(email)}
           required
         />
         <Input
           type="password"
           name="password"
-          className="input-box login"
+          className="input login"
           placeholder="비밀번호를 입력하세요"
+          isValidation={passwordValidationCheck(password)}
           required
         />
         <Button
