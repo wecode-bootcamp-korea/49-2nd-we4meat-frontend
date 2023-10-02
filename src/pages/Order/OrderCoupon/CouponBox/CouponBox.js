@@ -17,11 +17,10 @@ const CouponBox = props => {
   return (
     <div className="coupon-box-wrap">
       <div className="text-wrap">
-        <h1>{name}</h1>
+        <h4>{name}</h4>
         {text && <p>{text}</p>}
         {point && (
           <div className="point-use-wrap">
-            <span>적용: 0원</span>
             <span>사용가능 적립금: {userInfo.wallet}원</span>
           </div>
         )}
@@ -29,7 +28,7 @@ const CouponBox = props => {
       {name === '쿠폰' ? (
         <Button name="쿠폰 선택" scale="smallest" border="border" />
       ) : (
-        <Button name="적립금 사용" scale="smallest" border="border" />
+        <Button name="적립금 충전" scale="smallest" border="border" />
       )}
     </div>
   );

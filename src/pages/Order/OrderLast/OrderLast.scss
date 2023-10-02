@@ -8,6 +8,7 @@
 
   h1 {
     font-size: 32px;
+    margin-bottom: 43px;
   }
 
   .pay-inner-wrap {
@@ -19,7 +20,7 @@
       @include FlexCenter;
       flex-direction: column;
       gap: 50px;
-      margin: 117px 0 40px 0;
+      margin: 50px 0 40px 0;
 
       .first-box {
         h2 {

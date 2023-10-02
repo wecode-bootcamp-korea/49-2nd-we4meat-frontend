@@ -8,7 +8,7 @@
   border: 1px solid #eee;
 
   .text-wrap {
-    h1 {
+    h4 {
       font-size: 21px;
       font-weight: bold;
     }
@@ -19,17 +19,9 @@
 
     .point-use-wrap {
       margin-top: 12px;
+
       span {
         font-size: 15px;
-
-        &:first-child {
-          padding-right: 8px;
-          border-right: 1px solid #eee;
-        }
-
-        &:last-child {
-          padding-left: 8px;
-        }
       }
     }
   }

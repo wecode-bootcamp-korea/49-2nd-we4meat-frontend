@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Button from '../../components/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button/Button';
+import ProcessNav from '../../components/ProcessNav/ProcessNav';
 import './Order.scss';
 
 const Order = () => {
@@ -22,7 +23,7 @@ const Order = () => {
   return (
     <div className="order-wrap">
       <h1>주문하기</h1>
-      {/* 주문 상태 component */}
+      <ProcessNav />
       <section className="order-inner-wrap">
         <div className="order-table-wrap">
           <table>
@@ -41,6 +42,10 @@ const Order = () => {
               <tr>
                 <th>이메일</th>
                 <td>{userInfo.userEmail}</td>
+              </tr>
+              <tr>
+                <th>주소</th>
+                <td>{userInfo.address}</td>
               </tr>
             </tbody>
           </table>

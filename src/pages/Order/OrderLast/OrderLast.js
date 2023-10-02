@@ -4,10 +4,11 @@ import Button from '../../../components/Button/Button';
 import Radio from '../../../components/Radio/Radio';
 import PayBox from './PayBox/PayBox';
 import Checkbox from '../../../components/Checkbox/Checkbox';
+import ProcessNav from '../../../components/ProcessNav/ProcessNav';
 import './OrderLast.scss';
 
 const OrderCoupon = () => {
-  const [orderInfo, setOrderInfo] = useState([]);
+  const [orderInfo, setOrderInfo] = useState({});
   const navigation = useNavigate();
   const {
     order_item,
@@ -32,7 +33,7 @@ const OrderCoupon = () => {
   return (
     <div className="order-pay-wrap">
       <h1>주문하기</h1>
-      {/* 주문 상태 component */}
+      <ProcessNav />
       <section className="pay-inner-wrap">
         <div className="box-wrap">
           <div className="first-box">
@@ -51,7 +52,7 @@ const OrderCoupon = () => {
                 </li>
                 <li>{order_weight}</li>
                 <li>{order_count}</li>
-                <li>{order_price}원</li>
+                <li>{order_price?.toLocaleString()}원</li>
               </ul>
               <PayBox price={order_price} />
             </div>

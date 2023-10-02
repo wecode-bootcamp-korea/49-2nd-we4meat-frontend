@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CouponBox from './CouponBox/CouponBox';
 import Button from '../../../components/Button/Button';
+import ProcessNav from '../../../components/ProcessNav/ProcessNav';
 import './OrderCoupon.scss';
 
 const OrderCoupon = () => {
@@ -13,7 +14,7 @@ const OrderCoupon = () => {
   return (
     <div className="coupon-contents-wrap">
       <h1>주문하기</h1>
-      {/* 주문 상태 component */}
+      <ProcessNav />
       <section className="coupon-inner-wrap">
         <div className="box-wrap">
           <CouponBox name="쿠폰" text="쿠폰을 선택해주세요" />

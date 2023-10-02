@@ -1,9 +1,10 @@
 import React from 'react';
 import './PayBox.scss';
 
-const PayBox = props => {
-  const { price } = props;
-  const delivery = price + 3500;
+const DELIVERY_FEE = 3500;
+
+const PayBox = ({ price }) => {
+  const delivery = price + DELIVERY_FEE;
 
   return (
     <div className="pay-box-wrap">
@@ -11,18 +12,19 @@ const PayBox = props => {
         <li>
           <h4>총 상품 금액</h4>
           <p>
-            {price}
+            {price?.toLocaleString()}
             <span className="small-font">원</span>
           </p>
         </li>
-        <img src={process.env.PUBLIC_URL + './images/plus.png'} alt="더하기" />
+        <img src={process.env.PUBLIC_URL + '/images/plus.png'} alt="더하기" />
         <li>
           <h4>배달비</h4>
           <p>
-            3,500<span className="small-font">원</span>
+            {DELIVERY_FEE.toLocaleString()}
+            <span className="small-font">원</span>
           </p>
         </li>
-        <img src={process.env.PUBLIC_URL + './images/plus.png'} alt="더하기" />
+        <img src={process.env.PUBLIC_URL + '/images/plus.png'} alt="더하기" />
         <li>
           <h4>쿠폰/적립금</h4>
           <p>
@@ -30,11 +32,11 @@ const PayBox = props => {
             <span className="small-font">원</span>
           </p>
         </li>
-        <img src={process.env.PUBLIC_URL + './images/equal.png'} alt="합산" />
+        <img src={process.env.PUBLIC_URL + '/images/equal.png'} alt="합산" />
         <li>
           <h4>예상 결제 금액</h4>
           <p className="red-font">
-            {delivery}
+            {delivery?.toLocaleString()}
             <span className="small-font">원</span>
           </p>
         </li>
