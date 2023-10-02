@@ -75,6 +75,7 @@ const PayLast = () => {
                 <li>{order_count}</li>
                 <li>{order_price?.toLocaleString()}원</li>
               </ul>
+              {/* 제품 ul map */}
               <PayBox price={order_price} wallet={wallet} />
             </div>
             <Checkbox

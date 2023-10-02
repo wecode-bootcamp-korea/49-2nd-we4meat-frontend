@@ -28,6 +28,7 @@ const PayBox = ({ price, wallet }) => {
         <li>
           <h4>쿠폰/적립금</h4>
           <p>
+            -
             {wallet >= delivery
               ? delivery?.toLocaleString()
               : wallet?.toLocaleString()}
