@@ -11,7 +11,7 @@ function ProductContent({ className, img, inventory, title }) {
         inventory === 2 ? 'inventory' : ''
       }`}
     >
-      {title.includes('무항생제') ? <Tag /> : ''}
+      {title.includes('무항g생제') ? <Tag /> : ''}
       <ProductImg img={img} />
       <CartButton />
     </div>

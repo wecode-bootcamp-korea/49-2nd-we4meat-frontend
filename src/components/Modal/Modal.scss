@@ -1,0 +1,61 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.modal-backdrop {
+  @include Position(fixed, 0, 0, 0, 0);
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.modal-popup {
+  @include Position(fixed, $top: 50%, $left: 50%);
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  transition:
+    width 0.25s linear,
+    height 0.25s linear;
+  &[data-size='xl'] {
+    width: 980px;
+    height: 580px;
+  }
+  &[data-size='l'] {
+    width: 680px;
+    height: 320px;
+  }
+  &[data-size='m'] {
+    width: 620px;
+    height: 400px;
+  }
+  &[data-size='s'] {
+    width: 580px;
+  }
+  &[data-size='xs'] {
+    width: 500px;
+    height: 390px;
+  }
+  & > button {
+    @include Position(absolute, $top: -20px, $right: -20px);
+    @include Ir();
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: $grayscale-1 url(../../../public/images/close_white.png)
+      no-repeat 50% / 40%;
+    border-radius: 50%;
+  }
+  .modal-content {
+    background-color: $grayscale-8;
+  }
+}
+
+.cart-modal {
+  padding-top: 38px;
+  h1 {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 700;
+    text-align: center;
+  }
+}
