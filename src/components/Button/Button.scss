@@ -77,4 +77,10 @@
     border-radius: 4px;
     color: #e92d44;
   }
+
+  &[border-radius='border'] {
+    width: 83px;
+    height: 32px;
+    border-radius: 5px;
+  }
 }

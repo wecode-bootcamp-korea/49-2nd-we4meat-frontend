@@ -10,8 +10,9 @@ const Button = props => {
     name,
     icon,
     scale,
-    onClick,
     use,
+    border,
+    onClick,
     disabled = false,
   } = props;
 
@@ -19,10 +20,11 @@ const Button = props => {
   // type: [String] button, submit
   // color: [String] bg-black, bg-gray, bg-red
   // full: [string] full
-  // outline: [string] outLine
+  // line: [string] line
   // name: [String] 내부텍스트
   // scale: [string] low, small, smallest
   // use: [string] review
+  // border-radius: [string] border
   // disabled: [Boolean]
   // icon: [string] sns-talk, sns-nav, 없으면 ""
 
@@ -36,8 +38,9 @@ const Button = props => {
       name={name}
       icon={icon}
       scale={scale}
-      onClick={onClick}
       use={use}
+      border-radius={border}
+      onClick={onClick}
       disabled={disabled}
     >
       {icon?.length > 0 && (
