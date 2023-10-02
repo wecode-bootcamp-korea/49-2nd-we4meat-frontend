@@ -32,10 +32,10 @@ const Review = () => {
 
   return (
     <>
-      <div className="review-list">
+      <ul className="review-list">
         {dataList?.map((item, index) => {
           return (
-            <div className="review-item" key={index}>
+            <li className="review-item" key={index}>
               <div className="review-wrap">
                 <div className="left-area">
                   <strong>{item.title}</strong>
@@ -65,10 +65,10 @@ const Review = () => {
                 </span>
                 <ul>{makeBuyTogether(item?.together)}</ul>
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
 
       <button type="button" className="btn-review-more">
         <span>더보기</span>

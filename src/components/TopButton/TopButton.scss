@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.top-btn {
+  @include Position(fixed, $right: -50px, $bottom: -50px);
+  // @include Ir();
+  display: block;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  z-index: 1000;
+  border-top: 50px transparent solid;
+  border-right: 50px transparent solid;
+  border-bottom: 50px transparent solid;
+  border-left: 50px #f00 solid;
+  transform: rotate(45deg);
+  span {
+    @include FlexCenter;
+    @include Position(relative, $left: -80px, $top: -50px);
+    width: 100px;
+    height: 100px;
+    transform: rotate(-45deg);
+    font-size: 20px;
+    color: $grayscale-8;
+  }
+}
