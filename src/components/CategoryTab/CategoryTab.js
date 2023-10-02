@@ -6,7 +6,7 @@ import './CategoryTab.scss';
 const CategoryTab = () => {
   const [tabActive, setTabActive] = useState();
   // const location = useLocation();
-  // const [searchParams, setSearchParams] = useSearchParams();
+  const [categoryParams, setCategoryParams] = useSearchParams();
   // useEffect(() => {
   //   fetch('url', {
   //     method: 'GET',
@@ -21,6 +21,14 @@ const CategoryTab = () => {
 
   const handleActive = category => {
     setTabActive(category.id);
+
+    if (categoryParams === null) {
+      categoryParams.append('category', category.text);
+      setCategoryParams(categoryParams);
+    } else {
+      categoryParams.set('category', category.text);
+      setCategoryParams(categoryParams);
+    }
   };
 
   return (
