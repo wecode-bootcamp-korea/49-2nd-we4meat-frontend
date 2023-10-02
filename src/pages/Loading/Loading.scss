@@ -7,8 +7,7 @@
   z-index: 1000;
   padding: 0 5%;
   background-color: $grayscale-6;
-  & + #theme-switcher,
-  & ~ .btn-wrap {
-    display: none;
+  & > div {
+    width: 50%;
   }
 }

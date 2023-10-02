@@ -73,7 +73,7 @@ const PayLast = () => {
             type="submit"
             color="bg-red"
             full="full"
-            name="주문하기"
+            name="결제하기"
             disabled={true}
           />
         </div>

@@ -1,0 +1,138 @@
+@charset 'utf-8';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.footer {
+  width: 100%;
+  margin-top: 200px;
+  border-top: 1px solid $grayscale-5;
+  .footer-top {
+    line-height: 70px;
+    border-bottom: 1px solid $grayscale-6;
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .footer-navigation {
+      span {
+        margin-right: 30px;
+        cursor: pointer;
+        float: left;
+      }
+      span.bold {
+        font-weight: 800;
+      }
+    }
+
+    .sns-link {
+      @include FlexCenter;
+      float: right;
+      margin-top: 16px;
+
+      .app-button {
+        padding: 10px 18px;
+        background-color: $grayscale-7;
+        border: 1px solid $grayscale-6;
+        border-radius: 4px;
+      }
+
+      img {
+        width: 30px;
+        margin-left: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .footer-bottom {
+    //margin-top: 20px;
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .info {
+      float: left;
+
+      .copywriter {
+        font-size: 12px;
+      }
+
+      .company {
+        width: 100px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        //outline: 2px solid red;
+        img {
+          width: 40px;
+        }
+        span {
+          font-weight: 800;
+          font-size: 20px;
+          color: #333;
+          //margin-left: 10px;
+        }
+      }
+
+      .info-company {
+        div {
+          margin-bottom: 10px;
+          span {
+            margin-right: 10px;
+            font-size: 13px;
+            color: #333;
+            &.blue {
+              color: $blue;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .cs {
+      margin-top: 15px;
+      float: right;
+      text-align: right;
+      .bold {
+        display: flex;
+        flex-direction: column;
+        font-weight: 800;
+        .small {
+          font-size: 14px;
+        }
+        .big {
+          font-size: 24px;
+        }
+      }
+
+      .business-day {
+        font-size: 12px;
+        color: $grayscale-4;
+      }
+
+      .cs-info {
+        margin: 15px 0;
+        font-size: 13px;
+        & p {
+          line-height: 20px;
+        }
+        & .blue {
+          color: $blue;
+          cursor: pointer;
+        }
+      }
+
+      button {
+        width: 88px;
+        height: 32px;
+        margin-left: 8px;
+        border: 1px solid #000;
+        border-radius: 4px;
+      }
+    }
+  }
+}
