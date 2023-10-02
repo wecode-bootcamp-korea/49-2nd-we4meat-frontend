@@ -3,7 +3,6 @@
 
 .footer {
   width: 100%;
-  margin-top: 200px;
   border-top: 1px solid $grayscale-5;
   .footer-top {
     line-height: 70px;
@@ -16,6 +15,7 @@
 
     .footer-navigation {
       span {
+        font-size: 14px;
         margin-right: 30px;
         cursor: pointer;
         float: left;
@@ -31,14 +31,16 @@
       margin-top: 16px;
 
       .app-button {
-        padding: 10px 18px;
-        background-color: $grayscale-7;
+        width: 128px;
+        height: 40px;
+        background-color: #fafafa;
+        color: #212121;
         border: 1px solid $grayscale-6;
         border-radius: 4px;
       }
 
       img {
-        width: 30px;
+        width: 24px;
         margin-left: 15px;
         cursor: pointer;
       }
@@ -46,44 +48,45 @@
   }
 
   .footer-bottom {
-    //margin-top: 20px;
+    margin: 8px 0 19px 0;
     &::after {
       content: '';
       display: block;
       clear: both;
     }
     .info {
+      margin-top: 16px;
       float: left;
 
       .copywriter {
+        margin-top: 29px;
         font-size: 12px;
       }
 
       .company {
-        width: 100px;
-        height: 90px;
+        width: 82px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        //outline: 2px solid red;
         img {
-          width: 40px;
+          width: 32px;
         }
         span {
           font-weight: 800;
-          font-size: 20px;
+          font-size: 18px;
           color: #333;
-          //margin-left: 10px;
         }
       }
 
       .info-company {
+        margin-top: 16px;
         div {
-          margin-bottom: 10px;
+          margin-bottom: 4px;
+          line-height: 19px;
           span {
-            margin-right: 10px;
+            margin-right: 8px;
             font-size: 13px;
-            color: #333;
+            color: #212121;
             &.blue {
               color: $blue;
               cursor: pointer;
@@ -94,7 +97,6 @@
     }
 
     .cs {
-      margin-top: 15px;
       float: right;
       text-align: right;
       .bold {
@@ -111,14 +113,15 @@
 
       .business-day {
         font-size: 12px;
-        color: $grayscale-4;
+        line-height: 15px;
+        color: #757575;
       }
 
       .cs-info {
-        margin: 15px 0;
+        margin-top: 9px;
         font-size: 13px;
         & p {
-          line-height: 20px;
+          line-height: 19px;
         }
         & .blue {
           color: $blue;
@@ -129,7 +132,7 @@
       button {
         width: 88px;
         height: 32px;
-        margin-left: 8px;
+        margin: 10px 0 0 8px;
         border: 1px solid #000;
         border-radius: 4px;
       }
