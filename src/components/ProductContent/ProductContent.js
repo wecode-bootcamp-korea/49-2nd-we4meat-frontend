@@ -5,7 +5,7 @@ import CartButton from '../CartButton/CartButton';
 import Modal from '../Modal/Modal';
 import './ProductContent.scss';
 
-function ProductContent({ className, img, inventory, title }) {
+function ProductContent({ className, img, inventory, title, price }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -25,7 +25,7 @@ function ProductContent({ className, img, inventory, title }) {
             <button type="button" onClick={() => setModalOpen(false)}>
               닫기
             </button>
-            <Modal index="0" />
+            <Modal title={title} price={price} />
           </section>
         </>
       )}
