@@ -22,7 +22,7 @@ const Pay = () => {
 
   return (
     <div className="order-wrap">
-      <h1>주문하기1</h1>
+      <h1>주문하기</h1>
       <ProcessNav />
       <section className="order-inner-wrap">
         <div className="order-table-wrap">
