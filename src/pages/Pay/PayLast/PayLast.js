@@ -5,9 +5,9 @@ import Radio from '../../../components/Radio/Radio';
 import PayBox from './PayBox/PayBox';
 import Checkbox from '../../../components/Checkbox/Checkbox';
 import ProcessNav from '../../../components/ProcessNav/ProcessNav';
-import './OrderLast.scss';
+import './PayLast.scss';
 
-const OrderCoupon = () => {
+const PayLast = () => {
   const [orderInfo, setOrderInfo] = useState({});
   const navigation = useNavigate();
   const {
@@ -82,4 +82,4 @@ const OrderCoupon = () => {
   );
 };
 
-export default OrderCoupon;
+export default PayLast;

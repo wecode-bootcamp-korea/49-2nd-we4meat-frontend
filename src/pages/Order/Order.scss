@@ -1,57 +1,194 @@
-@import '../../styles/partials/mixin.scss';
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
 
-.order-wrap {
-  @include FlexCenter;
-  flex-direction: column;
-  width: 1180px;
-  margin: 100px auto;
-
-  h1 {
-    font-size: 32px;
-    margin-bottom: 43px;
+.order {
+  h3 {
+    font-size: 15px;
+    line-height: 36px;
+    font-weight: 700;
   }
-
-  .order-inner-wrap {
-    @include FlexCenter;
-    flex-direction: column;
-    width: 980px;
-
-    .order-table-wrap {
-      margin: 100px 0 60px 0;
-
-      table {
-        width: 980px;
-
-        caption {
-          margin-bottom: 18px;
-          font-size: 18px;
-          text-align: left;
-        }
-
-        tr {
-          width: 100%;
-          font-size: 13px;
-
-          th {
-            width: 20%;
-            padding: 18px 0 18px 18px;
-            text-align: left;
-            background-color: #efefef;
-            border: 1px solid #c2c2c2;
-          }
-
-          td {
-            padding: 18px 0 18px 18px;
-            border: 1px solid #c2c2c2;
-          }
-        }
+  .subtitle-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  section + section {
+    margin-top: 45px;
+  }
+  .table-wrap {
+    padding: 12px 50px;
+    border: 1px $grayscale-5 solid;
+  }
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      font-weight: 400;
+      color: $grayscale-1;
+    }
+    td {
+      color: $grayscale-5;
+    }
+  }
+  .type-a {
+    th,
+    td {
+      padding: 20px 0;
+      font-size: 16px;
+      text-align: left;
+    }
+  }
+  .type-b {
+    th,
+    td {
+      font-size: 15px;
+      line-height: 39px;
+      text-align: center;
+    }
+    thead th {
+      padding: 15px 0;
+    }
+    tbody th,
+    tbody td {
+      border-bottom: 1px $grayscale-5 solid;
+    }
+    tbody tr:last-child th,
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+    tbody th {
+      color: $grayscale-5;
+    }
+  }
+  .type-c {
+    padding: 10px 22px;
+    th,
+    td {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    th {
+      color: $grayscale-5;
+      text-align: left;
+    }
+    td {
+      color: $grayscale-3;
+      text-align: right;
+    }
+    thead th,
+    thead td {
+      line-height: 56px;
+      border-bottom: 1px $grayscale-5 solid;
+    }
+    tbody th,
+    tbody td {
+      padding: 10px 0;
+    }
+    tbody tr:first-child th,
+    tbody tr:first-child td {
+      padding-top: 20px;
+    }
+  }
+  .total-payment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 22px;
+    background-color: $grayscale-1;
+    span {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 66px;
+      color: $grayscale-8;
+    }
+    span:last-child {
+      font-size: 22px;
+    }
+  }
+  .payment {
+    ul {
+      @include GridSystem(2);
+      li:first-child {
+        padding-right: 10px;
+      }
+      li:last-child {
+        padding-left: 10px;
       }
     }
+  }
+}
 
-    .btn-wrap {
+.review-form {
+  border: 1px solid $grayscale-1;
+  .file-upload {
+    display: flex;
+    & > div {
+      flex: 1;
+    }
+    .left-area {
+      min-height: 300px;
+      border: 1px $grayscale-1 solid;
+      textarea {
+        height: 100%;
+      }
+    }
+    .right-area {
       display: flex;
-      gap: 8px;
-      width: 100%;
+      flex-direction: column;
+      & > div {
+        display: inherit;
+      }
+      .upload-name {
+        flex: 1;
+        height: 40px;
+        padding: 0 10px;
+        border: 1px solid $grayscale-1;
+        color: $grayscale-1;
+        vertical-align: middle;
+      }
+      label {
+        display: inline-block;
+        height: 40px;
+        padding: 0 20px;
+        background-color: $blue-secondary;
+        line-height: 40px;
+        color: $grayscale-8;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+      .preview {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 260px;
+        z-index: -1;
+        object-fit: contain;
+        border: 1px $grayscale-1 solid;
+        &[src*='image']::before {
+          display: none;
+        }
+        &::before {
+          @include FlexCenter;
+          content: 'preview';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: $grayscale-8;
+          border: 1px $grayscale-5 solid;
+        }
+      }
+      input[type='file'] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+      }
     }
   }
 }

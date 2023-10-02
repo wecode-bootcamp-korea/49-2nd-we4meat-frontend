@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import CouponBox from './CouponBox/CouponBox';
+import CouponBox from '../../Pay/PayCoupon/CouponBox/CouponBox';
 import Button from '../../../components/Button/Button';
 import ProcessNav from '../../../components/ProcessNav/ProcessNav';
-import './OrderCoupon.scss';
+import './PayCoupon.scss';
 
-const OrderCoupon = () => {
+const PayCoupon = () => {
   const navigation = useNavigate();
   const backPage = () => {
     navigation(-1);
@@ -31,7 +31,7 @@ const OrderCoupon = () => {
             color="bg-black"
             full="full"
             name="주문하기"
-            onClick={() => navigation('/order-last')}
+            onClick={() => navigation('/pay-last')}
           />
         </div>
       </section>
@@ -39,4 +39,4 @@ const OrderCoupon = () => {
   );
 };
 
-export default OrderCoupon;
+export default PayCoupon;
