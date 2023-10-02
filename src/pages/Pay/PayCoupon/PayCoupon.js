@@ -30,7 +30,7 @@ const PayCoupon = () => {
           <Button
             color="bg-black"
             full="full"
-            name="주문하기"
+            name="다음 단계"
             onClick={() => navigation('/pay-last')}
           />
         </div>
