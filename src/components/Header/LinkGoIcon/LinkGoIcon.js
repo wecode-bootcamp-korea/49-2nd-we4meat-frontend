@@ -10,7 +10,7 @@ const LinkGoIcon = props => {
       <img
         src={process.env.PUBLIC_URL + `/images/${icon}.png`}
         alt={icon}
-        scale={scale}
+        data-scale={scale}
       />
       {text}
     </Link>

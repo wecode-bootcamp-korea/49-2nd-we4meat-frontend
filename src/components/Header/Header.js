@@ -27,6 +27,7 @@ const Header = () => {
         <div className="right-wrap">
           <LoginItemGroup />
           <LinkGoIcon icon="shopping-cart" path="" />
+
           <SubNavIcon onClick={handleOpen} />
         </div>
       </div>

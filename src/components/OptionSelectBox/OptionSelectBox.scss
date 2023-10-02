@@ -15,6 +15,7 @@
   }
 
   &[scale='full'] {
+    width: 396px;
     padding: 0;
   }
 
@@ -24,7 +25,7 @@
 
     &[scale='full'] {
       flex-direction: column;
-      width: 380px;
+      width: 100%;
       gap: 0;
       padding: 0;
     }
@@ -36,7 +37,7 @@
       position: relative;
 
       &[scale='full'] {
-        width: 380px;
+        width: 100%;
         border: none;
       }
 
