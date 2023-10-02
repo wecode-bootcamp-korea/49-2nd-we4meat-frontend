@@ -14,7 +14,7 @@
     }
   }
   .order-list {
-    li {
+    & > li {
       position: relative;
       border: 1px $grayscale-5 solid;
       &:hover {
@@ -28,34 +28,39 @@
       & + li {
         margin-top: 25px;
       }
-      a {
-        display: flex;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-        height: 73px;
-        text-align: center;
-        & > span:not(.order) {
-          flex: 1;
-          display: inline-block;
-          font-size: 13px;
-          line-height: 22px;
-          span,
-          em {
-            @include Ellipsis($line: 1);
-          }
-          span {
-            color: $grayscale-5;
-          }
+    }
+    a,
+    .order-wrap {
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      border: 1px $grayscale-5 solid;
+      height: 73px;
+      text-align: center;
+      & > span:not(.order) {
+        flex: 1;
+        display: inline-block;
+        font-size: 13px;
+        line-height: 22px;
+        span,
+        em {
+          @include Ellipsis($line: 1);
         }
-        .order {
-          width: 84px;
-          font-size: 20px;
-          font-weight: 700;
+        span {
+          color: $grayscale-5;
         }
-        .order-summary {
-          max-width: 300px;
-        }
+      }
+      .order {
+        width: 84px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .order-summary {
+        max-width: 300px;
+      }
+      .order-review {
+        padding: 0 15px;
       }
     }
   }

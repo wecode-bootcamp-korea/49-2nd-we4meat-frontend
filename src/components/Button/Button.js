@@ -10,8 +10,8 @@ const Button = props => {
     name,
     icon,
     scale,
+    onClick,
     use,
-    // onClick,
     disabled = false,
   } = props;
 
@@ -36,8 +36,8 @@ const Button = props => {
       name={name}
       icon={icon}
       scale={scale}
+      onClick={onClick}
       use={use}
-      // onClick={onClick}
       disabled={disabled}
     >
       {icon?.length > 0 && (
