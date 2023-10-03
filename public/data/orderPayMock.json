@@ -4,7 +4,7 @@
     "order_item": "초신선 무항생제 돼지 삼겹살 구이용",
     "order_item_option": "보통(16mm)",
     "order_weight": "600g 기준",
-    "order_count": "1팩",
+    "order_count": 1,
     "order_price": 22800
   },
   {
@@ -12,7 +12,7 @@
     "order_item": "초신선 무항생제 돼지 목살 구이용",
     "order_item_option": "보통(16mm)",
     "order_weight": "600g 기준",
-    "order_count": "1팩",
+    "order_count": 1,
     "order_price": 22800
   },
   {
@@ -20,7 +20,7 @@
     "order_item": "초신선 돼지 목살 구이용",
     "order_item_option": "보통(16mm)",
     "order_weight": "300g 기준",
-    "order_count": "1팩",
+    "order_count": 1,
     "order_price": 29800
   }
 ]

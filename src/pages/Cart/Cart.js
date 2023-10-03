@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CartOrder from './CartOrder/CartOrder';
 import CartOrderInfo from './CartOrderInfo/CartOrderInfo';
 import './Cart.scss';
 
 const Cart = () => {
-  const [count, setCount] = useState(1);
-  const handleMinusCount = () => {
-    if (count === 1) {
-      alert('최소 수량입니다.');
-    } else {
-      setCount(count - 1);
-    }
-  };
-  const handlePlusCount = () => {
-    setCount(count + 1);
-  };
+  const [orderInfo, setOrderInfo] = useState([]);
+  const {
+    id,
+    order_item,
+    order_item_option,
+    order_weight,
+    order_count,
+    order_price,
+  } = orderInfo;
+
+  useEffect(() => {
+    fetch('/data/orderPayMock.json')
+      .then(response => response.json())
+      .then(data => {
+        setOrderInfo(data);
+      });
+  }, []);
 
   return (
     <section className="cart-wrap">
@@ -28,11 +34,20 @@ const Cart = () => {
             <li>수량</li>
             <li>가격</li>
           </ul>
-          <CartOrder
-            count={count}
-            plus={handlePlusCount}
-            minus={handleMinusCount}
-          />
+          <ul className="cart-order-wrap">
+            {orderInfo.map(order => {
+              return (
+                <CartOrder
+                  key={order.id}
+                  item={order.order_item}
+                  option={order.order_item_option}
+                  weight={order.order_weight}
+                  count={order.order_count}
+                  price={order.order_price}
+                />
+              );
+            })}
+          </ul>
         </section>
         <section>
           <CartOrderInfo />

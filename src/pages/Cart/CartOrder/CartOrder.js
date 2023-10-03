@@ -1,58 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import CountBox from '../../../components/CountBox/CountBox';
 import './CartOrder.scss';
 
 const CartOrder = props => {
-  const { count, plus, minus } = props;
-  const [userInfo, setUserInfo] = useState([]);
+  const { id, item, option, weight, count, price } = props;
+  const [countNum, setCountNum] = useState(count);
 
-  useEffect(() => {
-    fetch('/data/orderPayMock.json')
-      .then(response => response.json())
-      .then(data => {
-        setUserInfo(data);
-      });
-  }, []);
+  const handleMinusCount = () => {
+    if (countNum === 1) {
+      alert('최소 수량입니다.');
+    } else {
+      setCountNum(countNum - 1);
+    }
+  };
+  const handlePlusCount = () => {
+    setCountNum(countNum + 1);
+  };
 
   return (
-    <ul className="cart-order-wrap">
-      {userInfo.map(orderInfo => {
-        return (
-          <li key={orderInfo.id}>
-            <ul className="my-order-info">
-              <li className="item-img">
-                <img />
-              </li>
-              <li className="option-align">
-                {orderInfo.order_item}
-                <span>{orderInfo.order_item_option}</span>
-              </li>
-              <li className="text-gray">{orderInfo.order_weight}</li>
-              <li>
-                <CountBox
-                  scale="small"
-                  count={count}
-                  plus={plus}
-                  minus={minus}
-                  text=""
-                />
-              </li>
-              <li className="text-right">
-                {orderInfo.order_price.toLocaleString()}
-              </li>
-              <li>
-                <button>
-                  <img
-                    src={process.env.PUBLIC_URL + '/images/close.png'}
-                    alt="삭제"
-                  />
-                </button>
-              </li>
-            </ul>
-          </li>
-        );
-      })}
-    </ul>
+    <li key={id}>
+      <ul className="my-order-info">
+        <li className="item-img">
+          <img />
+        </li>
+        <li className="option-align">
+          {item}
+          <span>{option}</span>
+        </li>
+        <li className="text-gray">{weight}</li>
+        <li>
+          <div className="count-wrap">
+            <button onClick={handleMinusCount}>-</button>
+            <p className="op-name">{countNum}</p>
+            <button onClick={handlePlusCount}>+</button>
+          </div>
+        </li>
+        <li className="text-right">{price * countNum}</li>
+        <li>
+          <button>
+            <img
+              src={process.env.PUBLIC_URL + '/images/close.png'}
+              alt="삭제"
+            />
+          </button>
+        </li>
+      </ul>
+    </li>
   );
 };
 

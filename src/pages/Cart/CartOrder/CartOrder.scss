@@ -41,6 +41,30 @@
       font-size: 14px;
     }
 
+    .count-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 120px;
+      height: 38px;
+      border: 1px solid #eee;
+
+      .op-name {
+        @include FlexCenter;
+        width: 30px;
+        height: 38px;
+        color: #000;
+      }
+
+      button {
+        width: 40px;
+        height: 38px;
+        font-size: 28px;
+        color: #eee;
+        border: none;
+      }
+    }
+
     button {
       width: 40px;
       height: 40px;
