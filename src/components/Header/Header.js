@@ -27,15 +27,16 @@ const Header = () => {
         <div className="right-wrap">
           <LoginItemGroup />
           <LinkGoIcon icon="shopping-cart" path="" />
-
           <SubNavIcon onClick={handleOpen} />
         </div>
       </div>
-      <SubNav
-        active={isSubnavOn}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-      />
+      {isSubnavOn === true && (
+        <SubNav
+          active={isSubnavOn}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+        />
+      )}
     </header>
   );
 };
