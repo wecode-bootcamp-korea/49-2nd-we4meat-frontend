@@ -27,8 +27,10 @@ const Review = () => {
     return data;
   };
 
-  // review-item에 클릭 이벤트로 모달 팝업 노출 필요
   // 더보기 버튼: 4개씩 추가 노출(기본 8개)
+  const aaa = () => {
+    console.log('worked!');
+  };
 
   return (
     <>
@@ -70,7 +72,7 @@ const Review = () => {
         })}
       </ul>
 
-      <button type="button" className="btn-review-more">
+      <button type="button" className="btn-review-more" onClick={aaa}>
         <span>더보기</span>
       </button>
     </>

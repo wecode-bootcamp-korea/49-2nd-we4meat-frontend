@@ -3,7 +3,7 @@ import './Tag.scss';
 
 function Tag({ className }) {
   return (
-    <div className={`tag ${className}`}>
+    <div className="tag">
       <span>무항생제</span>
     </div>
   );

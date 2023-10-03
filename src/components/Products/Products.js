@@ -35,12 +35,14 @@ function Products() {
             return (
               <Product key={product.id}>
                 <ProductContent
+                  id={product.id}
                   img={product.product_img}
                   inventory={product.inventory_id}
                   title={product.product_name}
                   price={product.price}
                 />
                 <ProductText
+                  id={product.id}
                   title={product.product_name}
                   price={product.price}
                   weight={product.weight}
