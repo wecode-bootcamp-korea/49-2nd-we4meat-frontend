@@ -54,7 +54,7 @@ function Footer(props) {
           <div className="cs">
             <div className="bold">
               <strong className="small">고객센터</strong>
-              <strong className="big">1800-0658</strong>
+              <strong className="big">1000-2000</strong>
             </div>
 
             <p className="business-day">
