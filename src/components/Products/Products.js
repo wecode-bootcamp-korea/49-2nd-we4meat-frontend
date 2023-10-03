@@ -38,6 +38,7 @@ function Products() {
                   img={product.product_img}
                   inventory={product.inventory_id}
                   title={product.product_name}
+                  price={product.price}
                 />
                 <ProductText
                   title={product.product_name}

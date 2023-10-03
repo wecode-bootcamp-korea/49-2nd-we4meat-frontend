@@ -84,3 +84,10 @@
     border-radius: 5px;
   }
 }
+
+.btn-group {
+  display: flex;
+  .btn {
+    flex: 1;
+  }
+}
