@@ -7,7 +7,7 @@ import './ProductText.scss';
 function ProductText({ id, title, price, weight }) {
   return (
     <div className="product-text">
-      <Link to={`/detail/${id}`}>
+      <Link to={`/detail/${id - 1}`}>
         <ProductTitle title={title} />
         <ProductInfo price={price} weight={weight} />
       </Link>

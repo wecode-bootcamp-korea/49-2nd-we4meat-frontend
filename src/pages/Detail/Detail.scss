@@ -60,9 +60,37 @@
       }
     }
   }
-  .detail-tab {
-    @include Position(sticky, $top: 96px);
-    height: 108px;
-    background-color: #ff0;
+  .detail-bottom {
+    .tabs {
+      @include Position(sticky, $top: 96px);
+      @include FlexCenter;
+      gap: 64px;
+      height: 108px;
+      border-bottom: 1px $grayscale-4 solid;
+      background-color: $grayscale-8;
+      button {
+        padding: 0;
+        border-bottom: 1px transparent solid;
+        font-size: 18px;
+        font-weight: 700;
+        color: $grayscale-5;
+        &.selected {
+          border-bottom-color: $grayscale-1;
+          color: $grayscale-1;
+        }
+      }
+    }
+    .tab-contents {
+      padding: 40px 0 150px;
+      .inner-wrap {
+        width: 980px;
+        .product-description {
+          font-size: 0;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tag from '../Tag/Tag';
 import ProductImg from '../ProductListImg/ProductImg';
 import CartButton from '../CartButton/CartButton';
@@ -7,6 +7,15 @@ import './ProductContent.scss';
 
 function ProductContent({ id, className, img, inventory, title, price }) {
   const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    const close = e => {
+      if (e.keyCode === 27) {
+        setModalOpen(false);
+      }
+    };
+    window.addEventListener('keydown', close);
+  }, []);
 
   const modalHandler = () => {
     setModalOpen(prev => !prev);
