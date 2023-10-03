@@ -1,0 +1,141 @@
+@charset 'utf-8';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.footer {
+  width: 100%;
+  border-top: 1px solid $grayscale-5;
+  .footer-top {
+    line-height: 70px;
+    border-bottom: 1px solid $grayscale-6;
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .footer-navigation {
+      span {
+        font-size: 14px;
+        margin-right: 30px;
+        cursor: pointer;
+        float: left;
+      }
+      span.bold {
+        font-weight: 800;
+      }
+    }
+
+    .sns-link {
+      @include FlexCenter;
+      float: right;
+      margin-top: 16px;
+
+      .app-button {
+        width: 128px;
+        height: 40px;
+        background-color: #fafafa;
+        color: #212121;
+        border: 1px solid $grayscale-6;
+        border-radius: 4px;
+      }
+
+      img {
+        width: 24px;
+        margin-left: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin: 8px 0 19px 0;
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .info {
+      margin-top: 16px;
+      float: left;
+
+      .copywriter {
+        margin-top: 29px;
+        font-size: 12px;
+      }
+
+      .company {
+        width: 82px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+          width: 32px;
+        }
+        span {
+          font-weight: 800;
+          font-size: 18px;
+          color: #333;
+        }
+      }
+
+      .info-company {
+        margin-top: 16px;
+        div {
+          margin-bottom: 4px;
+          line-height: 19px;
+          span {
+            margin-right: 8px;
+            font-size: 13px;
+            color: #212121;
+            &.blue {
+              color: $blue;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .cs {
+      float: right;
+      text-align: right;
+      .bold {
+        display: flex;
+        flex-direction: column;
+        font-weight: 800;
+        .small {
+          font-size: 14px;
+        }
+        .big {
+          font-size: 24px;
+        }
+      }
+
+      .business-day {
+        font-size: 12px;
+        line-height: 15px;
+        color: #757575;
+      }
+
+      .cs-info {
+        margin-top: 9px;
+        font-size: 13px;
+        & p {
+          line-height: 19px;
+        }
+        & .blue {
+          color: $blue;
+          cursor: pointer;
+        }
+      }
+
+      button {
+        width: 88px;
+        height: 32px;
+        margin: 10px 0 0 8px;
+        border: 1px solid #000;
+        border-radius: 4px;
+      }
+    }
+  }
+}

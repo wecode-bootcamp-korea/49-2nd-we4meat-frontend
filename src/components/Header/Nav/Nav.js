@@ -6,7 +6,7 @@ const Nav = props => {
 
   return (
     <li className={className}>
-      <Link to={`/${path}`}>{text}</Link>
+      <Link to={path}>{text}</Link>
     </li>
   );
 };

@@ -80,7 +80,14 @@
 
   &[border-radius='border'] {
     width: 83px;
-    height: 34px;
+    height: 32px;
     border-radius: 5px;
+  }
+}
+
+.btn-group {
+  display: flex;
+  .btn {
+    flex: 1;
   }
 }
