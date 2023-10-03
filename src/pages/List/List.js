@@ -11,8 +11,8 @@ const List = () => {
 
   const category = searchParams.get('category');
   const index = CATEGORY_NAME.findIndex(i => i.englishText === category);
-  const title = CATEGORY_NAME[index].bannerText;
-  const image = CATEGORY_NAME[index].bannerImg;
+  const title = CATEGORY_NAME[index]?.bannerText;
+  const image = CATEGORY_NAME[index]?.bannerImg;
 
   return (
     <main id="main" className="list">

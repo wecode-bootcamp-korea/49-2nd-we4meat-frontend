@@ -1,14 +1,11 @@
 import React from 'react';
 import './ProductTitle.scss';
-function ProductTitle({ className, title }) {
+function ProductTitle({ title }) {
   return (
-    <div className={`product-title ${className}`}>
+    <div className="product-title">
       <span>{title}</span>
     </div>
   );
 }
 
 export default ProductTitle;
-
-//props
-//className: [string]'product-title'

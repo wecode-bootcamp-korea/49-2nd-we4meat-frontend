@@ -5,7 +5,7 @@ import CartButton from '../CartButton/CartButton';
 import Modal from '../Modal/Modal';
 import './ProductContent.scss';
 
-function ProductContent({ className, img, inventory, title, price }) {
+function ProductContent({ id, className, img, inventory, title, price }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const modalHandler = () => {
@@ -15,7 +15,7 @@ function ProductContent({ className, img, inventory, title, price }) {
   return (
     <div className={`product-content ${inventory === 2 ? 'inventory' : ''}`}>
       {title.includes('무항생제') ? <Tag /> : ''}
-      <ProductImg img={img} />
+      <ProductImg id={id} img={img} title={title} />
 
       <CartButton onClick={() => setModalOpen(true)} />
       {modalOpen && (
