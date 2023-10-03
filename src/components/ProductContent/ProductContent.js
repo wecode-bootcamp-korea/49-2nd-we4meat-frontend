@@ -13,11 +13,7 @@ function ProductContent({ className, img, inventory, title, price }) {
   };
 
   return (
-    <div
-      className={`product-content ${className} ${
-        inventory === 2 ? 'inventory' : ''
-      }`}
-    >
+    <div className={`product-content ${inventory === 2 ? 'inventory' : ''}`}>
       {title.includes('무항생제') ? <Tag /> : ''}
       <ProductImg img={img} />
 

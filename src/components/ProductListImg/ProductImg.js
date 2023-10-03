@@ -7,7 +7,7 @@ function ProductImg(props) {
 
   return (
     <div className="product-img">
-      <Link to="/">
+      <Link Linkto="/">
         <img src={img} alt="삼겹살" />
       </Link>
     </div>
