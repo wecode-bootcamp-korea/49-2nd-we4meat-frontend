@@ -9,6 +9,9 @@ import './PayLast.scss';
 
 const PayLast = () => {
   const [orderInfo, setOrderInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({});
+  const [isValidation, setIsValidation] = useState(true);
+  const [isCheckBox, setIsCheckBox] = useState(false);
   const navigation = useNavigate();
   const {
     order_item,
@@ -17,10 +20,23 @@ const PayLast = () => {
     order_count,
     order_price,
   } = orderInfo;
+  const { wallet } = userInfo;
 
   const backPage = () => {
     navigation(-1);
   };
+
+  const handleIsCheckBox = e => {
+    setIsCheckBox(e.target.checked);
+  };
+
+  useEffect(() => {
+    if (isCheckBox === true && wallet >= order_price) {
+      setIsValidation(!isValidation);
+    } else {
+      setIsValidation(true);
+    }
+  }, [isCheckBox]);
 
   useEffect(() => {
     fetch('/data/orderPayMock.json')
@@ -28,7 +44,12 @@ const PayLast = () => {
       .then(data => {
         setOrderInfo(data[0]);
       });
-  }, [order_price]);
+    fetch('/data/userInfoMock.json')
+      .then(response => response.json())
+      .then(data => {
+        setUserInfo(data[0]);
+      });
+  }, []);
 
   return (
     <div className="order-pay-wrap">
@@ -54,11 +75,13 @@ const PayLast = () => {
                 <li>{order_count}</li>
                 <li>{order_price?.toLocaleString()}원</li>
               </ul>
-              <PayBox price={order_price} />
+              {/* 제품 ul map */}
+              <PayBox price={order_price} wallet={wallet} />
             </div>
             <Checkbox
               text="
 결제는 제품 생산 후 진행되며, 실제 생산된 제품의 중량에 따라 금액이 ±10% 변동될 수 있음에 동의합니다. (300g이하 상품의 경우 ±20%)"
+              isChecked={e => handleIsCheckBox(e)}
             />
           </div>
         </div>
@@ -71,10 +94,11 @@ const PayLast = () => {
           />
           <Button
             type="submit"
-            color="bg-red"
+            color={isValidation === true ? 'bg-gray' : 'bg-red'}
             full="full"
             name="결제하기"
-            disabled={true}
+            disabled={isValidation}
+            onClick={() => navigation('/pay-complete')}
           />
         </div>
       </section>
