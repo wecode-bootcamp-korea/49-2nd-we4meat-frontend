@@ -8,6 +8,10 @@ import './ProductContent.scss';
 function ProductContent({ className, img, inventory, title, price }) {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const modalHandler = () => {
+    setModalOpen(prev => !prev);
+  };
+
   return (
     <div
       className={`product-content ${className} ${
@@ -19,15 +23,13 @@ function ProductContent({ className, img, inventory, title, price }) {
 
       <CartButton onClick={() => setModalOpen(true)} />
       {modalOpen && (
-        <>
-          <div className="modal-backdrop" onClick={() => setModalOpen(false)} />
-          <section className="modal-popup" data-size="xs">
-            <button type="button" onClick={() => setModalOpen(false)}>
-              닫기
-            </button>
-            <Modal title={title} price={price} isProduct="true" />
-          </section>
-        </>
+        <Modal
+          title={title}
+          price={price}
+          scale="xs"
+          isProduct="true"
+          modalHandler={modalHandler}
+        />
       )}
     </div>
   );
