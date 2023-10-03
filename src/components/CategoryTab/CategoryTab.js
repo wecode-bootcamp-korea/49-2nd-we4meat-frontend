@@ -4,9 +4,10 @@ import CATEGORY_NAME from '../../data/categoryImgData';
 import './CategoryTab.scss';
 
 const CategoryTab = props => {
-  const [tabActive, setTabActive] = useState();
+  const [tabActive, setTabActive] = useState(CATEGORY_NAME[0].id);
   // const location = useLocation();
   const [categoryParams, setCategoryParams] = useSearchParams();
+
   // useEffect(() => {
   //   fetch('url', {
   //     method: 'GET',
@@ -19,16 +20,18 @@ const CategoryTab = props => {
   // }, []);
   // 쿼리스트링
 
+  useEffect(() => {
+    if (!categoryParams.has('category')) {
+      categoryParams.set('category', 'pork');
+      setCategoryParams(categoryParams);
+    }
+  }, [categoryParams, setCategoryParams]);
+
   const handleActive = category => {
     setTabActive(category.id);
 
-    if (categoryParams === null) {
-      categoryParams.append('category', category.englishText);
-      setCategoryParams(categoryParams);
-    } else {
-      categoryParams.set('category', category.englishText);
-      setCategoryParams(categoryParams);
-    }
+    categoryParams.set('category', category.englishText);
+    setCategoryParams(categoryParams);
   };
 
   return (
