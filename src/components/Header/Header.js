@@ -30,11 +30,13 @@ const Header = () => {
           <SubNavIcon onClick={handleOpen} />
         </div>
       </div>
-      <SubNav
-        active={isSubnavOn}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-      />
+      {isSubnavOn === true && (
+        <SubNav
+          active={isSubnavOn}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+        />
+      )}
     </header>
   );
 };
