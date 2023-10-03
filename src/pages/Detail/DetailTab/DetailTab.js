@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ProductDescription from '../ProductDescription/ProductDescription';
 import ProductReview from '../ProductReview/ProductReview';
 
 const DetailTab = () => {
+  const targetRef = useRef(null);
   const [currentTab, setTab] = useState(0);
 
   const TAB_DATA = [
@@ -11,6 +12,7 @@ const DetailTab = () => {
   ];
 
   const selectTabHandler = index => {
+    targetRef.current.scrollIntoView(true);
     setTab(index);
   };
 
@@ -31,6 +33,9 @@ const DetailTab = () => {
         })}
       </div>
       <div className="tab-contents">
+        <span className="hidden" ref={targetRef}>
+          invisible area
+        </span>
         <div className="inner-wrap">{TAB_DATA[currentTab]?.content}</div>
       </div>
     </>

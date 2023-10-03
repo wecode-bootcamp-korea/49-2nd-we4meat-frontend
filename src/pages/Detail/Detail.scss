@@ -66,6 +66,7 @@
       @include FlexCenter;
       gap: 64px;
       height: 108px;
+      z-index: 100;
       border-bottom: 1px $grayscale-4 solid;
       background-color: $grayscale-8;
       button {
@@ -81,7 +82,11 @@
       }
     }
     .tab-contents {
+      position: relative;
       padding: 40px 0 150px;
+      .hidden {
+        top: -245px;
+      }
       .inner-wrap {
         width: 980px;
         .product-description {
