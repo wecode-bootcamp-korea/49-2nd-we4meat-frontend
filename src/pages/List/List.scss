@@ -1,0 +1,12 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.list {
+  padding-bottom: 210px;
+  .category-tab {
+    padding: 70px 0;
+  }
+  .best-title {
+    display: none;
+  }
+}

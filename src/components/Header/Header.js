@@ -21,7 +21,7 @@ const Header = () => {
         <div className="left-wrap">
           <LinkGoIcon icon="logo-white" text="정사각" scale="big" path="" />
           <ul id="menu-list">
-            <Nav text="쇼핑하기" className="shopping-wrap" />
+            <Nav text="쇼핑하기" className="shopping-wrap" path="/list" />
           </ul>
         </div>
         <div className="right-wrap">

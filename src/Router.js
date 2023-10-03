@@ -1,5 +1,6 @@
 import React from 'react';
 import Main from './pages/Main/Main';
+import List from './pages/List/List';
 import Login from './pages/Login/Login';
 import Mypage from './pages/Mypage/Mypage';
 import Pay from './pages/Pay/Pay';
@@ -24,6 +25,7 @@ const Router = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/list" element={<List />} />
         <Route path="/login" element={<Login />} />
         <Route path="/mypage" element={<Mypage />} />
         {/* <Route path="/mypageView/:id" element={<MypageView />} /> */}

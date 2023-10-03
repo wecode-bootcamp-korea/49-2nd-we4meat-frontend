@@ -3,7 +3,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import CATEGORY_NAME from '../../data/categoryImgData';
 import './CategoryTab.scss';
 
-const CategoryTab = () => {
+const CategoryTab = props => {
   const [tabActive, setTabActive] = useState();
   // const location = useLocation();
   const [categoryParams, setCategoryParams] = useSearchParams();
@@ -23,10 +23,10 @@ const CategoryTab = () => {
     setTabActive(category.id);
 
     if (categoryParams === null) {
-      categoryParams.append('category', category.text);
+      categoryParams.append('category', category.englishText);
       setCategoryParams(categoryParams);
     } else {
-      categoryParams.set('category', category.text);
+      categoryParams.set('category', category.englishText);
       setCategoryParams(categoryParams);
     }
   };
@@ -37,6 +37,7 @@ const CategoryTab = () => {
         return (
           <li
             key={category.id}
+            data-index={category.id}
             onClick={() => handleActive(category)}
             className={tabActive === category.id && 'on'}
           >
