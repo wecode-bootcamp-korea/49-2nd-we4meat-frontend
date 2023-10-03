@@ -41,6 +41,9 @@
       no-repeat 50% / 40%;
     border-radius: 50%;
   }
+  .btn-group {
+    @include Position(absolute, $bottom: 0, $right: 0, $left: 0);
+  }
 }
 
 .cart-modal {

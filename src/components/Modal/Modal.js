@@ -19,6 +19,7 @@ const Modal = ({ title, price, scale, isProduct, modalHandler }) => {
           닫기
         </button>
 
+        {/* 제품 목록 장바구니 버튼 클릭 시 */}
         {isProduct && <CartModal title={title} price={price} />}
       </div>
     </section>
