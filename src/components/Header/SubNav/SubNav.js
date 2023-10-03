@@ -38,7 +38,7 @@ const SubNav = props => {
           </button>
         </div>
       </section>
-      <section className="category-wrap">
+      <section className="category-nav-wrap">
         <h2>쇼핑하기</h2>
         <ul className="category-list-wrap">
           {CATEGORY_IMG_DATA.map(list => {

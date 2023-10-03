@@ -24,6 +24,7 @@ const Button = props => {
   // name: [String] 내부텍스트
   // scale: [string] low, small, smallest
   // use: [string] review
+  // border :[string] border
   // border-radius: [string] border
   // disabled: [Boolean]
   // icon: [string] sns-talk, sns-nav, 없으면 ""
