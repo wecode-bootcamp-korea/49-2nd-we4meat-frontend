@@ -33,7 +33,7 @@ const CATEGORY_IMG_DATA = [
     img: './images/category-fish.png',
     path: '',
     bannerText: '산지처럼 초신선한 수선',
-    bannerImg: './images/category/pork.jpg',
+    bannerImg: './images/category/fish.jpg',
   },
   {
     id: 5,
