@@ -25,7 +25,7 @@ function ProductContent({ className, img, inventory, title, price }) {
             <button type="button" onClick={() => setModalOpen(false)}>
               닫기
             </button>
-            <Modal title={title} price={price} />
+            <Modal title={title} price={price} isProduct="true" />
           </section>
         </>
       )}

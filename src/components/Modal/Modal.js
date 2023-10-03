@@ -2,7 +2,7 @@ import React from 'react';
 import CartModal from './ModalContent/CartModal';
 import './Modal.scss';
 
-const Modal = ({ size, title, price }) => {
+const Modal = ({ size, title, price, isProduct }) => {
   // const MODAL_DATA = [{ name: 'a', content: <CartModal /> }];
 
   // const { size, index, title } = props;
@@ -15,7 +15,7 @@ const Modal = ({ size, title, price }) => {
   return (
     <div className="modal-content" data-size={size}>
       {/* {MODAL_DATA[index]?.content} */}
-      <CartModal title={title} price={price} />
+      {isProduct && <CartModal title={title} price={price} />}
     </div>
   );
 };
