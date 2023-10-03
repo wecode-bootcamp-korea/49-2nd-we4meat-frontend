@@ -2,29 +2,51 @@ import React, { useState, useEffect } from 'react';
 import './CartOrder.scss';
 
 const CartOrder = props => {
-  const { id, item, option, weight, count, price } = props;
+  const {
+    id,
+    item,
+    img,
+    weight,
+    count,
+    unitPrice,
+    price,
+    setOneTotalPrice,
+    setTotalQuantity,
+    index,
+  } = props;
   const [countNum, setCountNum] = useState(count);
+  const oneTotal = countNum * unitPrice;
+  // const [oneTotalPrice, setOneTotalPrice] = useState(price * countNum);
+  const [totalPrice, setTotalPrice] = useState();
+
+  // useEffect(() => {
+  //   setOneTotalPrice(price * countNum);
+  // }, [countNum]);
 
   const handleMinusCount = () => {
     if (countNum === 1) {
       alert('최소 수량입니다.');
     } else {
       setCountNum(countNum - 1);
+      setTotalQuantity(countNum - 1);
+      setOneTotalPrice(price - unitPrice);
     }
   };
   const handlePlusCount = () => {
     setCountNum(countNum + 1);
+    setTotalQuantity(countNum + 1);
+    setOneTotalPrice(price + unitPrice);
   };
 
   return (
     <li key={id}>
       <ul className="my-order-info">
         <li className="item-img">
-          <img />
+          <img src={process.env.PUBLIC_URL + img} alt={item} />
         </li>
         <li className="option-align">
           {item}
-          <span>{option}</span>
+          <span>보통(16mm)</span>
         </li>
         <li className="text-gray">{weight}</li>
         <li>
@@ -34,7 +56,7 @@ const CartOrder = props => {
             <button onClick={handlePlusCount}>+</button>
           </div>
         </li>
-        <li className="text-right">{price * countNum}</li>
+        <li className="text-right">{oneTotal}</li>
         <li>
           <button>
             <img

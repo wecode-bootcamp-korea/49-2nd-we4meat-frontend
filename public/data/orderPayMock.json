@@ -1,26 +1,20 @@
 [
   {
-    "id": 0,
-    "order_item": "초신선 무항생제 돼지 삼겹살 구이용",
-    "order_item_option": "보통(16mm)",
-    "order_weight": "600g 기준",
-    "order_count": 1,
-    "order_price": 22800
+    "customerId": 1,
+    "productName": "흑돼지 삼겹살",
+    "productImg": null,
+    "weight": "600g",
+    "quantity": 2,
+    "unitPrice": 10000,
+    "totalPrice": "20000"
   },
   {
-    "id": 1,
-    "order_item": "초신선 무항생제 돼지 목살 구이용",
-    "order_item_option": "보통(16mm)",
-    "order_weight": "600g 기준",
-    "order_count": 1,
-    "order_price": 22800
-  },
-  {
-    "id": 2,
-    "order_item": "초신선 돼지 목살 구이용",
-    "order_item_option": "보통(16mm)",
-    "order_weight": "300g 기준",
-    "order_count": 1,
-    "order_price": 29800
+    "customerId": 2,
+    "productName": "생닭",
+    "productImg": null,
+    "weight": "1마리",
+    "quantity": 4,
+    "unitPrice": 4000,
+    "totalPrice": "16000"
   }
 ]
