@@ -12,11 +12,13 @@ import PromotionBanner from './components/PromotionBanner/PromotionBanner';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import TopButton from './components/TopButton/TopButton';
+import InitializeScroll from './components/InitializeScroll/InitializeScroll';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <InitializeScroll />
       <SkipNavigation />
       <PromotionBanner />
       <Header />
