@@ -10,9 +10,9 @@
     height: 100%;
     font-size: 14px;
 
-    &:nth-child(3) {
-      padding-left: 16px;
-      border-left: 1px solid #fff;
+    &:last-child {
+      padding-right: 16px;
+      border-right: 1px solid #fff;
     }
 
     a {
