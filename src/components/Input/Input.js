@@ -1,7 +1,7 @@
 import React from 'react';
 import './Input.scss';
 
-function Input({ type, className, name, placeholder, isValidation }) {
+function Input({ type, className, name, placeholder, isValidation, onChange }) {
   return (
     <label className="input-box">
       <input
@@ -10,6 +10,7 @@ function Input({ type, className, name, placeholder, isValidation }) {
         name={name}
         placeholder={placeholder}
         data-validation={isValidation}
+        onChange={onChange}
       />
     </label>
   );

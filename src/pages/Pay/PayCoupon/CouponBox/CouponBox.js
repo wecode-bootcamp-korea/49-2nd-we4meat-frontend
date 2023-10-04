@@ -58,8 +58,8 @@ const CouponBox = props => {
               scale="xs"
               isCharge={true}
               modalOpen={modalOpen}
-              setModalOpen={setModalOpen}
               modalHandler={modalHandler}
+              wallet={userInfo.wallet}
             />
           )}
         </>
