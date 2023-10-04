@@ -35,7 +35,7 @@ const CartModal = ({ title, price }) => {
   return (
     <>
       <div className="cart-modal">
-        <h1>{title}</h1>
+        <h1 tabIndex={0}>{title}</h1>
         <CountBox
           scale="full"
           count={count}

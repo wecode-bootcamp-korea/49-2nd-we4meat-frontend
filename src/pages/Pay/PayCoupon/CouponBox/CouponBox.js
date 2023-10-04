@@ -14,6 +14,8 @@ const CouponBox = props => {
       });
   }, []);
 
+  const wallet = userInfo.wallet?.toLocaleString('ko-KR');
+
   return (
     <div className="coupon-box-wrap">
       <div className="text-wrap">
@@ -21,7 +23,7 @@ const CouponBox = props => {
         {text && <p>{text}</p>}
         {point && (
           <div className="point-use-wrap">
-            <span>사용가능 적립금: {userInfo.wallet}원</span>
+            <span>사용가능 적립금: {wallet}원</span>
           </div>
         )}
       </div>

@@ -1,15 +1,14 @@
 import React, { useRef, useState } from 'react';
-import OrderDetails from '../OrderDetails/OrderDetails';
-import PrivacyDetails from '../PrivacyDetails/PrivacyDetails';
-import './UserInfoDetail.scss';
+import ProductDescription from '../ProductDescription/ProductDescription';
+import ProductReview from '../ProductReview/ProductReview';
 
-const UserInfoDetail = () => {
+const DetailTab = () => {
   const targetRef = useRef(null);
   const [currentTab, setTab] = useState(0);
 
   const TAB_DATA = [
-    { name: '주문내역', content: <OrderDetails /> },
-    { name: '개인정보관리', content: <PrivacyDetails /> },
+    { name: '상품설명', content: <ProductDescription /> },
+    { name: '상품리뷰', content: <ProductReview /> },
   ];
 
   const selectTabHandler = index => {
@@ -18,10 +17,7 @@ const UserInfoDetail = () => {
   };
 
   return (
-    <section className="user-info-detail">
-      <span className="hidden" ref={targetRef}>
-        invisible area
-      </span>
+    <>
       <div className="tabs">
         {TAB_DATA?.map((item, index) => {
           return (
@@ -36,9 +32,14 @@ const UserInfoDetail = () => {
           );
         })}
       </div>
-      <div className="tab-contents">{TAB_DATA[currentTab]?.content}</div>
-    </section>
+      <div className="tab-contents">
+        <span className="hidden" ref={targetRef}>
+          invisible area
+        </span>
+        <div className="inner-wrap">{TAB_DATA[currentTab]?.content}</div>
+      </div>
+    </>
   );
 };
 
-export default UserInfoDetail;
+export default DetailTab;

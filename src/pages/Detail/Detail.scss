@@ -1,0 +1,101 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.detail {
+  .detail-top {
+    height: 610px;
+    background-color: $grayscale-2;
+    .inner-wrap {
+      display: flex;
+      width: 980px;
+      height: 100%;
+      padding: 60px 0 50px;
+      .image-area {
+        width: 500px;
+        padding: 20px;
+        img {
+          width: 100%;
+        }
+      }
+      .metadata-area {
+        @include FlexCenter;
+        flex-direction: column;
+        flex: 1;
+        margin-left: 100px;
+        hgroup {
+          margin-bottom: 29px;
+          padding-bottom: 26px;
+          border-bottom: 1px $grayscale-3 solid;
+          h2 {
+            font-size: 28px;
+            line-height: 41px;
+            color: $grayscale-8;
+          }
+          h3 {
+            font-size: 24px;
+            line-height: 33px;
+            color: $grayscale-8;
+          }
+          h4 {
+            margin: 20px 0 6px;
+            font-size: 16px;
+            line-height: 24px;
+            color: $grayscale-4;
+          }
+        }
+        .option-select {
+          padding: 0;
+          .text-wrap {
+          }
+        }
+        .btn-group {
+          width: 100%;
+          .btn:first-child {
+            margin-right: 10px;
+          }
+          .btn:last-child {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  .detail-bottom {
+    .tabs {
+      @include Position(sticky, $top: 96px);
+      @include FlexCenter;
+      gap: 64px;
+      height: 108px;
+      z-index: 100;
+      border-bottom: 1px $grayscale-4 solid;
+      background-color: $grayscale-8;
+      button {
+        padding: 0;
+        border-bottom: 1px transparent solid;
+        font-size: 18px;
+        font-weight: 700;
+        color: $grayscale-5;
+        &.selected {
+          border-bottom-color: $grayscale-1;
+          color: $grayscale-1;
+        }
+      }
+    }
+    .tab-contents {
+      position: relative;
+      padding: 40px 0 150px;
+      .hidden {
+        top: -245px;
+      }
+      .inner-wrap {
+        width: 980px;
+        .product-description {
+          font-size: 0;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

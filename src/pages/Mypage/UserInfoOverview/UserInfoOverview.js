@@ -24,7 +24,7 @@ const UserInfoOverview = () => {
       </div>
       <div>
         <div>
-          <h3>Hello, {name}</h3>
+          <h3>Hello, {name}님</h3>
           <button type="button">로그아웃</button>
         </div>
         <table>
