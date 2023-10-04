@@ -7,7 +7,6 @@ import Mypage from './pages/Mypage/Mypage';
 import Pay from './pages/Pay/Pay';
 import PayCoupon from './pages/Pay/PayCoupon/PayCoupon';
 import PayLast from './pages/Pay/PayLast/PayLast';
-// import MypageView from './pages/MypageView/MypageView';
 import Cart from './pages/Cart/Cart';
 import Order from './pages/Order/Order';
 import SkipNavigation from './components/SkipNavigation/SkipNavigation';
@@ -47,7 +46,6 @@ const Router = () => {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/mypage" element={<Mypage />} />
-        {/* <Route path="/mypageView/:id" element={<MypageView />} /> */}
         <Route path="/pay" element={<Pay />} />
         <Route path="/pay-coupon" element={<PayCoupon />} />
         <Route path="/pay-last" element={<PayLast />} />

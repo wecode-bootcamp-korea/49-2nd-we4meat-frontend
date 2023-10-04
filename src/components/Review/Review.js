@@ -4,7 +4,7 @@ import './Review.scss';
 const Review = () => {
   const [dataList, setDataList] = useState([]);
 
-  const fetchReview = () => {
+  const getReviews = () => {
     fetch('/data/ReviewMock.json')
       .then(response => response.json())
       .then(data => {
@@ -13,7 +13,7 @@ const Review = () => {
   };
 
   useEffect(() => {
-    fetchReview();
+    getReviews();
   }, []);
 
   const makeBuyTogether = target => {
