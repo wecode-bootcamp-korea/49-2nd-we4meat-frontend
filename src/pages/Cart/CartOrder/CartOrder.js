@@ -2,47 +2,28 @@ import React, { useState, useEffect } from 'react';
 import './CartOrder.scss';
 
 const CartOrder = props => {
-  const {
-    id,
-    item,
-    img,
-    weight,
-    count,
-    unitPrice,
-    price,
-    setOneTotalPrice,
-    setTotalQuantity,
-    index,
-  } = props;
-  const [countNum, setCountNum] = useState(count);
-  const oneTotal = countNum * unitPrice;
-  // const [oneTotalPrice, setOneTotalPrice] = useState(price * countNum);
-  const [totalPrice, setTotalPrice] = useState();
-
-  // useEffect(() => {
-  //   setOneTotalPrice(price * countNum);
-  // }, [countNum]);
-
-  const handleMinusCount = () => {
-    if (countNum === 1) {
-      alert('최소 수량입니다.');
-    } else {
-      setCountNum(countNum - 1);
-      setTotalQuantity(countNum - 1);
-      setOneTotalPrice(price - unitPrice);
-    }
-  };
-  const handlePlusCount = () => {
-    setCountNum(countNum + 1);
-    setTotalQuantity(countNum + 1);
-    setOneTotalPrice(price + unitPrice);
-  };
+  const { id, item, img, weight, count, unitPrice, handleMinus, handlePlus } =
+    props;
+  const oneTotal = count * unitPrice;
+  // const [totalPrice, setTotalPrice] = useState();
 
   return (
     <li key={id}>
       <ul className="my-order-info">
         <li className="item-img">
-          <img src={process.env.PUBLIC_URL + img} alt={item} />
+          {!item === null ? (
+            <img
+              src={process.env.PUBLIC_URL + img}
+              alt={item}
+              className="img-size-wrap"
+            />
+          ) : (
+            <img
+              src={process.env.PUBLIC_URL + '/images/pig.png'}
+              alt="기본이미지"
+              className="img-size-wrap"
+            />
+          )}
         </li>
         <li className="option-align">
           {item}
@@ -51,17 +32,18 @@ const CartOrder = props => {
         <li className="text-gray">{weight}</li>
         <li>
           <div className="count-wrap">
-            <button onClick={handleMinusCount}>-</button>
-            <p className="op-name">{countNum}</p>
-            <button onClick={handlePlusCount}>+</button>
+            <button onClick={handleMinus}>-</button>
+            <p className="op-name">{count}</p>
+            <button onClick={handlePlus}>+</button>
           </div>
         </li>
-        <li className="text-right">{oneTotal}</li>
+        <li className="text-right">{oneTotal.toLocaleString()}</li>
         <li>
           <button>
             <img
               src={process.env.PUBLIC_URL + '/images/close.png'}
               alt="삭제"
+              className="button-img-wrap"
             />
           </button>
         </li>

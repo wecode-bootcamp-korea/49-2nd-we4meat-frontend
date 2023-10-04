@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CartOrder from './CartOrder/CartOrder';
 import Button from '../../components/Button/Button';
 import './Cart.scss';
@@ -7,7 +8,7 @@ const deliveryFee = 3500;
 
 const Cart = () => {
   const [orderInfo, setOrderInfo] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch('/data/orderPayMock.json')
       .then(response => response.json())
@@ -16,51 +17,53 @@ const Cart = () => {
       });
   }, []);
 
-  const sendOrder = () => {
-    fetch('http://10.58.52.104:8000/comments', {
-      method: 'PATCH',
-      body: JSON.stringify({}),
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: localStorage.getItem('token'),
-      },
-    })
-      .then(res => {
-        if (res.ok === true) {
-          return res.json();
-        }
-        throw new Error('오류입니다.');
-      })
-      .then();
+  const handleSubmit = () => {
+    const array = orderInfo.map(item => ({
+      productId: item.productId,
+      quantity: item.quantity,
+    }));
+    // fetch('http://url', {
+    //   method: 'PATCH',
+    //   body: JSON.stringify(
+    console.log(array);
+    //     ),
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //     Authorization: localStorage.getItem('token'),
+    //   },
+    // })
+    //   .then(res => {
+    //     if (res.ok === true) {
+    //       return res.json();
+    //     }
+    //     throw new Error('오류입니다.');
+    //   })
+    //   .then(()=>navigate('/pay'));
   };
 
-  // productId, quantity Back으로 보내주면 됨.
-  // method: patch.
+  const handlePlus = id => {
+    const array = [...orderInfo];
+    array.map(item => {
+      if (item.productId === id) {
+        item.quantity = item.quantity + 1;
+      }
+    });
+    setOrderInfo(array);
+  };
 
-  const [oneTotalPrice, setOneTotalPrice] = useState(orderInfo.totalPrice);
-  const [totalQuantity, setTotalQuantity] = useState(orderInfo.quantity);
-  // const [orderList, setOrderList] = useState();
-  // const [orderList, setOrderList] = useState([{customerId: orderInfo.customerId, quantity: orderInfo.quantity}])
-
-  // useEffect(() => {
-  //   const orderList = [];
-  //   for (let i = 0; i < orderInfo.length; i++) {
-  //     orderList.push({
-  //       customerId: orderInfo.customerId[i],
-  //       quantity: totalQuantity[i],
-  //     });
-  //   }
-
-  //   console.log(orderList);
-  // }, [totalQuantity]);
-
-  useEffect(() => {
-    const orderList = Object.keys(orderInfo).map(customerId => ({
-      customerId: orderInfo[customerId].customerId,
-      quantity: orderInfo[customerId].totalQuantity,
-    }));
-    console.log(orderList);
-  }, [totalQuantity]);
+  const handleMinus = id => {
+    const array = [...orderInfo];
+    array.map(item => {
+      if (item.productId === id) {
+        if (item.quantity === 1) {
+          alert('최소 수량입니다.');
+        } else {
+          item.quantity = item.quantity - 1;
+        }
+      }
+    });
+    setOrderInfo(array);
+  };
 
   return (
     <section className="cart-wrap">
@@ -79,15 +82,15 @@ const Cart = () => {
               return (
                 <CartOrder
                   index={index}
-                  key={order.customerId}
+                  key={order.productId}
                   item={order.productName}
                   img={order.productImg}
                   weight={order.weight}
                   count={order.quantity}
                   unitPrice={order.unitPrice}
                   price={order.totalPrice}
-                  setOneTotalPrice={setOneTotalPrice}
-                  setTotalQuantity={setTotalQuantity}
+                  handleMinus={() => handleMinus(order.productId)}
+                  handlePlus={() => handlePlus(order.productId)}
                 />
               );
             })}
@@ -111,7 +114,7 @@ const Cart = () => {
                 full="full"
                 name="전체상품 주문하기"
                 scale="low"
-                onClick={sendOrder}
+                onClick={() => handleSubmit()}
               />
               <Button
                 color="bg-gray"
