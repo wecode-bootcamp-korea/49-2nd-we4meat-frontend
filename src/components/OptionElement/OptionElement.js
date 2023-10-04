@@ -15,7 +15,7 @@ const OptionElement = props => {
             보통(16mm)
           </p>
           <img
-            src={process.env.PUBLIC_URL + './images/expand-arrow.png'}
+            src={process.env.PUBLIC_URL + '/images/expand-arrow.png'}
             alt="expand-arrow"
           />
         </div>
