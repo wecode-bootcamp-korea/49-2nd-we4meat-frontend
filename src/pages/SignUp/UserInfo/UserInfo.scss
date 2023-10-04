@@ -1,0 +1,36 @@
+@charset 'utf-8';
+@import '../../../styles/partials/mixin.scss',
+  '../../../styles/partials/variables.scss';
+
+.user-info {
+  margin: 0 auto;
+  outline: 2px solid red;
+  table {
+    width: 780px;
+    margin: 0 auto;
+    font-size: 13px;
+    tr,
+    td {
+      height: 68px;
+      line-height: 68px;
+      border: 1px solid #e1dedf;
+    }
+    td:first-child {
+      width: 180px;
+      padding-left: 29px;
+      background-color: #f7f7f7;
+    }
+    td:last-child {
+      //idth: 70%;
+      input {
+        margin: 15px 0 0 20px;
+        padding-left: 22px;
+        width: 480px;
+        height: 35px;
+        border: 1px solid #e1dedf;
+      }
+    }
+
+    //outline: 2px solid red;
+  }
+}
