@@ -22,7 +22,7 @@ const CategoryTab = props => {
 
   useEffect(() => {
     if (!categoryParams.has('category')) {
-      return;
+      categoryParams.append('category', CATEGORY_NAME[0].englishText);
     }
     const categoryParam = categoryParams.get('category');
     const matchingCategory = CATEGORY_NAME.find(
@@ -32,7 +32,7 @@ const CategoryTab = props => {
     if (matchingCategory) {
       setTabActive(matchingCategory.id);
     }
-  }, [categoryParams, setCategoryParams]);
+  }, [categoryParams, tabActive]);
 
   const handleActive = category => {
     setTabActive(category.id);
