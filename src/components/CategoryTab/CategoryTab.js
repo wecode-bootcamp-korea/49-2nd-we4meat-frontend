@@ -21,7 +21,7 @@ const CategoryTab = props => {
   // 쿼리스트링
 
   useEffect(() => {
-    if (!categoryParams.has('category')) {
+    if (!categoryParams.has('category') || tabActive === CATEGORY_NAME[0].id) {
       categoryParams.set('category', 'pork');
       setCategoryParams(categoryParams);
     }

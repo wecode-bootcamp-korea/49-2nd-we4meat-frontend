@@ -28,7 +28,7 @@ const SubNav = props => {
       <section className="menu-wrap">
         <h1>메뉴</h1>
         <div className="menu-right">
-          <LinkGoIcon icon="shopping-cart-black" path="" />
+          <LinkGoIcon icon="shopping-cart-black" path="cart" />
           <button>
             <img
               src={process.env.PUBLIC_URL + `/images/close.png`}
