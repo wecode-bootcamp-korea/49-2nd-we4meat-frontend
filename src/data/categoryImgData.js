@@ -6,7 +6,7 @@ const CATEGORY_IMG_DATA = [
     img: '/images/category-pig.png',
     path: '',
     bannerText: '갓 잡은 돼지고기',
-    bannerImg: './images/category/pork.jpg',
+    bannerImg: '/images/category/pork.jpg',
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const CATEGORY_IMG_DATA = [
     img: '/images/category-cow.png',
     path: '',
     bannerText: '재대로 숙성한 소고기',
-    bannerImg: './images/category/beef.jpg',
+    bannerImg: '/images/category/beef.jpg',
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const CATEGORY_IMG_DATA = [
     img: '/images/category-chicken.png',
     path: '',
     bannerText: '오늘 잡은 닭고기',
-    bannerImg: './images/category/chicken.jpg',
+    bannerImg: '/images/category/chicken.jpg',
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const CATEGORY_IMG_DATA = [
     img: '/images/category-fish.png',
     path: '',
     bannerText: '산지처럼 초신선한 수선',
-    bannerImg: './images/category/fish.jpg',
+    bannerImg: '/images/category/fish.jpg',
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const CATEGORY_IMG_DATA = [
     img: '/images/category-meal.png',
     path: '',
     bannerText: '초신선을 더 맛있게',
-    bannerImg: './images/category/meal.jpg',
+    bannerImg: '/images/category/meal.jpg',
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const CATEGORY_IMG_DATA = [
     img: '/images/category-milk.png',
     path: '',
     bannerText: '오늘 짠 우유',
-    bannerImg: './images/category/milk.jpg',
+    bannerImg: '/images/category/milk.jpg',
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ const CATEGORY_IMG_DATA = [
     img: '/images/category-egg.png',
     path: '',
     bannerText: '오늘 낳은 달걀',
-    bannerImg: './images/category/egg.jpg',
+    bannerImg: '/images/category/egg.jpg',
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ const CATEGORY_IMG_DATA = [
     img: '/images/category-baby.png',
     path: '',
     bannerText: '우리 아이 첫 초신선',
-    bannerImg: './images/category/baby.jpg',
+    bannerImg: '/images/category/baby.jpg',
   },
 ];
 
