@@ -5,12 +5,16 @@ const UserInfoOverview = () => {
   const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
+    getUserInfo();
+  }, []);
+
+  const getUserInfo = () => {
     fetch('/data/userInfoMock.json')
       .then(response => response.json())
       .then(data => {
         setUserInfo(data[0]);
       });
-  }, []);
+  };
 
   const { rank, name, wallet, coupon, buy, userNumber } = userInfo;
 

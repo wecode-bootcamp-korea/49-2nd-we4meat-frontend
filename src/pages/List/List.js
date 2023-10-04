@@ -16,8 +16,6 @@ const List = props => {
 
   const { getQuantity, quantity } = props;
 
-  console.log(props);
-
   return (
     <main id="main" className="list">
       <CategoryBanner title={title} image={image} />

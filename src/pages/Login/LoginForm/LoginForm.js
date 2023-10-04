@@ -38,7 +38,7 @@ const LoginForm = () => {
     ? true
     : false;
 
-  const submitUserInfo = e => {
+  const postUserInfo = e => {
     e.preventDefault();
     // setIsError(false);
     fetch('/data/responseData.json', {
@@ -82,7 +82,7 @@ const LoginForm = () => {
   // }, [loginComplete]);
 
   return (
-    <form className="form" onChange={typingSentry} onSubmit={submitUserInfo}>
+    <form className="form" onChange={typingSentry} onSubmit={postUserInfo}>
       <fieldset>
         <legend>이메일 로그인</legend>
         <Input

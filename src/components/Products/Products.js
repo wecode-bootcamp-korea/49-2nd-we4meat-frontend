@@ -12,6 +12,10 @@ function Products(props) {
 
   useEffect(() => {
     setLoading(true);
+    getProductsData();
+  }, []);
+
+  const getProductsData = () => {
     fetch('/data/mock.json', {
       method: 'GET',
       headers: {
@@ -23,7 +27,7 @@ function Products(props) {
         setLoading(false);
         setProductList(data);
       });
-  }, []);
+  };
 
   const { getQuantity, quantity } = props;
 
