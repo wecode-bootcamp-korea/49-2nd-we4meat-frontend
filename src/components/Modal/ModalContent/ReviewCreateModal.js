@@ -3,8 +3,14 @@ import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 
 const ReviewCreateModal = () => {
+  const [review, setReview] = useState({
+    title: '',
+    content: '',
+  });
+  const { title, content } = review;
   const [fileName, setFileName] = useState('');
   const [file, setFile] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
   const nameInput = useRef();
 
   const addFile = e => {
@@ -30,10 +36,58 @@ const ReviewCreateModal = () => {
   //     });
   // };
 
+  const typingSentry = e => {
+    const { name, value } = e.target;
+    setReview({ ...review, [name]: value });
+  };
+
+  const reviewValidationCheck = text => {
+    if (text.length >= 3) {
+      return true;
+    }
+    return false;
+  };
+
+  const isDisabled = !(
+    reviewValidationCheck(title) && reviewValidationCheck(content)
+  )
+    ? true
+    : false;
+
+  const postReviewCreate = e => {
+    e.preventDefault();
+
+    fetch('API', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: title,
+        content: content,
+      }),
+    })
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        }
+
+        throw new Error('communication failure');
+      })
+      .then(result => {
+        if (result.message === '리뷰 작성 완료') {
+          setModalOpen(false);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="review-create-modal">
       <section className="review-form">
-        <form>
+        <form onChange={typingSentry}>
           <fieldset>
             <legend className="hidden">리뷰 작성 양식</legend>
             <section className="file-upload">
@@ -43,9 +97,13 @@ const ReviewCreateModal = () => {
                   className="input"
                   name="title"
                   placeholder="리뷰 제목을 입력해 주세요."
+                  maxLength="50"
                 />
                 <label className="textarea-label">
-                  <textarea placeholder="내용을 입력해 주세요." />
+                  <textarea
+                    name="content"
+                    placeholder="내용을 입력해 주세요."
+                  />
                 </label>
               </div>
               <div className="right-area">
@@ -78,7 +136,8 @@ const ReviewCreateModal = () => {
           type="submit"
           full="full"
           name="리뷰 작성 완료"
-          // onClick={imageUpload}
+          disabled={isDisabled}
+          onClick={postReviewCreate}
         />
       </section>
     </div>
