@@ -12,6 +12,10 @@ const Modal = ({
   isReview,
   isReviewCreate,
   modalHandler,
+  modalOpen,
+  setModalOpen,
+  getQuantity,
+  quantity,
 }) => {
   // props
   // title & price: CartModal에 props 전달이 필요하므로 data- 컨벤션을 지키지 않음
@@ -30,7 +34,17 @@ const Modal = ({
         </button>
 
         {/* 제품 목록 장바구니 버튼 클릭 시 */}
-        {isProduct && <CartModal title={title} price={price} />}
+        {isProduct && (
+          <CartModal
+            title={title}
+            price={price}
+            modalHandler={modalHandler}
+            modalOpen={modalOpen}
+            setModalOpen={setModalOpen}
+            getQuantity={getQuantity}
+            quantity={quantity}
+          />
+        )}
 
         {/* 제품 상세 > 리뷰 목록 클릭 시 */}
         {isReview && <ReviewModal />}

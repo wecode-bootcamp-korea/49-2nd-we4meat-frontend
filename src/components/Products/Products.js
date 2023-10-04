@@ -6,7 +6,7 @@ import ProductContent from '../ProductContent/ProductContent';
 import ProductText from '../../components/ProductText/ProductText';
 import './Products.scss';
 
-function Products() {
+function Products(props) {
   const [loading, setLoading] = useState(true);
   const [productList, setProductList] = useState([]);
 
@@ -29,6 +29,8 @@ function Products() {
       });
   };
 
+  const { getQuantity, quantity } = props;
+
   return (
     <section className="products-section">
       <div className="inner-wrap">
@@ -44,6 +46,8 @@ function Products() {
                   inventory={product.inventory_id}
                   title={product.product_name}
                   price={product.price}
+                  getQuantity={getQuantity}
+                  quantity={quantity}
                 />
                 <ProductText
                   id={product.id}

@@ -5,7 +5,7 @@ function ProductInfo({ price, weight }) {
   return (
     <div>
       <span className="product-info">
-        기준가 {price?.toLocaleString('ko-KR')}원/{weight}g
+        기준가 {price?.toLocaleString()}원/{weight}g
       </span>
     </div>
   );

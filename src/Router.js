@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Main from './pages/Main/Main';
 import List from './pages/List/List';
 import Detail from './pages/Detail/Detail';
@@ -19,16 +19,32 @@ import InitializeScroll from './components/InitializeScroll/InitializeScroll';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const Router = () => {
+  const [quantity, setQuantity] = useState('');
+
+  const getQuantity = num => {
+    const changedInt = Number(quantity);
+    setQuantity(changedInt + num);
+  };
+
   return (
     <BrowserRouter>
       <InitializeScroll />
       <SkipNavigation />
       <PromotionBanner />
-      <Header />
+      <Header quantity={quantity} />
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/list" element={<List />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route
+          path="/"
+          element={<Main getQuantity={getQuantity} quantity={quantity} />}
+        />
+        <Route
+          path="/list"
+          element={<List getQuantity={getQuantity} quantity={quantity} />}
+        />
+        <Route
+          path="/detail/:id"
+          element={<Detail getQuantity={getQuantity} quantity={quantity} />}
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/mypage" element={<Mypage />} />
         {/* <Route path="/mypageView/:id" element={<MypageView />} /> */}
