@@ -28,17 +28,21 @@ const CartModal = ({
   };
 
   useEffect(() => {
-    fetch('/data/mock.json', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
-        setData(data);
-      });
+    getProductData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const getProductData = () => {
+    // fetch(`/data/orderMock.json/order/${id}`)
+    fetch(`/data/productMock.json`)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        // setData(data);
+        setData(data[0]);
+      });
+  };
 
   const totalPrice = (price * count).toLocaleString();
 
