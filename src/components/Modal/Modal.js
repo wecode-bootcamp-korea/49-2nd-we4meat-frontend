@@ -1,6 +1,7 @@
 import React from 'react';
 import CartModal from './ModalContent/CartModal';
 import ReviewModal from './ModalContent/ReviewModal';
+import ChargeModal from './ModalContent/ChargeModal';
 import './Modal.scss';
 
 const Modal = ({
@@ -9,6 +10,7 @@ const Modal = ({
   scale,
   isProduct,
   isReview,
+  isCharge,
   modalHandler,
   modalOpen,
   setModalOpen,
@@ -46,6 +48,14 @@ const Modal = ({
 
         {/* 제품 상세 > 리뷰 목록 클릭 시 */}
         {isReview && <ReviewModal />}
+        {isCharge && (
+          <ChargeModal
+            title="충천하기"
+            modalHandler={modalHandler}
+            modalOpen={modalOpen}
+            setModalOpen={setModalOpen}
+          />
+        )}
       </div>
     </section>
   );
