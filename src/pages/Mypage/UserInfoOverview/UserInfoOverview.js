@@ -48,7 +48,7 @@ const UserInfoOverview = () => {
           <tbody>
             <tr>
               <td>[{rank?.toUpperCase()}]</td>
-              <td>[{wallet?.toLocaleString('ko-KR')}원]</td>
+              <td>[{wallet?.toLocaleString()}원]</td>
               <td>[{coupon}개]</td>
               <td>[{buy}건]</td>
               <td>[{userNumber}]</td>

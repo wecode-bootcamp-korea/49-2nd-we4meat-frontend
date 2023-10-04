@@ -32,6 +32,8 @@ const CartModal = ({ title, price }) => {
       });
   }, []);
 
+  const totalPrice = (price * count).toLocaleString();
+
   return (
     <>
       <div className="cart-modal">
@@ -44,7 +46,7 @@ const CartModal = ({ title, price }) => {
           text=""
         />
         <OptionSelectBox category="구이용" text="옵션선택" scale="full" />
-        <span>{price}</span>
+        <span className="price">{totalPrice}원</span>
       </div>
       <div className="btn-group">
         {/* 장바구니에 담은 후 장바구니 페이지로 이동 */}

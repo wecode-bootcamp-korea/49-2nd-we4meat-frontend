@@ -47,11 +47,26 @@
 }
 
 .cart-modal {
-  padding-top: 38px;
+  @include FlexCenter;
+  flex-direction: column;
+  padding: 38px 50px 0;
   h1 {
     font-size: 24px;
     line-height: 36px;
     font-weight: 700;
     text-align: center;
+  }
+  .count-wrap {
+    margin-top: 40px;
+  }
+  .option-select {
+    margin-top: 20px;
+  }
+  .price {
+    align-self: flex-end;
+    display: block;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 700;
   }
 }

@@ -14,7 +14,7 @@ const CouponBox = props => {
       });
   }, []);
 
-  const wallet = userInfo.wallet?.toLocaleString('ko-KR');
+  const wallet = userInfo.wallet?.toLocaleString();
 
   return (
     <div className="coupon-box-wrap">

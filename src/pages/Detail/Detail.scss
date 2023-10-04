@@ -23,6 +23,7 @@
         flex: 1;
         margin-left: 100px;
         hgroup {
+          width: 100%;
           margin-bottom: 29px;
           padding-bottom: 26px;
           border-bottom: 1px $grayscale-3 solid;
@@ -46,6 +47,22 @@
         .option-select {
           padding: 0;
           .text-wrap {
+            .text-align {
+              width: auto;
+              font-size: 18px;
+            }
+          }
+          & + .count-wrap {
+            margin-top: 20px;
+          }
+        }
+        .count-wrap {
+          & > p {
+            justify-content: flex-start;
+            font-size: 18px;
+          }
+          & + .btn-group {
+            margin-top: 40px;
           }
         }
         .btn-group {
