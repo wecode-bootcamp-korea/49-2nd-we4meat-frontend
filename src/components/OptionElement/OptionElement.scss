@@ -11,10 +11,13 @@
   top: 0px;
   right: 0;
   z-index: -10;
+  background-color: #191919;
 
   &[scale='full'] {
     width: 396px;
     top: 24px;
+    border: 1px solid #dcdcdc;
+    background-color: transparent;
   }
 
   &:hover {
@@ -63,15 +66,15 @@
       &[scale='full'] {
         width: 396px;
         color: #000;
-        border-left: 1px solid #888;
-        border-right: 1px solid #888;
+        border-left: 1px solid #dcdcdc;
+        border-right: 1px solid #dcdcdc;
       }
 
       &:hover {
         background-color: #fff;
         color: #000;
-        border-left: 1px solid #888;
-        border-right: 1px solid #888;
+        border-left: 1px solid #dcdcdc;
+        border-right: 1px solid #dcdcdc;
       }
     }
   }

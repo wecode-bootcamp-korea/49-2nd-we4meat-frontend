@@ -6,7 +6,10 @@ import './CategoryTab.scss';
 const CategoryTab = props => {
   const [tabActive, setTabActive] = useState(CATEGORY_NAME[0].id);
   // const location = useLocation();
-  const [categoryParams, setCategoryParams] = useSearchParams();
+  const [categoryParams, setCategoryParams] = useSearchParams(
+    'category',
+    'pork',
+  );
 
   // useEffect(() => {
   //   fetch('url', {
@@ -21,11 +24,15 @@ const CategoryTab = props => {
   // 쿼리스트링
 
   useEffect(() => {
-    if (!categoryParams.has('category')) {
-      categoryParams.set('category', 'pork');
-      setCategoryParams(categoryParams);
+    const categoryParam = categoryParams.get('category');
+    const matchingCategory = CATEGORY_NAME.find(
+      category => category.englishText === categoryParam,
+    );
+
+    if (matchingCategory) {
+      setTabActive(matchingCategory.id);
     }
-  }, [categoryParams, setCategoryParams]);
+  }, [categoryParams, tabActive]);
 
   const handleActive = category => {
     setTabActive(category.id);
