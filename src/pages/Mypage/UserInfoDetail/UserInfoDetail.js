@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import OrderDetails from '../OrderDetails/OrderDetails';
+import Orders from '../Orders/Orders';
 import PrivacyDetails from '../PrivacyDetails/PrivacyDetails';
 import './UserInfoDetail.scss';
 
@@ -8,7 +8,7 @@ const UserInfoDetail = () => {
   const [currentTab, setTab] = useState(0);
 
   const TAB_DATA = [
-    { name: '주문내역', content: <OrderDetails /> },
+    { name: '주문내역', content: <Orders /> },
     { name: '개인정보관리', content: <PrivacyDetails /> },
   ];
 

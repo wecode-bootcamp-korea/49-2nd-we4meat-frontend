@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import Pagination from '../Pagination/Pagination';
-import './OrderDetails.scss';
+import './Orders.scss';
 
-const OrderDetails = () => {
+const Orders = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [dataList, setDataList] = useState([]);
   const [page, setPage] = useState(1);
@@ -19,6 +19,11 @@ const OrderDetails = () => {
   };
 
   useEffect(() => {
+    getOrdersData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
+
+  const getOrdersData = () => {
     // BE와 규격 협의 필요
     fetch(`/data/orderMock.json?offset=${offset}&limit=${limit}`)
       .then(response => response.json())
@@ -26,8 +31,7 @@ const OrderDetails = () => {
         setPaginationParams();
         setDataList(data.reverse());
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  };
 
   const totalPages = Math.ceil(dataList.length / 10);
 
@@ -80,4 +84,4 @@ const OrderDetails = () => {
   );
 };
 
-export default OrderDetails;
+export default Orders;

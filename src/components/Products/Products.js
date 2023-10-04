@@ -12,6 +12,10 @@ function Products() {
 
   useEffect(() => {
     setLoading(true);
+    getProductsData();
+  }, []);
+
+  const getProductsData = () => {
     fetch('/data/mock.json', {
       method: 'GET',
       headers: {
@@ -23,7 +27,7 @@ function Products() {
         setLoading(false);
         setProductList(data);
       });
-  }, []);
+  };
 
   return (
     <section className="products-section">
