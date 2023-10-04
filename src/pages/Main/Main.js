@@ -5,17 +5,18 @@ import EventBanners from './EventBanners/EventBanners';
 import Products from '../../components/Products/Products';
 import ListBanner from './ListBanner/ListBanner';
 
-const Main = () => {
+const Main = props => {
   const location = useLocation();
-  const { id, count } = location.state;
+  // const { id, count } = location.state;
+  console.log(location.state);
 
-  console.log(id, count);
+  const { getQuantity, quantity } = props;
 
   return (
     <main id="main" className="main">
       <BigBanner />
       <EventBanners />
-      <Products />
+      <Products getQuantity={getQuantity} quantity={quantity} />
       <ListBanner />
     </main>
   );

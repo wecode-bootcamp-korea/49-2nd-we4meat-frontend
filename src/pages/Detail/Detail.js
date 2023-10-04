@@ -7,7 +7,7 @@ import Button from '../../components/Button/Button';
 import DetailTab from './DetailTab/DetailTab';
 import './Detail.scss';
 
-const Detail = () => {
+const Detail = props => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -60,6 +60,10 @@ const Detail = () => {
     count: count,
   };
 
+  const setQuantity = () => {
+    props.getQuantity(count);
+  };
+
   return (
     <>
       {loading && <Loading />}
@@ -86,7 +90,7 @@ const Detail = () => {
               />
               <div className="btn-group">
                 <Button color="bg-gray" name="바로구매" onClick={buyNow} />
-                <Button color="bg-red" name="장바구니" />
+                <Button color="bg-red" name="장바구니" onClick={setQuantity} />
               </div>
             </div>
           </div>

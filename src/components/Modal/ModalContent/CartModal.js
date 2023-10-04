@@ -3,7 +3,15 @@ import CountBox from '../../CountBox/CountBox';
 import OptionSelectBox from '../../OptionSelectBox/OptionSelectBox';
 import Button from '../../Button/Button';
 
-const CartModal = ({ title, price }) => {
+const CartModal = ({
+  title,
+  price,
+  modalHandler,
+  modalOpen,
+  setModalOpen,
+  getQuantity,
+  quantity,
+}) => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(1);
 
@@ -34,6 +42,11 @@ const CartModal = ({ title, price }) => {
 
   const totalPrice = (price * count).toLocaleString();
 
+  const setQuantity = () => {
+    getQuantity(count);
+    setModalOpen(false);
+  };
+
   return (
     <>
       <div className="cart-modal">
@@ -52,7 +65,7 @@ const CartModal = ({ title, price }) => {
         {/* 장바구니에 담은 후 장바구니 페이지로 이동 */}
         <Button color="bg-gray" name="바로구매" />
         {/* 장바구니에만 담고 현 페이지 유지 */}
-        <Button color="bg-black" name="장바구니" />
+        <Button color="bg-black" name="장바구니" onClick={setQuantity} />
       </div>
     </>
   );

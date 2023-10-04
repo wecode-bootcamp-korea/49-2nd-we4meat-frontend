@@ -1,9 +1,10 @@
 @charset "utf-8";
-@import '../../../styles//partials/mixin.scss';
+@import '../../../styles/partials/mixin', '../../../styles/partials/variables';
 
 .icon-wrap {
   @include FlexCenter;
   gap: 8px;
+  position: relative;
   font-size: 30px;
   font-weight: bold;
   color: #fff;
