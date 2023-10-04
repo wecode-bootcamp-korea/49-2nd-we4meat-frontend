@@ -5,7 +5,16 @@ import CartButton from '../CartButton/CartButton';
 import Modal from '../Modal/Modal';
 import './ProductContent.scss';
 
-function ProductContent({ id, className, img, inventory, title, price }) {
+function ProductContent({
+  id,
+  className,
+  img,
+  inventory,
+  title,
+  price,
+  getQuantity,
+  quantity,
+}) {
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -33,7 +42,11 @@ function ProductContent({ id, className, img, inventory, title, price }) {
           price={price}
           scale="xs"
           isProduct="true"
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
           modalHandler={modalHandler}
+          getQuantity={getQuantity}
+          quantity={quantity}
         />
       )}
     </div>
