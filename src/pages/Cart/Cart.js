@@ -8,6 +8,8 @@ const deliveryFee = 3500;
 
 const Cart = () => {
   const [orderInfo, setOrderInfo] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const totalPriceNDelivery = totalPrice + deliveryFee;
   const navigate = useNavigate();
   useEffect(() => {
     fetch('/data/orderPayMock.json')
@@ -16,6 +18,17 @@ const Cart = () => {
         setOrderInfo(data);
       });
   }, []);
+
+  const sumTotal = () => {
+    const total = orderInfo.reduce((acc, item) => {
+      return acc + item.quantity * item.unitPrice;
+    }, 0);
+    return total;
+  };
+
+  useEffect(() => {
+    setTotalPrice(sumTotal());
+  }, [orderInfo]);
 
   const handleSubmit = () => {
     const array = orderInfo.map(item => ({
@@ -99,15 +112,15 @@ const Cart = () => {
         <section>
           <div className="total-order-wrap">
             <p className="price-wrap">
-              총 상품 금액 <span>21600원</span>
+              총 상품 금액 <span>{totalPrice?.toLocaleString()}</span>
             </p>
             <p className="price-wrap">
-              총 배송비<span>{deliveryFee}원</span>
+              총 배송비<span>{deliveryFee.toLocaleString()}원</span>
             </p>
             <div className="bottom-wrap">
               <p className="price-align-wrap">
                 예상 결제 금액
-                <span>21600원</span>
+                <span>{totalPriceNDelivery?.toLocaleString()}</span>
               </p>
               <Button
                 color="bg-red"
@@ -121,6 +134,7 @@ const Cart = () => {
                 full="full"
                 name="쇼핑계속하기"
                 scale="low"
+                onClick={() => navigate('/list?category=pork')}
               />
             </div>
           </div>
