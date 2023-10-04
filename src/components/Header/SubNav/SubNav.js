@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import LinkGoIcon from '../LinkGoIcon/LinkGoIcon';
 import CATEGORY_IMG_DATA from '../../../data/categoryImgData';
 import './SubNav.scss';
 
 const SubNav = props => {
   const { handleClose, active } = props;
+  // const [categoryParams, setCategoryParams] = useSearchParams();
   const subNavRef = useRef(null);
 
   const useOutsideClick = ref => {
@@ -22,6 +23,12 @@ const SubNav = props => {
     }, [ref]);
   };
   useOutsideClick(subNavRef);
+
+  // const toGoCategory = e => {
+  //   categoryParams.set('category', 'meal');
+  //   setCategoryParams(categoryParams);
+  //   console.log(e.target.path);
+  // };
 
   return (
     <div className={active ? 'sub-nav active' : 'sub-nav'} ref={subNavRef}>
@@ -44,7 +51,7 @@ const SubNav = props => {
           {CATEGORY_IMG_DATA.map(list => {
             return (
               <li key={list.id}>
-                <Link to={list.path}>
+                <Link to={`/list?category=${list.englishText}`}>
                   <img
                     src={process.env.PUBLIC_URL + list.img}
                     alt={list.text}
