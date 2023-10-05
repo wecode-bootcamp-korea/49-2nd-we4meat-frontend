@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import Radio from '../../../components/Radio/Radio';
 import PayBox from './PayBox/PayBox';
@@ -8,19 +8,18 @@ import ProcessNav from '../../../components/ProcessNav/ProcessNav';
 import './PayLast.scss';
 
 const PayLast = () => {
-  const [orderInfo, setOrderInfo] = useState({});
+  const [orderInfo, setOrderInfo] = useState([]);
   const [userInfo, setUserInfo] = useState({});
   const [isValidation, setIsValidation] = useState(true);
   const [isCheckBox, setIsCheckBox] = useState(false);
   const navigation = useNavigate();
-  const {
-    order_item,
-    order_item_option,
-    order_weight,
-    order_count,
-    order_price,
-  } = orderInfo;
+  const location = useLocation();
   const { wallet } = userInfo;
+  const orderCount = orderInfo.length - 1;
+  let totalPrice = null;
+  if (location.state != null) {
+    totalPrice = location.state.totalPrice;
+  }
 
   const backPage = () => {
     navigation(-1);
@@ -31,7 +30,7 @@ const PayLast = () => {
   };
 
   useEffect(() => {
-    if (isCheckBox === true && wallet >= order_price) {
+    if (isCheckBox === true && wallet >= totalPrice) {
       setIsValidation(!isValidation);
     } else {
       setIsValidation(true);
@@ -42,7 +41,7 @@ const PayLast = () => {
     fetch('/data/orderPayMock.json')
       .then(response => response.json())
       .then(data => {
-        setOrderInfo(data[0]);
+        setOrderInfo(data);
       });
     fetch('/data/userInfoMock.json')
       .then(response => response.json())
@@ -66,17 +65,21 @@ const PayLast = () => {
           <div className="second-box">
             <h3>주문 상품</h3>
             <div className="order-item-wrap">
-              <ul>
-                <li>
-                  {order_item}
-                  <span className="small-gray-font">{order_item_option}</span>
-                </li>
-                <li>{order_weight}</li>
-                <li>{order_count}</li>
-                <li>{order_price?.toLocaleString()}원</li>
-              </ul>
-              {/* 제품 ul map */}
-              <PayBox price={order_price} wallet={wallet} />
+              <div className="etc-wrap">
+                <ul className="list-order-wrap">
+                  <li>
+                    {orderInfo[0]?.productName}
+                    <span className="small-gray-font">보통(16mm)</span>
+                  </li>
+                  <li>{orderInfo[0]?.weight}</li>
+                  <li>{orderInfo[0]?.quantity}</li>
+                  <li>{totalPrice?.toLocaleString()}원</li>
+                </ul>
+                {orderInfo.length !== 1 && (
+                  <p className="small-scale-font">…외 {orderCount}개</p>
+                )}
+              </div>
+              <PayBox price={totalPrice} wallet={wallet} />
             </div>
             <Checkbox
               text="
@@ -94,7 +97,7 @@ const PayLast = () => {
           />
           <Button
             type="submit"
-            color={isValidation === true ? 'bg-gray' : 'bg-red'}
+            color="bg-red"
             full="full"
             name="결제하기"
             disabled={isValidation}

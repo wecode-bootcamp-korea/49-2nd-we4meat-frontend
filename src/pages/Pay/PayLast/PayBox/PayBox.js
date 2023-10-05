@@ -4,15 +4,17 @@ import './PayBox.scss';
 const deliveryFee = 3500;
 
 const PayBox = ({ price, wallet }) => {
-  const delivery = price + deliveryFee;
+  const delivery = Number(price) + deliveryFee;
+  const priceNum = Number(price)?.toLocaleString();
+  const walletNum = Number(wallet);
 
   return (
     <div className="pay-box-wrap">
-      <ul>
+      <ul className="pay-list-wrap">
         <li>
           <h4>총 상품 금액</h4>
           <p>
-            {price?.toLocaleString()}
+            {priceNum}
             <span className="small-font">원</span>
           </p>
         </li>
@@ -27,19 +29,22 @@ const PayBox = ({ price, wallet }) => {
         <img src={process.env.PUBLIC_URL + '/images/plus.png'} alt="더하기" />
         <li>
           <h4>쿠폰/적립금</h4>
-          <p>
+          <p className="red-font">
             -
-            {wallet >= delivery
+            {walletNum >= delivery
               ? delivery?.toLocaleString()
-              : wallet?.toLocaleString()}
+              : walletNum?.toLocaleString()}
             <span className="small-font">원</span>
           </p>
         </li>
         <img src={process.env.PUBLIC_URL + '/images/equal.png'} alt="합산" />
         <li>
           <h4>예상 결제 금액</h4>
-          <p className="red-font">
-            {delivery?.toLocaleString()}
+          <p>
+            {/* 포인트 >= 총합 일때 0 아닐때 총합-포인트 */}
+            {walletNum >= delivery
+              ? 0
+              : (delivery - walletNum)?.toLocaleString()}
             <span className="small-font">원</span>
           </p>
         </li>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
 
-const ChargeModal = ({ title, wallet }) => {
+const ChargeModal = ({ title, modalHandler }) => {
   const [pointChange, setPointChange] = useState('');
   const [isAlert, setIsAlert] = useState(false);
   const [isValidation, setIsValidation] = useState(true);
@@ -32,13 +32,12 @@ const ChargeModal = ({ title, wallet }) => {
     }
   }, [pointChange]);
 
-  const numWallet = parseInt(wallet) + pointChange;
   const pointCharge = () => {
     // fetch('http://url', {
     //   method: 'PATCH',
     //   body: JSON.stringify(
-    //     { credit: numWallet },
-    console.log(numWallet);
+    //     { credit: pointChange },
+    console.log(pointChange);
     //     ),
     //     headers: {
     //       'Content-Type': 'application/json;charset=utf-8',
@@ -51,7 +50,9 @@ const ChargeModal = ({ title, wallet }) => {
     //       }
     //       throw new Error('오류입니다.');
     //     })
-    //     .then();
+    //     .then(
+    modalHandler();
+    // );
   };
 
   return (
@@ -60,7 +61,7 @@ const ChargeModal = ({ title, wallet }) => {
       <Input
         type="number"
         className="point-input-wrap"
-        placeholder="충전 할 포인트를 입력하세요."
+        placeholder="금액을 입력해주세요."
         value={pointChange}
         onChange={handlePoint}
       />

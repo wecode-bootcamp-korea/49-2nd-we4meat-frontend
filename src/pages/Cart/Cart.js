@@ -39,6 +39,7 @@ const Cart = () => {
     //   method: 'PATCH',
     //   body: JSON.stringify(
     console.log(array);
+    navigate('/pay', { state: { totalPrice } });
     //     ),
     //   headers: {
     //     'Content-Type': 'application/json;charset=utf-8',
