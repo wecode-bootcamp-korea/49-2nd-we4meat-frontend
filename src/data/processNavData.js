@@ -21,4 +21,5 @@ const PROCESS_NAV_DATA = [
     path: '/pay-last',
   },
 ];
+
 export default PROCESS_NAV_DATA;
