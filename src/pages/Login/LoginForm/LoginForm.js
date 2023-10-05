@@ -64,7 +64,7 @@ const LoginForm = () => {
         }
       });
   };
-  // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsImlhdCI6MTY5NjUxMjEyOX0.TRTVOZf5vH50daa8Y7qOeHoriCrUKzvlzDUJva-2k4I
+
   useEffect(() => {
     if (loginComplete === true) {
       navigate('/');
@@ -73,7 +73,11 @@ const LoginForm = () => {
   }, [loginComplete]);
 
   return (
-    <form className="form" onChange={typingSentry} onSubmit={postUserInfo}>
+    <form
+      className="form"
+      onChange={typingSentry}
+      // onSubmit={postUserInfo}
+    >
       <fieldset>
         <legend>이메일 로그인</legend>
         <Input

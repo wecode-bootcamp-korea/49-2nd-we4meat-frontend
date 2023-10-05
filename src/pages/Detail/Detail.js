@@ -14,6 +14,7 @@ const Detail = props => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(1);
   const { id } = useParams();
+  const productId = Number(id) + 1;
 
   const handleMinusCount = () => {
     if (count === 1) {
@@ -55,18 +56,32 @@ const Detail = props => {
   const thirdCalc = Math.round(secondCalc).toLocaleString();
 
   const buyNow = () => {
-    navigate('/', {
+    setQuantity();
+    navigate('/cart', {
       state: productData,
     });
   };
 
   const productData = {
-    id: id,
-    count: count,
+    productId: productId,
+    quantity: count,
   };
 
   const setQuantity = () => {
     getQuantity(count);
+    fetch(`${API.CART}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({
+        productId: productId,
+        quantity: count,
+      }),
+    })
+      .then()
+      .then();
   };
 
   return (
