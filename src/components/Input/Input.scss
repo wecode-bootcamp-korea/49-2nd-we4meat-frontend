@@ -3,6 +3,7 @@
 
 .input-box {
   display: block;
+  width: 100%;
   .input {
     width: 100%;
     padding: 0 15px;
@@ -14,6 +15,7 @@
       height: 48px;
     }
     &.sign-up {
+      width: 100px;
       height: 40px;
     }
     &:focus[data-validation='false'] {

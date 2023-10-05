@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 
-const ReviewCreateModal = () => {
+const ReviewCreateModal = props => {
   const [review, setReview] = useState({
     title: '',
     content: '',
@@ -106,7 +106,7 @@ const ReviewCreateModal = () => {
                   />
                 </label>
               </div>
-              <div className="right-area">
+              {/* <div className="right-area">
                 <div>
                   <input
                     type="text"
@@ -128,7 +128,7 @@ const ReviewCreateModal = () => {
                   accept="image/*"
                   onChange={addFile}
                 />
-              </div>
+              </div> */}
             </section>
           </fieldset>
         </form>

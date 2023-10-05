@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal';
 import Loading from '../../pages/Loading/Loading';
 import './Order.scss';
 
-const Order = () => {
+const Order = props => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -43,7 +43,14 @@ const Order = () => {
     setModalOpen(prev => !prev);
   };
 
+  const def = () => {
+    setModalOpen(true);
+    abc(true);
+  };
+
   const { order, order_date, order_number, order_price, order_summary } = data;
+
+  const { abc, setIsModal, isModal } = props;
 
   return (
     <>
@@ -86,13 +93,16 @@ const Order = () => {
                     color="bg-gray"
                     scale="low"
                     name="리뷰 작성하기"
-                    onClick={() => setModalOpen(true)}
+                    onClick={def}
                   />
                   {modalOpen && (
                     <Modal
-                      scale="xl"
+                      scale="xs"
                       isReviewCreate="true"
                       modalHandler={modalHandler}
+                      abc={abc}
+                      setIsModal={setIsModal}
+                      isModal={isModal}
                     />
                   )}
                 </span>

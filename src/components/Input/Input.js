@@ -9,6 +9,7 @@ function Input({
   isValidation,
   value,
   onChange,
+  maxLength,
 }) {
   return (
     <label className="input-box">
@@ -20,6 +21,7 @@ function Input({
         data-validation={isValidation}
         value={value}
         onChange={onChange}
+        maxLength={maxLength}
       />
     </label>
   );
