@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../../config';
 import Input from '../../../components/Input/Input';
 import Button from '../../../components/Button/Button';
 import './UserInfo.scss';
@@ -30,10 +31,11 @@ function UserInfo(props) {
     setPhoneNumber({ ...phoneNumber, [name]: value });
   };
 
-  const checkEmailBtn = () => {
+  const checkEmailBtn = e => {
+    e.preventDefault();
     if (email.includes('@')) {
       setIsEmail(true);
-      fetch('http://10.58.52.104:8000/users/checkduplicate', {
+      fetch(`${API.CHECK_DUPLICATE}`, {
         method: 'POST',
         body: JSON.stringify({
           email: email,
@@ -44,7 +46,7 @@ function UserInfo(props) {
       })
         .then(res => res.json())
         .then(isDouble => {
-          if (isDouble.message === 'EMAIL_AVAILABLE') {
+          if (!isDouble.message === 'EMAIL_AVAILABLE') {
             alert('이미 사용 중인 이메일입니다.');
             setIsEmail(false);
           }
@@ -53,13 +55,14 @@ function UserInfo(props) {
       alert('이메일에 @는 필수입니다.');
     }
   };
-  const checkPhoneNumberBtn = () => {
+  const checkPhoneNumberBtn = e => {
+    e.preventDefault();
     if (userPhoneNumber === '') {
       alert('휴대폰 번호를 입력하세요.');
       return;
     }
 
-    fetch('http://10.58.52.104:8000/users/checkduplicate', {
+    fetch(`${API.CHECK_DUPLICATE}`, {
       method: 'POST',
       body: JSON.stringify({
         phoneNumber: userPhoneNumber,
@@ -150,33 +153,28 @@ function UserInfo(props) {
   const postUserInfo = e => {
     e.preventDefault();
     // setIsError(false);
-    fetch('/data/responseData.json', {
+    fetch(`${API.SIGNUP}`, {
       // 1. 실제 통신 시 POST
-      // method: 'POST',
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       // 2. 실제 통신 시 보낼 정보
-      // body: JSON.stringify({
-      //   email: email,
-      //   password: password,
-      //   name: name,
-      //   phoneNumber: userPhoneNumber
-      // }),
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        name: name,
+        phoneNumber: userPhoneNumber,
+      }),
     })
       .then(response => {
-        if (response.status === 200) {
-          return response.json();
-        }
+        return response.json();
         throw new Error('communication failure');
       })
       .then(result => {
         console.log(result);
-        if (result.message === 'signUp success') {
-          localStorage.setItem('accessToken', result.accessToken);
-          // 3. 실제 통신 시 로그인 완료 상태 관리
-          // setSignUpComplete(true);
+        if (result.message === 'SIGNUP_SUCCESS') {
+          setSignUpComplete(true);
         } else {
           alert('회원가입에 실패하셨습니다.');
         }
@@ -186,13 +184,13 @@ function UserInfo(props) {
       });
   };
 
-  // 4. 실제 통신 시 페이지 이동 처리
-  // useEffect(() => {
-  //   if (signUpComplete === true) {
-  //     navigate('/');
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [signUpComplete]);
+  useEffect(() => {
+    if (signUpComplete === true) {
+      navigate('/');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signUpComplete]);
+
   return (
     <div className="user-info">
       <form onSubmit={postUserInfo}>
@@ -204,13 +202,14 @@ function UserInfo(props) {
                 <td>아이디(이메일주소)</td>
                 <td>
                   <div className="email-check">
-                    <Button
-                      type="submit"
-                      name="중복확인"
-                      scale="smallest"
-                      onClick={checkEmailBtn}
-                    />
+                    <Input id="email" type="email" onChange={saveEmail} />
                   </div>
+                  <Button
+                    type="submit"
+                    name="중복확인"
+                    scale="smallest"
+                    onClick={checkEmailBtn}
+                  />
                   <span className={isEmail ? 'black' : 'red'}>
                     {emailMessage}
                   </span>
@@ -292,6 +291,12 @@ function UserInfo(props) {
               </tr>
             </tbody>
           </table>
+          <Button
+            type="submit"
+            full="full"
+            name="가입하기"
+            onClick={postUserInfo}
+          />
         </fieldset>
       </form>
     </div>

@@ -60,13 +60,11 @@ const LoginForm = () => {
       .then(result => {
         if (result.message === 'LOGIN_SUCCESS') {
           localStorage.setItem('accessToken', result.token);
-          // 3. 실제 통신 시 로그인 완료 상태 관리
           setLoginComplete(true);
         }
       });
   };
-
-  // 4. 실제 통신 시 페이지 이동 처리
+  // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsImlhdCI6MTY5NjUxMjEyOX0.TRTVOZf5vH50daa8Y7qOeHoriCrUKzvlzDUJva-2k4I
   useEffect(() => {
     if (loginComplete === true) {
       navigate('/');
