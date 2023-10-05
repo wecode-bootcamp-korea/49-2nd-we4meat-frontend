@@ -19,10 +19,15 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const Router = () => {
   const [quantity, setQuantity] = useState('');
+  const [isModal, setIsModal] = useState(false);
 
   const getQuantity = num => {
     const changedInt = Number(quantity);
     setQuantity(changedInt + num);
+  };
+
+  const abc = Boolean => {
+    setIsModal(Boolean);
   };
 
   return (
@@ -30,7 +35,7 @@ const Router = () => {
       <InitializeScroll />
       <SkipNavigation />
       <PromotionBanner />
-      <Header quantity={quantity} />
+      <Header quantity={quantity} isModal={isModal} />
       <Routes>
         <Route
           path="/"
@@ -50,7 +55,12 @@ const Router = () => {
         <Route path="/pay-coupon" element={<PayCoupon />} />
         <Route path="/pay-last" element={<PayLast />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/order/:id" element={<Order />} />
+        <Route
+          path="/order/:id"
+          element={
+            <Order abc={abc} setIsModal={setIsModal} isModal={isModal} />
+          }
+        />
       </Routes>
       <Footer />
       <TopButton />

@@ -7,6 +7,15 @@
   z-index: 100;
   background-color: #000;
 
+  // &[data-modal='true'] {
+  //   .left-wrap::before {
+  //     @include Position(absolute, 0, 0, 0, 0);
+  //     content: '';
+  //     background-color: rgba(0, 0, 0, 0.65);
+  //     z-index: 2;
+  //   }
+  // }
+
   .header-wrap {
     display: flex;
     align-items: center;
