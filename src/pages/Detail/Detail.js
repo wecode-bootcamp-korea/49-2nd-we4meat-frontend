@@ -84,6 +84,16 @@ const Detail = props => {
       .then();
   };
 
+  const isOdd = num => {
+    if (num % 2 === 0) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  const result = isOdd(productId);
+
   return (
     <>
       {loading && <Loading />}
@@ -116,7 +126,7 @@ const Detail = props => {
           </div>
         </section>
         <section className="detail-bottom">
-          <DetailTab />
+          <DetailTab result={result} />
         </section>
       </main>
     </>
