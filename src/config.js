@@ -7,6 +7,7 @@ export const API = {
   LIST: `${BASE_URL}/list`,
   DETAIL: `${BASE_URL}/list/detail`,
   REVIEW: `${BASE_URL}/review`,
+  CART: `${BASE_URL}/cart`,
   //   LOGIN: `${BASE_URL}/users/login`,
   //   LOGIN: `${BASE_URL}/users/login`,
   //   LOGIN: `${BASE_URL}/users/login`,

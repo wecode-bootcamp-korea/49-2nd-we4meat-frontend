@@ -6,6 +6,7 @@ import ReviewCreateModal from './ModalContent/ReviewCreateModal';
 import './Modal.scss';
 
 const Modal = ({
+  id,
   title,
   price,
   scale,
@@ -28,6 +29,8 @@ const Modal = ({
   // isProduct / isReview / isReviewCreate: [Boolean] 모달 팝업 컨텐츠: isProduct(제품 목록 장바구니 버튼 클릭 시) / 리뷰 목록 팝업 컨텐츠: isReview(제품 상세 > 리뷰 목록 클릭 시) / 리뷰 작성 팝업 컨텐츠: isReviewCreate(마이페이지 > 주문 상세 > 리뷰 작성하기 버튼 클릭 시)
   // modalHandler: [Function] 모달 팝업 열기 및 닫기 기능
 
+  console.log(id);
+
   return (
     <section className="modal-popup" autoFocus>
       <div className="modal-backdrop" onClick={modalHandler} />
@@ -39,6 +42,7 @@ const Modal = ({
         {/* 제품 목록 장바구니 버튼 클릭 시 */}
         {isProduct && (
           <CartModal
+            id={id}
             title={title}
             price={price}
             modalHandler={modalHandler}

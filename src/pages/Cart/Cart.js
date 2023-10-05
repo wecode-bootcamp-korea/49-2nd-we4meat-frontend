@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CartOrder from './CartOrder/CartOrder';
 import Button from '../../components/Button/Button';
 import './Cart.scss';
@@ -11,6 +11,11 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const totalPriceNDelivery = totalPrice + deliveryFee;
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // 바로구매 시 여기서 두 데이터를 꺼내 쓰시면 됩니다.
+  // const { productId, quantity } = location.state;
+
   useEffect(() => {
     fetch('/data/orderPayMock.json')
       .then(response => response.json())

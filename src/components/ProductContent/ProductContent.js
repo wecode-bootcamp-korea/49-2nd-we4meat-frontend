@@ -47,6 +47,7 @@ function ProductContent({
           modalHandler={modalHandler}
           getQuantity={getQuantity}
           quantity={quantity}
+          id={id}
         />
       )}
     </div>
