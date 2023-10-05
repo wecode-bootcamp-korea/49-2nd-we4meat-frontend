@@ -10,11 +10,23 @@ const passwordRegExp = /^[A-Za-z0-9]{6,12}$/;
 
 function UserInfo(props) {
   const navigate = useNavigate();
+  const [signUpComplete, setSignUpComplete] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState({
+    first: '010',
+    second: '',
+    third: '',
+  });
 
+  const { first, second, third } = phoneNumber;
+
+  const savePhoneNumber = e => {
+    const { name, value } = e.target;
+    setPhoneNumber({ ...phoneNumber, [name]: value });
+  };
   //유효성검사
   const [isname, setIsName] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
@@ -77,10 +89,61 @@ function UserInfo(props) {
       setIsPasswordConfirm(true);
     }
   }, [password, confirmPassword]);
+  const userPhoneNumber =
+    phoneNumber.first + phoneNumber.second + phoneNumber.third;
+
+  const postUserInfo = e => {
+    e.preventDefault();
+    // setIsError(false);
+    fetch('/data/responseData.json', {
+      // 1. 실제 통신 시 POST
+      // method: 'POST',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // 2. 실제 통신 시 보낼 정보
+      // body: JSON.stringify({
+      //   email: email,
+      //   password: password,
+      //   name: name,
+      //   phoneNumber: userPhoneNumber
+      // }),
+    })
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        }
+        throw new Error('communication failure');
+      })
+      .then(result => {
+        console.log(result);
+        if (result.message === 'signUp success') {
+          localStorage.setItem('accessToken', result.accessToken);
+          // 3. 실제 통신 시 로그인 완료 상태 관리
+          // setSignUpComplete(true);
+        } else {
+          alert('회원가입에 실패하셨습니다.');
+        }
+      })
+      .catch(error => {
+        // setIsError(true);
+      });
+  };
+
+  // 4. 실제 통신 시 페이지 이동 처리
+  // useEffect(() => {
+  //   if (signUpComplete === true) {
+  //     navigate('/');
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [signUpComplete]);
+
+  console.log(name);
 
   return (
     <div className="user-info">
-      <form>
+      <form onSubmit={postUserInfo}>
         <fieldset>
           <legend>가입정보 입력</legend>
           <table>
@@ -89,7 +152,9 @@ function UserInfo(props) {
                 <td>아이디(이메일주소)</td>
                 <td>
                   <Input id="userId" type="text" onChange={saveEmail} />
-                  <span>{emailMessage}</span>
+                  <span className={isEmail ? 'black' : 'red'}>
+                    {emailMessage}
+                  </span>
                 </td>
               </tr>
               <tr>
@@ -100,7 +165,9 @@ function UserInfo(props) {
                     type="password"
                     onChange={savePassword}
                   />
-                  <span>{passwordMessage}</span>
+                  <span className={isPassword ? 'black' : 'red'}>
+                    {passwordMessage}
+                  </span>
                 </td>
               </tr>
               <tr>
@@ -111,7 +178,9 @@ function UserInfo(props) {
                     type="password"
                     onChange={saveConfirmPassword}
                   />
-                  <span>{passwordConfirmMessage}</span>
+                  <span className={isPasswordConfirm ? 'black' : 'red'}>
+                    {passwordConfirmMessage}
+                  </span>
                 </td>
               </tr>
               <tr>
@@ -124,7 +193,7 @@ function UserInfo(props) {
                 <td>휴대폰번호</td>
                 <td>
                   <div className="phone-box">
-                    <select>
+                    <select name="first" onChange={savePhoneNumber}>
                       <option value="010">010</option>
                       <option value="011">011</option>
                       <option value="017">017</option>
@@ -138,6 +207,8 @@ function UserInfo(props) {
                       type="tel"
                       maxLength="4"
                       className="input-box sign-up"
+                      onChange={savePhoneNumber}
+                      name="second"
                     />
                   </div>
                   <div className="phone-box">
@@ -146,10 +217,12 @@ function UserInfo(props) {
                       type="tel"
                       maxLength="4"
                       className="input-box sign-up"
+                      onChange={savePhoneNumber}
+                      name="third"
                     />
                   </div>
                   <div className="phone-box">
-                    <Button type="button" name="중복확인" scale="smallest" />
+                    <Button type="submit" name="중복확인" scale="smallest" />
                   </div>
                 </td>
               </tr>

@@ -44,8 +44,15 @@
 
       span {
         font-size: 12px;
-        margin: 20px;
+        margin: 25px;
         //line-height: 12px;
+
+        &.red {
+          color: red;
+        }
+        &.black {
+          color: #000;
+        }
       }
     }
     .user-phone {
