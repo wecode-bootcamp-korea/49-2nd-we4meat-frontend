@@ -10,9 +10,8 @@ export const API = {
   CART: `${BASE_URL}/cart`,
   CHARGE: `${BASE_URL}/payment/topupcredit`,
   PAYMENT: `${BASE_URL}/payment`,
-  ORDER: `${BASE_URL}/order/detail?id=1`,
-
-  //   LOGIN: `${BASE_URL}/users/login`,
+  ORDER_DETAIL: `${BASE_URL}/order/detail?id=1`,
+  ORDER: `${BASE_URL}/order`,
   //   LOGIN: `${BASE_URL}/users/login`,
   //   LOGIN: `${BASE_URL}/users/login`,
   //   PRODUCTS: `${BASE_URL}/products`,

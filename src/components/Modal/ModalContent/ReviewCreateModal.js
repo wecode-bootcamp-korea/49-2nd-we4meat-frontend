@@ -9,19 +9,19 @@ const ReviewCreateModal = props => {
     content: '',
   });
   const { title, content } = review;
-  const [fileName, setFileName] = useState('');
-  const [file, setFile] = useState('');
+  // const [fileName, setFileName] = useState('');
+  // const [file, setFile] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const nameInput = useRef();
 
-  const addFile = e => {
-    setFileName(e.target.files[0]?.name);
-    let reader = new FileReader();
-    reader.onload = function (e) {
-      setFile(e.target.result);
-    };
-    reader.readAsDataURL(e.target.files[0]);
-  };
+  // const addFile = e => {
+  //   setFileName(e.target.files[0]?.name);
+  //   let reader = new FileReader();
+  //   reader.onload = function (e) {
+  //     setFile(e.target.result);
+  //   };
+  //   reader.readAsDataURL(e.target.files[0]);
+  // };
 
   // const imageUpload = e => {
   //   e.preventDefault();
@@ -62,24 +62,22 @@ const ReviewCreateModal = props => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
       },
       body: JSON.stringify({
         title: title,
-        content: content,
+        body: content,
       }),
     })
       .then(response => {
-        if (response.status === 200) {
+        if (response.status === 201) {
           return response.json();
         }
-
         throw new Error('communication failure');
       })
       .then(result => {
         console.log(result);
-        // if (result.message === '리뷰 작성 완료') {
-        //   setModalOpen(false);
-        // }
+        setModalOpen(true);
       })
       .catch(error => {
         console.log(error);
