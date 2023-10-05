@@ -6,7 +6,7 @@ const LINK_LIST = [
   // { id: 1, text: '공지사항', path: '' },
   // { id: 2, text: '고객센터', path: '' },
   { id: 1, text: '로그인', path: '/login' },
-  { id: 2, text: '회원가입', path: '' },
+  { id: 2, text: '회원가입', path: '/sign-up' },
 ];
 
 const LoginItemGroup = () => {

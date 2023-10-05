@@ -17,7 +17,7 @@ function Products(props) {
   }, []);
 
   const getProductsData = () => {
-    fetch(`${API.LIST}/?category=pork`, {
+    fetch(`${API.LIST}?category=pork`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
