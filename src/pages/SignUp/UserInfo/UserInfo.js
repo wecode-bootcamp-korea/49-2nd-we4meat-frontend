@@ -156,14 +156,6 @@ function UserInfo(props) {
             </tbody>
           </table>
         </fieldset>
-
-        {/* <Button
-          type="button"
-          full="full"
-          name="가입하기"
-          scale="low"
-          //disabled={isDisabled}
-        /> */}
       </form>
     </div>
   );

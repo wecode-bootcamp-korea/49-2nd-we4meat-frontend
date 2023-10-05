@@ -11,6 +11,8 @@ import SkipNavigation from './components/SkipNavigation/SkipNavigation';
 import PromotionBanner from './components/PromotionBanner/PromotionBanner';
 import Header from './components/Header/Header';
 import TopButton from './components/TopButton/TopButton';
+import Terms from './pages/SignUp/Terms/Terms';
+import SignUp from './pages/SignUp/SignUp';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 const Router = () => {
@@ -28,6 +30,8 @@ const Router = () => {
         <Route path="/pay-coupon" element={<PayCoupon />} />
         <Route path="/pay-last" element={<PayLast />} />
         <Route path="/order/:id" element={<Order />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/Sign-up" element={<SignUp />} />
       </Routes>
       <TopButton />
     </BrowserRouter>
