@@ -7,7 +7,7 @@ import './UserInfo.scss';
 
 const emailRegExp =
   /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
-const passwordRegExp = /^[A-Za-z0-9]{6,12}$/;
+const passwordRegExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
 
 function UserInfo(props) {
   const navigate = useNavigate();
@@ -49,6 +49,8 @@ function UserInfo(props) {
           if (!isDouble.message === 'EMAIL_AVAILABLE') {
             alert('이미 사용 중인 이메일입니다.');
             setIsEmail(false);
+          } else {
+            alert('사용 가능한 이메일입니다.');
           }
         });
     } else {
@@ -199,93 +201,103 @@ function UserInfo(props) {
           <table>
             <tbody>
               <tr className="user-email">
-                <td>아이디(이메일주소)</td>
+                <th>아이디(이메일주소)</th>
                 <td>
                   <div className="email-check">
-                    <Input id="email" type="email" onChange={saveEmail} />
-                  </div>
-                  <Button
-                    type="submit"
-                    name="중복확인"
-                    scale="smallest"
-                    onClick={checkEmailBtn}
-                  />
-                  <span className={isEmail ? 'black' : 'red'}>
-                    {emailMessage}
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>비밀번호</td>
-                <td>
-                  <Input
-                    id="password"
-                    type="password"
-                    onChange={savePassword}
-                  />
-                  <span className={isPassword ? 'black' : 'red'}>
-                    {passwordMessage}
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>비밀번호 확인</td>
-                <td>
-                  <Input
-                    id="confirmPassword"
-                    type="password"
-                    onChange={saveConfirmPassword}
-                  />
-                  <span className={isPasswordConfirm ? 'black' : 'red'}>
-                    {passwordConfirmMessage}
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>이름</td>
-                <td>
-                  <Input id="userName" type="text" onChange={saveName} />
-                </td>
-              </tr>
-              <tr className="user-phone">
-                <td>휴대폰번호</td>
-                <td>
-                  <div className="phone-box">
-                    <select name="first" onChange={savePhoneNumber}>
-                      <option value="010">010</option>
-                      <option value="011">011</option>
-                      <option value="017">017</option>
-                      <option value="016">016</option>
-                      <option value="019">019</option>
-                    </select>
-                  </div>
-                  <div className="phone-box">
-                    <div className="bar" />
-                    <Input
-                      type="tel"
-                      maxLength="4"
-                      className="input-box sign-up"
-                      onChange={savePhoneNumber}
-                      name="second"
-                    />
-                  </div>
-                  <div className="phone-box">
-                    <div className="bar" />
-                    <Input
-                      type="tel"
-                      maxLength="4"
-                      className="input-box sign-up"
-                      onChange={savePhoneNumber}
-                      name="third"
-                    />
-                  </div>
-                  <div className="phone-box">
+                    <div className="signup-wrap">
+                      <Input id="email" type="email" onChange={saveEmail} />
+                      <span className={isEmail ? 'black' : 'red'}>
+                        {emailMessage}
+                      </span>
+                    </div>
                     <Button
                       type="submit"
                       name="중복확인"
                       scale="smallest"
-                      onClick={checkPhoneNumberBtn}
+                      onClick={checkEmailBtn}
                     />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>비밀번호</th>
+                <td>
+                  <div className="input-wrap">
+                    <Input
+                      id="password"
+                      type="password"
+                      onChange={savePassword}
+                    />
+                    <span className={isPassword ? 'black' : 'red'}>
+                      {passwordMessage}
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>비밀번호 확인</th>
+                <td>
+                  <div className="input-wrap">
+                    <Input
+                      id="confirmPassword"
+                      type="password"
+                      onChange={saveConfirmPassword}
+                    />
+                    <span className={isPasswordConfirm ? 'black' : 'red'}>
+                      {passwordConfirmMessage}
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>이름</th>
+                <td>
+                  <div className="input-wrap">
+                    <Input id="userName" type="text" onChange={saveName} />
+                  </div>
+                </td>
+              </tr>
+              <tr className="user-phone">
+                <th>휴대폰번호</th>
+                <td>
+                  <div className="phone-wrap">
+                    <div className="phone-box">
+                      <select name="first" onChange={savePhoneNumber}>
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="017">017</option>
+                        <option value="016">016</option>
+                        <option value="019">019</option>
+                      </select>
+                    </div>
+                    <div className="phone-box">
+                      <div className="bar" />
+                      <Input
+                        type="tel"
+                        maxLength="4"
+                        className="input-box sign-up"
+                        onChange={savePhoneNumber}
+                        name="second"
+                      />
+                    </div>
+                    <div className="phone-box">
+                      <div className="bar" />
+                      <Input
+                        type="tel"
+                        maxLength="4"
+                        className="input-box sign-up"
+                        onChange={savePhoneNumber}
+                        name="third"
+                      />
+                    </div>
+                    <div className="phone-box">
+                      <Button
+                        type="submit"
+                        name="중복확인"
+                        scale="smallest"
+                        onClick={checkPhoneNumberBtn}
+                      />
+                    </div>
                   </div>
                 </td>
               </tr>

@@ -6,9 +6,14 @@
   margin: 0 auto;
 
   form {
-    width: 780px;
+    width: 680px;
     margin: 46px auto 40px;
     font-size: 13px;
+    fieldset {
+      & > .btn[type='submit'] {
+        margin-top: 35px;
+      }
+    }
     legend {
       font-size: 15px;
       margin-bottom: 16px;
@@ -17,22 +22,36 @@
       width: 100%;
     }
 
-    tr,
+    th,
     td {
-      height: 68px;
+      height: 85px;
       border: 1px solid #e1dedf;
     }
-    td:first-child {
+    th {
       width: 180px;
-      padding-left: 29px;
+      padding-left: 20px;
       background-color: #f7f7f7;
+      vertical-align: middle;
+      text-align: left;
     }
-    td:last-child {
+    td {
+      .email-check,
+      .phone-wrap,
+      .input-wrap {
+        display: flex;
+        padding: 15px 20px 0;
+        .signup-wrap {
+          flex: 1;
+        }
+      }
+      .input-wrap {
+        flex-direction: column;
+      }
       input {
-        margin: 15px 0 0 20px;
-        padding-left: 22px;
-        width: 480px;
+        width: 100%;
         height: 35px;
+        padding: 0 10px;
+        margin: 0;
         border: 1px solid #e1dedf;
 
         &:focus {
@@ -41,8 +60,9 @@
       }
 
       span {
+        display: block;
+        margin-top: 10px;
         font-size: 12px;
-        margin-left: 25px;
 
         &.red {
           color: red;
@@ -53,47 +73,24 @@
       }
     }
     .user-email {
-      td:first-child {
-        vertical-align: middle;
+      td {
+        vertical-align: top;
       }
       td:last-child {
-        &::after {
-          content: '';
-          display: block;
-          clear: both;
-        }
-
-        .email {
-          float: left;
-        }
-
-        .email-check {
-          float: left;
-        }
-        input {
-          width: 340px;
-        }
         button {
-          margin: 15px 0 0 20px;
           width: 120px;
           height: 35px;
-        }
-        span {
-          float: left;
         }
       }
     }
 
+    .phone-wrap {
+      justify-content: flex-start;
+    }
     .user-phone {
       td:last-child {
-        &::after {
-          content: '';
-          display: block;
-          clear: both;
-        }
         .phone-box {
           height: 35px;
-          float: left;
           position: relative;
 
           .bar {
@@ -102,11 +99,11 @@
             background-color: #000;
             position: absolute;
             left: 7px;
-            top: 90%;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
         select {
-          margin: 15px 0 0 20px;
           width: 100px;
           height: 35px;
           padding-left: 38px;
@@ -115,12 +112,13 @@
         input {
           margin-left: 20px;
           width: 100px;
+          text-align: center;
         }
 
         button {
-          margin: 15px 0 0 20px;
           width: 120px;
           height: 35px;
+          margin-left: 30px;
         }
       }
     }
