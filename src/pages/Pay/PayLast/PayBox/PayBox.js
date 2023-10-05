@@ -1,10 +1,10 @@
 import React from 'react';
 import './PayBox.scss';
 
-const DELIVERY_FEE = 3500;
+const deliveryFee = 3500;
 
-const PayBox = ({ price }) => {
-  const delivery = price + DELIVERY_FEE;
+const PayBox = ({ price, wallet }) => {
+  const delivery = price + deliveryFee;
 
   return (
     <div className="pay-box-wrap">
@@ -20,7 +20,7 @@ const PayBox = ({ price }) => {
         <li>
           <h4>배달비</h4>
           <p>
-            {DELIVERY_FEE.toLocaleString()}
+            {deliveryFee.toLocaleString()}
             <span className="small-font">원</span>
           </p>
         </li>
@@ -28,7 +28,10 @@ const PayBox = ({ price }) => {
         <li>
           <h4>쿠폰/적립금</h4>
           <p>
-            0{/* 적립금 입력 된 값 불러오기 */}
+            -
+            {wallet >= delivery
+              ? delivery?.toLocaleString()
+              : wallet?.toLocaleString()}
             <span className="small-font">원</span>
           </p>
         </li>

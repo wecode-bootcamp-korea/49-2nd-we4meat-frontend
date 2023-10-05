@@ -7,7 +7,7 @@
     "user_buy": 15,
     "date": "2023-09-27",
     "HasImage": true,
-    "image_url": "/images/pig.png",
+    "image_url": "/images/detail/7.jpeg",
     "together": [
       {
         "product_name": "초신선 돼지고기",
@@ -51,7 +51,7 @@
     "user_buy": 999,
     "date": "2023-09-20",
     "HasImage": true,
-    "image_url": "/images/pig.png",
+    "image_url": "/images/detail/3.jpeg",
     "together": [
       {
         "product_name": "C고기",
@@ -71,7 +71,7 @@
     "user_buy": 10,
     "date": "2023-09-01",
     "HasImage": true,
-    "image_url": "/images/pig.png",
+    "image_url": "/images/detail/8.jpeg",
     "together": [
       {
         "product_name": "초신선 돼지고기",
@@ -119,7 +119,7 @@
     "user_buy": 3000,
     "date": "2023-09-27",
     "HasImage": true,
-    "image_url": "/images/pig.png",
+    "image_url": "/images/detail/6.jpeg",
     "together": [
       {
         "product_name": "초신선 돼지고기",

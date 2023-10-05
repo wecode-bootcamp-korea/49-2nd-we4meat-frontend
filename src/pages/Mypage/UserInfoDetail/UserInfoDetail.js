@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
-import OrderDetails from '../OrderDetails/OrderDetails';
+import React, { useRef, useState } from 'react';
+import Orders from '../Orders/Orders';
 import PrivacyDetails from '../PrivacyDetails/PrivacyDetails';
 import './UserInfoDetail.scss';
 
 const UserInfoDetail = () => {
+  const targetRef = useRef(null);
   const [currentTab, setTab] = useState(0);
 
   const TAB_DATA = [
-    { name: '주문내역', content: <OrderDetails /> },
+    { name: '주문내역', content: <Orders /> },
     { name: '개인정보관리', content: <PrivacyDetails /> },
   ];
 
   const selectTabHandler = index => {
+    targetRef.current.scrollIntoView(true);
     setTab(index);
   };
 
   return (
     <section className="user-info-detail">
+      <span className="hidden" ref={targetRef}>
+        invisible area
+      </span>
       <div className="tabs">
         {TAB_DATA?.map((item, index) => {
           return (

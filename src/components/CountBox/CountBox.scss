@@ -12,6 +12,10 @@
     height: 38px;
   }
 
+  &[scale='full'] {
+    width: 396px;
+  }
+
   p {
     @include FlexCenter;
     width: 100%;
@@ -23,7 +27,7 @@
     height: 48px;
 
     &[scale='full'] {
-      width: 380px;
+      width: 396px;
     }
 
     &[scale='small'] {
@@ -33,14 +37,17 @@
 
     .op-name {
       @include FlexCenter;
-      width: 219px;
+      width: 221px;
       height: 100%;
-      border-top: 1px solid #dcdcdc;
-      border-bottom: 1px solid #dcdcdc;
+      border-top: 1px solid #888;
+      border-bottom: 1px solid #888;
       color: #fff;
 
       &[scale='full'] {
-        width: 298px;
+        width: 300px;
+        color: #000;
+        border-top: 1px solid #dcdcdc;
+        border-bottom: 1px solid #dcdcdc;
       }
 
       &[scale='small'] {
@@ -55,14 +62,19 @@
       width: 48px;
       height: 48px;
       font-size: 32px;
-      border: 1px solid #dcdcdc;
-      color: #dcdcdc;
+      border: 1px solid #888;
+      color: #888;
 
       &[scale='small'] {
         width: 40px;
         height: 38px;
         font-size: 28px;
         border: none;
+      }
+
+      &[scale='full'] {
+        color: #dcdcdc;
+        border: 1px solid #dcdcdc;
       }
     }
   }

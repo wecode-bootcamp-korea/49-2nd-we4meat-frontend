@@ -3,10 +3,14 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import CATEGORY_NAME from '../../data/categoryImgData';
 import './CategoryTab.scss';
 
-const CategoryTab = () => {
-  const [tabActive, setTabActive] = useState();
+const CategoryTab = props => {
+  const [tabActive, setTabActive] = useState(CATEGORY_NAME[0].id);
   // const location = useLocation();
-  const [categoryParams, setCategoryParams] = useSearchParams();
+  const [categoryParams, setCategoryParams] = useSearchParams(
+    'category',
+    'pork',
+  );
+
   // useEffect(() => {
   //   fetch('url', {
   //     method: 'GET',
@@ -19,16 +23,22 @@ const CategoryTab = () => {
   // }, []);
   // 쿼리스트링
 
+  useEffect(() => {
+    const categoryParam = categoryParams.get('category');
+    const matchingCategory = CATEGORY_NAME.find(
+      category => category.englishText === categoryParam,
+    );
+
+    if (matchingCategory) {
+      setTabActive(matchingCategory.id);
+    }
+  }, [categoryParams, tabActive]);
+
   const handleActive = category => {
     setTabActive(category.id);
 
-    if (categoryParams === null) {
-      categoryParams.append('category', category.text);
-      setCategoryParams(categoryParams);
-    } else {
-      categoryParams.set('category', category.text);
-      setCategoryParams(categoryParams);
-    }
+    categoryParams.set('category', category.englishText);
+    setCategoryParams(categoryParams);
   };
 
   return (
@@ -37,6 +47,7 @@ const CategoryTab = () => {
         return (
           <li
             key={category.id}
+            data-index={category.id}
             onClick={() => handleActive(category)}
             className={tabActive === category.id && 'on'}
           >

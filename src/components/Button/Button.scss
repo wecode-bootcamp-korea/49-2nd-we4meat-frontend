@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import '../../styles/partials/mixin.scss';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
 
 .btn {
   @include FlexCenter;
@@ -8,8 +8,8 @@
   border: none;
   font-size: 16px;
   font-weight: bold;
-  background-color: #333;
-  color: #fff;
+  background-color: $grayscale-3;
+  color: $grayscale-8;
 
   img {
     width: 32px;
@@ -20,24 +20,24 @@
     width: 98px;
     height: 34px;
     font-size: 13px;
-    color: #000;
-    border: 1px solid #d3d3d3;
+    color: $grayscale-1;
+    border: 1px solid $grayscale-5;
     border-radius: 5px;
-    background-color: #f7f7f7;
+    background-color: $grayscale-7;
   }
 
   &[use='review'] {
     border: none;
-    color: #fff;
+    color: $grayscale-8;
   }
 
   &[scale='smallest'] {
     width: 82px;
     height: 28px;
     font-size: 13px;
-    color: #000;
-    border: 1px solid #d3d3d3;
-    background-color: #f7f7f7;
+    color: $grayscale-1;
+    border: 1px solid $grayscale-5;
+    background-color: $grayscale-7;
   }
 
   &[scale='low'] {
@@ -45,19 +45,19 @@
   }
 
   &[color='bg-black'] {
-    background-color: #000;
+    background-color: $grayscale-1;
   }
 
   &[color='bg-gray'] {
-    background-color: #888;
+    background-color: $grayscale-4;
   }
 
   &[color='bg-red'] {
-    background-color: #e92d44;
+    background-color: $red;
   }
 
   &[icon='sns-talk'] {
-    background-color: #fae100;
+    background-color: $yellow;
     color: #3c1e1e;
     border-radius: 4px;
   }
@@ -72,15 +72,27 @@
   }
 
   &[line='line'] {
-    border: 1px solid #e92d44;
+    border: 1px solid $red;
     background-color: transparent;
     border-radius: 4px;
-    color: #e92d44;
+    color: $red;
   }
 
   &[border-radius='border'] {
     width: 83px;
     height: 32px;
     border-radius: 5px;
+  }
+
+  &[disabled] {
+    background-color: $grayscale-5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-group {
+  display: flex;
+  .btn {
+    flex: 1;
   }
 }

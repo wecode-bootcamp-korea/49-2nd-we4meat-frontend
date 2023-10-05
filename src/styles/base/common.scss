@@ -7,7 +7,6 @@
 
 html,
 body {
-  overflow-x: hidden;
   font-family:
     Spoqa Han Sans,
     'Sans-serif';
@@ -29,6 +28,7 @@ button {
 }
 
 main {
+  flex: 1;
   width: 100%;
 }
 
@@ -48,6 +48,8 @@ textarea {
 }
 
 #root {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 

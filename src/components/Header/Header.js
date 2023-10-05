@@ -6,7 +6,7 @@ import SubNavIcon from './SubNavIcon/SubNavIcon';
 import SubNav from './SubNav/SubNav';
 import './Header.scss';
 
-const Header = () => {
+const Header = props => {
   const [isSubnavOn, setIsSubnavOn] = useState(false);
   const handleOpen = () => {
     setIsSubnavOn(true);
@@ -21,20 +21,30 @@ const Header = () => {
         <div className="left-wrap">
           <LinkGoIcon icon="logo-white" text="정사각" scale="big" path="" />
           <ul id="menu-list">
-            <Nav text="쇼핑하기" className="shopping-wrap" />
+            <Nav
+              text="쇼핑하기"
+              className="shopping-wrap"
+              path="list?category=pork"
+            />
           </ul>
         </div>
         <div className="right-wrap">
           <LoginItemGroup />
-          <LinkGoIcon icon="shopping-cart" path="" />
+          <LinkGoIcon
+            icon="shopping-cart"
+            path="cart"
+            quantity={props?.quantity || 0}
+          />
           <SubNavIcon onClick={handleOpen} />
         </div>
       </div>
-      <SubNav
-        active={isSubnavOn}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-      />
+      {isSubnavOn === true && (
+        <SubNav
+          active={isSubnavOn}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+        />
+      )}
     </header>
   );
 };

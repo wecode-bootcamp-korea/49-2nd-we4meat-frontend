@@ -29,18 +29,18 @@ function Footer(props) {
             </div>
             <div className="info-company">
               <div>
-                <span>(주)정육각</span>
+                <span>(주)정사각</span>
                 <span>대표이사: 류창선</span>
                 <span>|</span>
-                <span>주소: 경기도 김포시 고촌읍 아라육로57번길 126</span>
+                <span>주소: 서울시 선릉</span>
               </div>
               <div>
                 <span>
-                  사업자등록번호: 224-87-00271
+                  사업자등록번호: 220-87-00000
                   <span className="blue"> [조회]</span>
                 </span>
                 <span>|</span>
-                <span>통신판매업신고번호: 2021-경기김포-0668</span>
+                <span>통신판매업신고번호: 2023-서울선릉-1003</span>
               </div>
               <div>
                 <span>개인정보관리책임자: 이동훈(privacy@sagak.com)</span>
@@ -54,7 +54,7 @@ function Footer(props) {
           <div className="cs">
             <div className="bold">
               <strong className="small">고객센터</strong>
-              <strong className="big">1800-0658</strong>
+              <strong className="big">1000-2000</strong>
             </div>
 
             <p className="business-day">

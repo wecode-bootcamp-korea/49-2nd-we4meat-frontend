@@ -6,12 +6,16 @@ import ProductContent from '../ProductContent/ProductContent';
 import ProductText from '../../components/ProductText/ProductText';
 import './Products.scss';
 
-function Products() {
+function Products(props) {
   const [loading, setLoading] = useState(true);
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
     setLoading(true);
+    getProductsData();
+  }, []);
+
+  const getProductsData = () => {
     fetch('/data/mock.json', {
       method: 'GET',
       headers: {
@@ -23,7 +27,9 @@ function Products() {
         setLoading(false);
         setProductList(data);
       });
-  }, []);
+  };
+
+  const { getQuantity, quantity } = props;
 
   return (
     <section className="products-section">
@@ -35,11 +41,16 @@ function Products() {
             return (
               <Product key={product.id}>
                 <ProductContent
+                  id={product.id}
                   img={product.product_img}
                   inventory={product.inventory_id}
                   title={product.product_name}
+                  price={product.price}
+                  getQuantity={getQuantity}
+                  quantity={quantity}
                 />
                 <ProductText
+                  id={product.id}
                   title={product.product_name}
                   price={product.price}
                   weight={product.weight}

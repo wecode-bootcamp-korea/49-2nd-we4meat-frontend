@@ -1,0 +1,21 @@
+@import '../../../styles/partials/mixin.scss';
+
+.complete-wrap {
+  @include FlexCenter;
+  flex-direction: column;
+  gap: 32px;
+  width: 320px;
+  height: 500px;
+  margin: 160px auto;
+  border: 1px solid #eee;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h5 {
+    margin-bottom: 120px;
+    font-weight: bold;
+  }
+}

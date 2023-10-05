@@ -6,6 +6,7 @@
   flex-direction: column;
   width: 380px;
   color: #fff;
+  background-color: #191919;
   padding-left: 14px;
   position: relative;
   z-index: 10;
@@ -15,16 +16,19 @@
   }
 
   &[scale='full'] {
+    width: 396px;
     padding: 0;
+    background-color: transparent;
   }
 
   .text-wrap {
+    width: 100%;
     display: flex;
-    gap: 16px;
+    justify-content: space-between;
 
     &[scale='full'] {
       flex-direction: column;
-      width: 380px;
+      width: 100%;
       gap: 0;
       padding: 0;
     }
@@ -36,7 +40,7 @@
       position: relative;
 
       &[scale='full'] {
-        width: 380px;
+        width: 100%;
         border: none;
       }
 
@@ -56,13 +60,15 @@
         &[scale='full'] {
           width: 100%;
           color: #000;
-          border: 1px solid #888;
+          border: 1px solid #dcdcdc;
+          background-color: transparent;
         }
       }
     }
 
     .text-align {
       @include FlexCenter;
+      width: 65px;
 
       &[scale='full'] {
         justify-content: start;

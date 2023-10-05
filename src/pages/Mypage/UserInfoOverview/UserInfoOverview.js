@@ -5,12 +5,16 @@ const UserInfoOverview = () => {
   const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
+    getUserInfo();
+  }, []);
+
+  const getUserInfo = () => {
     fetch('/data/userInfoMock.json')
       .then(response => response.json())
       .then(data => {
         setUserInfo(data[0]);
       });
-  }, []);
+  };
 
   const { rank, name, wallet, coupon, buy, userNumber } = userInfo;
 
@@ -24,7 +28,7 @@ const UserInfoOverview = () => {
       </div>
       <div>
         <div>
-          <h3>Hello, {name}</h3>
+          <h3>Hello, {name}님</h3>
           <button type="button">로그아웃</button>
         </div>
         <table>
@@ -48,7 +52,7 @@ const UserInfoOverview = () => {
           <tbody>
             <tr>
               <td>[{rank?.toUpperCase()}]</td>
-              <td>[{wallet?.toLocaleString('ko-KR')}원]</td>
+              <td>[{wallet?.toLocaleString()}원]</td>
               <td>[{coupon}개]</td>
               <td>[{buy}건]</td>
               <td>[{userNumber}]</td>
