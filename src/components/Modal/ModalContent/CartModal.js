@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import CountBox from '../../CountBox/CountBox';
 import OptionSelectBox from '../../OptionSelectBox/OptionSelectBox';
 import Button from '../../Button/Button';
+import { API } from '../../../config';
 
 const CartModal = ({
   id,
@@ -50,10 +51,30 @@ const CartModal = ({
   const totalPrice = (price * count).toLocaleString();
 
   const buyNow = () => {
-    setQuantity();
-    navigate('/cart', {
-      state: productData,
-    });
+    fetch(`${API.CART}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify(productData),
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(result => {
+        if (result.message === 'ITEM_ADDED') {
+          setQuantity();
+          navigate('/cart', {
+            state: productData,
+          });
+        } else {
+          alert('다시 시도해주세요.');
+        }
+      });
   };
 
   const productData = {
@@ -62,9 +83,34 @@ const CartModal = ({
   };
 
   const setQuantity = () => {
-    getQuantity(count);
+    // fetch(`${API.CART}`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     authorization: localStorage.getItem('accessToken'),
+    //   },
+    //   body: JSON.stringify(productData),
+    // })
+    //   .then(res => {
+    //     if (res.ok === true) {
+    //       return res.json();
+    //     }
+    //     throw new Error('오류입니다.');
+    //   })
+    //   .then(result => {
+    //     if (result.message === 'ITEM_ADDED') {
+    //       setQuantity();
+    //       setModalOpen(false);
+    //     } else {
+    //       alert('다시 시도해주세요.');
+    //     }
+    //   });
     setModalOpen(false);
+    getQuantity(count);
   };
+
+  // console.log(getQuantity);
+  console.log(productData);
 
   return (
     <>

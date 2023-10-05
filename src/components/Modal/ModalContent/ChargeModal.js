@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
+import { API } from '../../../config';
 
 const ChargeModal = ({ title, modalHandler }) => {
   const [pointChange, setPointChange] = useState('');
@@ -10,6 +11,7 @@ const ChargeModal = ({ title, modalHandler }) => {
   const navigate = useNavigate();
   const maxPoint = pointChange > 100000000;
   const minPoint = pointChange > 0;
+  const pointChangeNum = Number(pointChange);
 
   const handlePoint = e => {
     const pointNum = parseInt(e.target.value, 10);
@@ -35,35 +37,37 @@ const ChargeModal = ({ title, modalHandler }) => {
   }, [pointChange]);
 
   const pointCharge = () => {
-    // fetch('http://url/payment/topupcredit', {
-    //   method: 'PATCH',
-    //   body: JSON.stringify(
-    //     {credit : pointChange},
-    // console.log(pointChange);
-    //     ),
-    //     headers: {
-    //       'Content-Type': 'application/json;charset=utf-8',
-    //       Authorization: localStorage.getItem('token'),
-    //     },
-    //   })
-    //     .then(res => {
-    //       if (res.ok === true) {
-    //         return res.json();
-    //       }
-    //       throw new Error('오류입니다.');
-    //     })
-    //     .then((result)=>{
-    //   if(result.message === 'WALLET_CHARGED'){
-    //      modalHandler();
-    //      const wallet = result.data;
-    //      navigate('pay-coupon', {state: {wallet}})
-    //   }else{
-    //     alert('다시 시도해주세요.')
-    //   }
-    // }
+    fetch(`${API.CHARGE}`, {
+      method: 'PATCH',
+      body: JSON.stringify(
+        { credit: pointChangeNum },
+        // console.log(pointChange);
+      ),
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(
+        result => {
+          if (result.message === 'WALLET_CHARGED') {
+            modalHandler();
+            const wallet = result.data;
+            navigate('/pay-coupon', { state: { wallet } });
+            console.log('clear');
+          } else {
+            alert('다시 시도해주세요.');
+          }
+        },
 
-    modalHandler();
-    // );
+        // modalHandler();
+      );
   };
 
   return (

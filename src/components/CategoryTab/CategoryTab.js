@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import CATEGORY_NAME from '../../data/categoryImgData';
+import { API } from '../../config';
 import './CategoryTab.scss';
 
 const CategoryTab = props => {

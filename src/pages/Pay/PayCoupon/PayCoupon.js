@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import CouponBox from '../../Pay/PayCoupon/CouponBox/CouponBox';
 import Button from '../../../components/Button/Button';
 import ProcessNav from '../../../components/ProcessNav/ProcessNav';
+import { API } from '../../../config';
 import './PayCoupon.scss';
 
 const PayCoupon = () => {
+  const [payment, setPayment] = useState(0);
   const navigation = useNavigate();
   const location = useLocation();
   const backPage = () => {
@@ -22,6 +24,28 @@ const PayCoupon = () => {
     totalPrice = location.state.totalPrice;
   }
 
+  // useEffect(() => {
+  //   fetch(`${API.PAYMENT}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       authorization: localStorage.getItem('accessToken'),
+  //     },
+  //   })
+  //     .then(res => {
+  //       if (res.ok === true) {
+  //         return res.json();
+  //       }
+  //       throw new Error('오류입니다.');
+  //     })
+  //     .then(result => {
+  //       if (result.message === 'Payments available') {
+  //         setPayment(result.Reserve_balance);
+  //       }
+  //       console.log('함수 안됨');
+  //     });
+  // }, []);
+
   return (
     <div className="coupon-contents-wrap">
       <h1>주문하기</h1>
@@ -29,7 +53,7 @@ const PayCoupon = () => {
       <section className="coupon-inner-wrap">
         <div className="box-wrap">
           <CouponBox name="쿠폰" text="쿠폰을 선택해주세요" />
-          <CouponBox name="적립금" point="point-use" wallet={wallet} />
+          <CouponBox name="적립금" point="point-use" wallet={payment} />
         </div>
         <div className="btn-wrap">
           <Button
