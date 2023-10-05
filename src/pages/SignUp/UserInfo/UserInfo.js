@@ -120,19 +120,37 @@ function UserInfo(props) {
                   <Input id="userName" type="text" onChange={saveName} />
                 </td>
               </tr>
-              <tr>
+              <tr className="user-phone">
                 <td>휴대폰번호</td>
                 <td>
-                  <select>
-                    <option value="010">010</option>
-                    <option value="011">011</option>
-                    <option value="017">017</option>
-                    <option value="016">016</option>
-                    <option value="019">019</option>
-                  </select>
-                  <Input type="tel" maxLength="4" />
-                  <Input type="tel" maxLength="4" />
-                  <Button type="button" name="중복확인" scale="smallest" />
+                  <div className="phone-box">
+                    <select>
+                      <option value="010">010</option>
+                      <option value="011">011</option>
+                      <option value="017">017</option>
+                      <option value="016">016</option>
+                      <option value="019">019</option>
+                    </select>
+                  </div>
+                  <div className="phone-box">
+                    <div className="bar" />
+                    <Input
+                      type="tel"
+                      maxLength="4"
+                      className="input-box sign-up"
+                    />
+                  </div>
+                  <div className="phone-box">
+                    <div className="bar" />
+                    <Input
+                      type="tel"
+                      maxLength="4"
+                      className="input-box sign-up"
+                    />
+                  </div>
+                  <div className="phone-box">
+                    <Button type="button" name="중복확인" scale="smallest" />
+                  </div>
                 </td>
               </tr>
             </tbody>
