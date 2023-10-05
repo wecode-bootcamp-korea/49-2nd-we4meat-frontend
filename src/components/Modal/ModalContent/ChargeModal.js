@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Button/Button';
 import Input from '../../Input/Input';
 
@@ -6,6 +7,7 @@ const ChargeModal = ({ title, modalHandler }) => {
   const [pointChange, setPointChange] = useState('');
   const [isAlert, setIsAlert] = useState(false);
   const [isValidation, setIsValidation] = useState(true);
+  const navigate = useNavigate();
   const maxPoint = pointChange > 100000000;
   const minPoint = pointChange > 0;
 
@@ -33,11 +35,11 @@ const ChargeModal = ({ title, modalHandler }) => {
   }, [pointChange]);
 
   const pointCharge = () => {
-    // fetch('http://url', {
+    // fetch('http://url/payment/topupcredit', {
     //   method: 'PATCH',
     //   body: JSON.stringify(
-    //     { credit: pointChange },
-    console.log(pointChange);
+    //     {credit : pointChange},
+    // console.log(pointChange);
     //     ),
     //     headers: {
     //       'Content-Type': 'application/json;charset=utf-8',
@@ -50,7 +52,16 @@ const ChargeModal = ({ title, modalHandler }) => {
     //       }
     //       throw new Error('오류입니다.');
     //     })
-    //     .then(
+    //     .then((result)=>{
+    //   if(result.message === 'WALLET_CHARGED'){
+    //      modalHandler();
+    //      const wallet = result.data;
+    //      navigate('pay-coupon', {state: {wallet}})
+    //   }else{
+    //     alert('다시 시도해주세요.')
+    //   }
+    // }
+
     modalHandler();
     // );
   };

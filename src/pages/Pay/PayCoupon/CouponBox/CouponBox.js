@@ -4,8 +4,8 @@ import Modal from '../../../../components/Modal/Modal';
 import './CouponBox.scss';
 
 const CouponBox = props => {
-  const { name, text, point } = props;
-  const [userInfo, setUserInfo] = useState([]);
+  const { name, text, point, wallet } = props;
+  // const [userInfo, setUserInfo] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -21,15 +21,7 @@ const CouponBox = props => {
     setModalOpen(prev => !prev);
   };
 
-  useEffect(() => {
-    fetch('/data/userInfoMock.json')
-      .then(response => response.json())
-      .then(data => {
-        setUserInfo(data[0]);
-      });
-  }, []);
-
-  const wallet = userInfo.wallet?.toLocaleString();
+  const walletNum = wallet?.toLocaleString();
 
   return (
     <div className="coupon-box-wrap">
@@ -38,7 +30,7 @@ const CouponBox = props => {
         {text && <p>{text}</p>}
         {point && (
           <div className="point-use-wrap">
-            <span>사용가능 적립금: {wallet}원</span>
+            <span>사용가능 적립금: {walletNum}원</span>
           </div>
         )}
       </div>
@@ -59,7 +51,7 @@ const CouponBox = props => {
               isCharge={true}
               modalOpen={modalOpen}
               modalHandler={modalHandler}
-              wallet={userInfo.wallet}
+              // wallet={wallet}
             />
           )}
         </>

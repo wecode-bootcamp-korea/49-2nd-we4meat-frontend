@@ -18,10 +18,7 @@ const Modal = ({
   setModalOpen,
   getQuantity,
   quantity,
-  abc,
-  setIsModal,
-  isModal,
-  wallet,
+  // wallet,
 }) => {
   // props
   // title & price: CartModal에 props 전달이 필요하므로 data- 컨벤션을 지키지 않음
@@ -57,18 +54,13 @@ const Modal = ({
         {isCharge && (
           <ChargeModal
             title="충천하기"
+            // wallet={wallet}
             modalHandler={modalHandler}
             // setModalOpen={setModalOpen}
           />
         )}
         {/* 마이페이지 > 주문 상세 > 리뷰 작성하기 버튼 클릭 시 */}
-        {isReviewCreate && (
-          <ReviewCreateModal
-            abc={abc}
-            setIsModal={setIsModal}
-            isModal={isModal}
-          />
-        )}
+        {isReviewCreate && <ReviewCreateModal />}
       </div>
     </section>
   );

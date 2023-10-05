@@ -14,11 +14,16 @@ const PayLast = () => {
   const [isCheckBox, setIsCheckBox] = useState(false);
   const navigation = useNavigate();
   const location = useLocation();
-  const { wallet } = userInfo;
+  const orderId = localStorage.getItem(orderId);
+  // const { wallet } = userInfo;
   const orderCount = orderInfo.length - 1;
   let totalPrice = null;
   if (location.state != null) {
     totalPrice = location.state.totalPrice;
+  }
+  let stateWallet = null;
+  if (location.stateWallet != null) {
+    stateWallet = location.state.stateWallet;
   }
 
   const backPage = () => {
@@ -30,7 +35,7 @@ const PayLast = () => {
   };
 
   useEffect(() => {
-    if (isCheckBox === true && wallet >= totalPrice) {
+    if (isCheckBox === true && stateWallet >= totalPrice) {
       setIsValidation(!isValidation);
     } else {
       setIsValidation(true);
@@ -50,6 +55,30 @@ const PayLast = () => {
         setUserInfo(data[0]);
       });
   }, []);
+
+  const handleSubmit = () => {
+    fetch('http://url/payment/complete', {
+      method: 'PATCH',
+      body: JSON.stringify({ orderId: orderId, total_Credit: totalPrice }),
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(result => {
+        if (result.message === 'paymentComplete') {
+          navigation('/pay-complete');
+        } else {
+          alert('다시 시도해주세요.');
+        }
+      });
+  };
 
   return (
     <div className="order-pay-wrap">
@@ -80,7 +109,7 @@ const PayLast = () => {
                   <p className="small-scale-font">…외 {orderCount}개</p>
                 )}
               </div>
-              <PayBox price={totalPrice} wallet={wallet} />
+              <PayBox price={totalPrice} wallet={stateWallet} />
             </div>
             <Checkbox
               text="
@@ -102,7 +131,7 @@ const PayLast = () => {
             full="full"
             name="결제하기"
             disabled={isValidation}
-            onClick={() => navigation('/pay-complete')}
+            onClick={handleSubmit}
           />
         </div>
       </section>

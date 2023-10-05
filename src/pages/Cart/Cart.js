@@ -17,6 +17,18 @@ const Cart = () => {
       .then(data => {
         setOrderInfo(data);
       });
+
+    // fetch(`http://10.58.52.104:8000/cart`, {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //     Authorization: localStorage.getItem('token'),
+    //   },
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     setOrderInfo(data);
+    //   });
   }, []);
 
   const sumTotal = () => {
@@ -35,9 +47,10 @@ const Cart = () => {
       productId: item.productId,
       quantity: item.quantity,
     }));
-    // fetch('http://url', {
+    // fetch("http://localhost:8000/cart" , {
     //   method: 'PATCH',
     //   body: JSON.stringify(
+    //   array
     console.log(array);
     navigate('/pay', { state: { totalPrice } });
     //     ),
@@ -52,7 +65,13 @@ const Cart = () => {
     //     }
     //     throw new Error('오류입니다.');
     //   })
-    //   .then(()=>navigate('/pay'));
+    //   .then((result)=>
+    // if (result.message === 'CART_UPDATED') {
+    //   navigate('/pay', { state: { totalPrice } });
+    // } else {
+    //   alert('다시 시도해주세요.');
+    // }
+    // );
   };
 
   const handlePlus = id => {

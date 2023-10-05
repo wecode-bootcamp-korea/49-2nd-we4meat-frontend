@@ -23,6 +23,18 @@ const Pay = () => {
       .then(data => {
         setUserInfo(data[0]);
       });
+
+    // fetch(`http://10.58.52.104:8000/order/detail?Id=`, {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //     Authorization: localStorage.getItem('token'),
+    //   },
+    // })
+    //   .then(res => res.json())
+    //   .then(result => {
+    //     setUserInfo(result.data);
+    //   });
   }, []);
 
   return (

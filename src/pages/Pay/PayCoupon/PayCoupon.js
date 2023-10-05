@@ -11,6 +11,12 @@ const PayCoupon = () => {
   const backPage = () => {
     navigation(-1);
   };
+
+  let wallet = null;
+  if (location.state != null) {
+    wallet = location.state.wallet;
+  }
+
   let totalPrice = null;
   if (location.state != null) {
     totalPrice = location.state.totalPrice;
@@ -23,7 +29,7 @@ const PayCoupon = () => {
       <section className="coupon-inner-wrap">
         <div className="box-wrap">
           <CouponBox name="쿠폰" text="쿠폰을 선택해주세요" />
-          <CouponBox name="적립금" point="point-use" />
+          <CouponBox name="적립금" point="point-use" wallet={wallet} />
         </div>
         <div className="btn-wrap">
           <Button
@@ -36,7 +42,12 @@ const PayCoupon = () => {
             color="bg-black"
             full="full"
             name="다음 단계"
-            onClick={() => navigation('/pay-last', { state: { totalPrice } })}
+            onClick={() =>
+              navigation('/pay-last', {
+                state: { totalPrice },
+                stateWallet: { wallet },
+              })
+            }
           />
         </div>
       </section>
