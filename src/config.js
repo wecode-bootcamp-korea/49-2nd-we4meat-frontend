@@ -8,6 +8,10 @@ export const API = {
   DETAIL: `${BASE_URL}/list/detail`,
   REVIEW: `${BASE_URL}/review`,
   CART: `${BASE_URL}/cart`,
+  CHARGE: `${BASE_URL}/payment/topupcredit`,
+  PAYMENT: `${BASE_URL}/payment`,
+  ORDER: `${BASE_URL}/order/detail?id=1`,
+
   //   LOGIN: `${BASE_URL}/users/login`,
   //   LOGIN: `${BASE_URL}/users/login`,
   //   LOGIN: `${BASE_URL}/users/login`,

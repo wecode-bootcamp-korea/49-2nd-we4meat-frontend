@@ -5,7 +5,6 @@ import './CouponBox.scss';
 
 const CouponBox = props => {
   const { name, text, point, wallet } = props;
-  // const [userInfo, setUserInfo] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -51,7 +50,6 @@ const CouponBox = props => {
               isCharge={true}
               modalOpen={modalOpen}
               modalHandler={modalHandler}
-              // wallet={wallet}
             />
           )}
         </>

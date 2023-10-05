@@ -5,6 +5,7 @@ import Radio from '../../../components/Radio/Radio';
 import PayBox from './PayBox/PayBox';
 import Checkbox from '../../../components/Checkbox/Checkbox';
 import ProcessNav from '../../../components/ProcessNav/ProcessNav';
+import { API } from '../../../config';
 import './PayLast.scss';
 
 const PayLast = () => {
@@ -14,7 +15,7 @@ const PayLast = () => {
   const [isCheckBox, setIsCheckBox] = useState(false);
   const navigation = useNavigate();
   const location = useLocation();
-  const orderId = localStorage.getItem(orderId);
+  // const orderId = localStorage.getItem(orderId);
   // const { wallet } = userInfo;
   const orderCount = orderInfo.length - 1;
   let totalPrice = null;
@@ -25,6 +26,8 @@ const PayLast = () => {
   if (location.stateWallet != null) {
     stateWallet = location.state.stateWallet;
   }
+
+  console.log(stateWallet);
 
   const backPage = () => {
     navigation(-1);
@@ -44,24 +47,18 @@ const PayLast = () => {
   }, [isCheckBox]);
 
   useEffect(() => {
-    fetch('/data/orderPayMock.json')
-      .then(response => response.json())
-      .then(data => {
-        setOrderInfo(data);
-      });
-    fetch('/data/userInfoMock.json')
-      .then(response => response.json())
-      .then(data => {
-        setUserInfo(data[0]);
-      });
+    fetch().then().then();
   }, []);
 
   const handleSubmit = () => {
     fetch('http://url/payment/complete', {
       method: 'PATCH',
-      body: JSON.stringify({ orderId: orderId, total_Credit: totalPrice }),
+      body: JSON
+        .stringify
+        // { orderId: orderId, total_Credit: totalPrice }
+        (),
       headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+        'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),
       },
     })

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import CartOrder from './CartOrder/CartOrder';
 import Button from '../../components/Button/Button';
+import { API } from '../../config';
 import './Cart.scss';
 
 const deliveryFee = 3500;
@@ -14,15 +15,16 @@ const Cart = () => {
   const location = useLocation();
 
   // 바로구매 시 여기서 두 데이터를 꺼내 쓰시면 됩니다.
-  // const { productId, quantity } = location.state;
+  const { productId, quantity } = location.state;
+  console.log('productId :' + productId);
+  console.log('quantity :' + quantity);
 
   useEffect(() => {
-    fetch('/data/orderPayMock.json')
-      .then(response => response.json())
-      .then(data => {
-        setOrderInfo(data);
-      });
-
+    // fetch('/data/orderPayMock.json')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     setOrderInfo(data);
+    //   });
     // fetch(`http://10.58.52.104:8000/cart`, {
     //   method: 'GET',
     //   headers: {
@@ -48,35 +50,38 @@ const Cart = () => {
   }, [orderInfo]);
 
   const handleSubmit = () => {
-    const array = orderInfo.map(item => ({
-      productId: item.productId,
-      quantity: item.quantity,
-    }));
-    // fetch("http://localhost:8000/cart" , {
-    //   method: 'PATCH',
-    //   body: JSON.stringify(
-    //   array
-    console.log(array);
-    navigate('/pay', { state: { totalPrice } });
-    //     ),
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8',
-    //     Authorization: localStorage.getItem('token'),
-    //   },
-    // })
-    //   .then(res => {
-    //     if (res.ok === true) {
-    //       return res.json();
-    //     }
-    //     throw new Error('오류입니다.');
-    //   })
-    //   .then((result)=>
-    // if (result.message === 'CART_UPDATED') {
-    //   navigate('/pay', { state: { totalPrice } });
-    // } else {
-    //   alert('다시 시도해주세요.');
-    // }
-    // );
+    // const array = orderInfo.map(item => ({
+    //   productId: item.productId,
+    //   quantity: item.quantity,
+    // }));
+    fetch(`${API.CART}`, {
+      method: 'PATCH',
+
+      //   array
+      // console.log(array);
+      // navigate('/pay', { state: { totalPrice } });
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({
+        products: [{ productId: productId, quantity: quantity }],
+      }),
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(result => {
+        if (result.message === 'CART_UPDATED') {
+          navigate('/pay', { state: { totalPrice } });
+          console.log('clear');
+        } else {
+          alert('다시 시도해주세요.');
+        }
+      });
   };
 
   const handlePlus = id => {
