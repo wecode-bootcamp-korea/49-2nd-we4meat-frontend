@@ -4,7 +4,7 @@
 
 .user-info {
   margin: 0 auto;
-  //outline: 2px solid red;
+
   form {
     width: 780px;
     margin: 46px auto 40px;
@@ -20,7 +20,6 @@
     tr,
     td {
       height: 68px;
-      //line-height: 68px;
       border: 1px solid #e1dedf;
     }
     td:first-child {
@@ -29,7 +28,6 @@
       background-color: #f7f7f7;
     }
     td:last-child {
-      //width: 70%;
       input {
         margin: 15px 0 0 20px;
         padding-left: 22px;
@@ -44,8 +42,7 @@
 
       span {
         font-size: 12px;
-        margin: 25px;
-        //line-height: 12px;
+        margin-left: 25px;
 
         &.red {
           color: red;
@@ -55,6 +52,38 @@
         }
       }
     }
+    .user-email {
+      td:first-child {
+        vertical-align: middle;
+      }
+      td:last-child {
+        &::after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+
+        .email {
+          float: left;
+        }
+
+        .email-check {
+          float: left;
+        }
+        input {
+          width: 340px;
+        }
+        button {
+          margin: 15px 0 0 20px;
+          width: 120px;
+          height: 35px;
+        }
+        span {
+          float: left;
+        }
+      }
+    }
+
     .user-phone {
       td:last-child {
         &::after {
@@ -66,7 +95,6 @@
           height: 35px;
           float: left;
           position: relative;
-          //outline: 2px solid red;
 
           .bar {
             width: 6px;
@@ -82,24 +110,11 @@
           width: 100px;
           height: 35px;
           padding-left: 38px;
-          //font-size: 13px;
           border: 1px solid #e1dedf;
         }
         input {
           margin-left: 20px;
           width: 100px;
-          //position: relative;
-
-          // &::after {
-          //   content: '';
-          //   display: block;
-          //   width: 5px;
-          //   height: 1px;
-          //   background-color: #000;
-          //   position: absolute;
-          //   left: 50%;
-          //   top: 50px;
-          // }
         }
 
         button {
