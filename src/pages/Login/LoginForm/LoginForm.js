@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API } from '../../../config';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../../components/Input/Input';
 import Button from '../../../components/Button/Button';
@@ -41,45 +42,37 @@ const LoginForm = () => {
   const postUserInfo = e => {
     e.preventDefault();
     // setIsError(false);
-    fetch('/data/responseData.json', {
+    fetch(`${API.LOGIN}`, {
       // 1. 실제 통신 시 POST
-      // method: 'POST',
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       // 2. 실제 통신 시 보낼 정보
-      // body: JSON.stringify({
-      //   email: email,
-      //   password: password,
-      // }),
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     })
       .then(response => {
-        if (response.status === 200) {
-          return response.json();
-        }
-        throw new Error('communication failure');
+        return response.json();
       })
       .then(result => {
-        console.log(result);
-        if (result.message === 'login success') {
-          localStorage.setItem('accessToken', result.accessToken);
+        if (result.message === 'LOGIN_SUCCESS') {
+          localStorage.setItem('accessToken', result.token);
           // 3. 실제 통신 시 로그인 완료 상태 관리
-          // setLoginComplete(true);
+          setLoginComplete(true);
         }
-      })
-      .catch(error => {
-        // setIsError(true);
       });
   };
 
   // 4. 실제 통신 시 페이지 이동 처리
-  // useEffect(() => {
-  //   if (loginComplete === true) {
-  //     navigate('/');
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [loginComplete]);
+  useEffect(() => {
+    if (loginComplete === true) {
+      navigate('/');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loginComplete]);
 
   return (
     <form className="form" onChange={typingSentry} onSubmit={postUserInfo}>

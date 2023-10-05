@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API } from '../../config';
 import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../pages/Loading/Loading';
 import OptionSelectBox from '../../components/OptionSelectBox/OptionSelectBox';
@@ -32,20 +33,23 @@ const Detail = props => {
   }, []);
 
   const getProductData = () => {
-    // fetch(`/data/orderMock.json/order/${id}`)
-    fetch(`/data/productMock.json`)
+    fetch(`${API.DETAIL}?productId=${id + 1}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then(response => {
         return response.json();
       })
-      .then(data => {
-        // setData(data);
-        setData(data[0]);
+      .then(result => {
+        setData(result?.data[0]);
         setLoading(false);
       });
   };
 
   const { getQuantity } = props;
-  const { product_img, product_name, price, weight } = data;
+  const { productImg, productName, price, weight } = data;
   const firstCalc = weight / 100;
   const secondCalc = price / firstCalc;
   const thirdCalc = Math.round(secondCalc).toLocaleString();
@@ -72,11 +76,11 @@ const Detail = props => {
         <section className="detail-top">
           <div className="inner-wrap">
             <div className="image-area">
-              <img src={product_img} alt={product_name} />
+              <img src={productImg} alt={productName} />
             </div>
             <div className="metadata-area">
               <hgroup>
-                <h2>{product_name}</h2>
+                <h2>{productName}</h2>
                 <h4>100g당 {thirdCalc}원</h4>
                 <h3>
                   기준가 {price?.toLocaleString()}원 ({weight}g)

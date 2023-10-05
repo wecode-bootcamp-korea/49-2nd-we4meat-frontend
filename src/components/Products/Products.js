@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API } from '../../config';
 import Loading from '../../pages/Loading/Loading';
 import BestTitle from '../BestTitle/BestTitle';
 import Product from '../Product/Product';
@@ -16,16 +17,18 @@ function Products(props) {
   }, []);
 
   const getProductsData = () => {
-    fetch('/data/mock.json', {
+    fetch(`${API.LIST}/?category=pork`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then(response => {
+        return response.json();
+      })
+      .then(result => {
         setLoading(false);
-        setProductList(data);
+        setProductList(result?.data);
       });
   };
 
@@ -37,21 +40,21 @@ function Products(props) {
         <BestTitle />
         {loading && <Loading />}
         <ul className="products">
-          {productList.map(product => {
+          {productList?.map(product => {
             return (
-              <Product key={product.id}>
+              <Product key={product.productId}>
                 <ProductContent
-                  id={product.id}
-                  img={product.product_img}
-                  inventory={product.inventory_id}
-                  title={product.product_name}
+                  id={product.productId}
+                  img={product.productImg}
+                  // inventory={product.inventory_id}
+                  title={product.productName}
                   price={product.price}
                   getQuantity={getQuantity}
                   quantity={quantity}
                 />
                 <ProductText
-                  id={product.id}
-                  title={product.product_name}
+                  id={product.productId}
+                  title={product.productName}
                   price={product.price}
                   weight={product.weight}
                 />

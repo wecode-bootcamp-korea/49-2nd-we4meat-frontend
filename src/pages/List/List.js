@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CategoryBanner from './CategoryBanner/CategoryBanner';
 import CategoryTab from '../../components/CategoryTab/CategoryTab';

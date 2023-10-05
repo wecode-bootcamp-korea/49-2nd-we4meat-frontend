@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { API } from '../../../config';
 import Input from '../../Input/Input';
 import Button from '../../Button/Button';
 
@@ -57,7 +58,7 @@ const ReviewCreateModal = props => {
   const postReviewCreate = e => {
     e.preventDefault();
 
-    fetch('API', {
+    fetch(`${API.REVIEW}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -75,9 +76,10 @@ const ReviewCreateModal = props => {
         throw new Error('communication failure');
       })
       .then(result => {
-        if (result.message === '리뷰 작성 완료') {
-          setModalOpen(false);
-        }
+        console.log(result);
+        // if (result.message === '리뷰 작성 완료') {
+        //   setModalOpen(false);
+        // }
       })
       .catch(error => {
         console.log(error);
