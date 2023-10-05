@@ -5,7 +5,7 @@ import Input from '../../../components/Input/Input';
 import Button from '../../../components/Button/Button';
 import './LoginForm.scss';
 
-const LoginForm = () => {
+const LoginForm = ({ getAccessToken }) => {
   const navigate = useNavigate();
   const [loginComplete, setLoginComplete] = useState(false);
   const [userInfo, setUserInfo] = useState({
@@ -61,6 +61,7 @@ const LoginForm = () => {
         if (result.message === 'LOGIN_SUCCESS') {
           localStorage.setItem('accessToken', result.token);
           setLoginComplete(true);
+          getAccessToken();
         }
       });
   };
@@ -97,6 +98,7 @@ const LoginForm = () => {
           full="full"
           name="로그인"
           scale="low"
+          onClick={getAccessToken}
           disabled={isDisabled}
         />
       </fieldset>

@@ -6,12 +6,12 @@ import EasyLogin from '../../components/EasyLogin/EasyLogin';
 import OptionalNotice from '../../components/OptionalNotice/OptionalNotice';
 import './Login.scss';
 
-const Login = () => {
+const Login = ({ getAccessToken }) => {
   return (
     <main id="main" className="login">
       <div className="inner-wrap">
         <PageTitle title="로그인" />
-        <LoginForm />
+        <LoginForm getAccessToken={getAccessToken} />
         <section className="find-info">
           <Link to="/">아이디 / 비밀번호 찾기</Link>
         </section>
