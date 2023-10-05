@@ -22,16 +22,73 @@ function UserInfo(props) {
   });
 
   const { first, second, third } = phoneNumber;
+  const userPhoneNumber =
+    phoneNumber.first + phoneNumber.second + phoneNumber.third;
 
   const savePhoneNumber = e => {
     const { name, value } = e.target;
     setPhoneNumber({ ...phoneNumber, [name]: value });
   };
+
+  const checkEmailBtn = () => {
+    if (email.includes('@')) {
+      setIsEmail(true);
+      fetch('http://10.58.52.104:8000/users/checkduplicate', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: email,
+        }),
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      })
+        .then(res => res.json())
+        .then(isDouble => {
+          if (isDouble.message === 'EMAIL_AVAILABLE') {
+            alert('이미 사용 중인 이메일입니다.');
+            setIsEmail(false);
+          }
+        });
+    } else {
+      alert('이메일에 @는 필수입니다.');
+    }
+  };
+  const checkPhoneNumberBtn = () => {
+    if (userPhoneNumber === '') {
+      alert('휴대폰 번호를 입력하세요.');
+      return;
+    }
+
+    fetch('http://10.58.52.104:8000/users/checkduplicate', {
+      method: 'POST',
+      body: JSON.stringify({
+        phoneNumber: userPhoneNumber,
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(isDouble => {
+        if (isDouble.message === 'PHONENUM_IN_USE') {
+          alert('이미 사용 중인 번호입니다.');
+          setIsPhoneNumber(false);
+        } else {
+          alert('사용 가능한 번호입니다.');
+          setIsPhoneNumber(true);
+        }
+      })
+      .catch(error => {
+        console.error('휴대폰 번호 확인 중 오류 발생:', error);
+      });
+  };
+
   //유효성검사
   const [isname, setIsName] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
   const [isEmail, setIsEmail] = useState(false);
+  const [isPhoneNumber, setIsPhoneNumber] = useState(false);
 
   //오류메세지 상태 저장
   const [nameMessage, setNameMessage] = useState('');
@@ -89,8 +146,6 @@ function UserInfo(props) {
       setIsPasswordConfirm(true);
     }
   }, [password, confirmPassword]);
-  const userPhoneNumber =
-    phoneNumber.first + phoneNumber.second + phoneNumber.third;
 
   const postUserInfo = e => {
     e.preventDefault();
@@ -138,9 +193,6 @@ function UserInfo(props) {
   //   }
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [signUpComplete]);
-
-  console.log(name);
-
   return (
     <div className="user-info">
       <form onSubmit={postUserInfo}>
@@ -148,10 +200,17 @@ function UserInfo(props) {
           <legend>가입정보 입력</legend>
           <table>
             <tbody>
-              <tr>
+              <tr className="user-email">
                 <td>아이디(이메일주소)</td>
                 <td>
-                  <Input id="userId" type="text" onChange={saveEmail} />
+                  <div className="email-check">
+                    <Button
+                      type="submit"
+                      name="중복확인"
+                      scale="smallest"
+                      onClick={checkEmailBtn}
+                    />
+                  </div>
                   <span className={isEmail ? 'black' : 'red'}>
                     {emailMessage}
                   </span>
@@ -222,7 +281,12 @@ function UserInfo(props) {
                     />
                   </div>
                   <div className="phone-box">
-                    <Button type="submit" name="중복확인" scale="smallest" />
+                    <Button
+                      type="submit"
+                      name="중복확인"
+                      scale="smallest"
+                      onClick={checkPhoneNumberBtn}
+                    />
                   </div>
                 </td>
               </tr>
