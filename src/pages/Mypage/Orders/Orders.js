@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { API } from '../../../config';
 import Button from '../../../components/Button/Button';
 import Pagination from '../Pagination/Pagination';
 import './Orders.scss';
@@ -24,12 +25,17 @@ const Orders = () => {
   }, [page]);
 
   const getOrdersData = () => {
-    // BE와 규격 협의 필요
-    fetch(`/data/orderMock.json?offset=${offset}&limit=${limit}`)
+    fetch(`${API.ORDER}?offset=${offset}&limit=${limit}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+    })
       .then(response => response.json())
-      .then(data => {
+      .then(result => {
         setPaginationParams();
-        setDataList(data.reverse());
+        setDataList(result?.data);
       });
   };
 
@@ -43,23 +49,23 @@ const Orders = () => {
             {dataList?.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link to={`/order/${item.id}`}>
-                    <span className="order">{item.order}</span>
+                  <Link to={`/order/${item.orderId}`}>
+                    <span className="order">{index + 1}</span>
                     <span className="order-number">
                       <span>주문 번호</span>
-                      <em>{item.order_number}</em>
+                      <em>{item.orderId}</em>
                     </span>
                     <span className="order-summary">
                       <span>주문 요약</span>
-                      <em>{item.order_summary}</em>
+                      <em>{item.orderItems[0].productName} 외</em>
                     </span>
                     <span className="order-price">
-                      <span>예상 결제 금액</span>
-                      <em>{item.order_price}</em>
+                      <span>총 결제 금액</span>
+                      <em>{item.orderTotalPrice}</em>
                     </span>
                     <span className="order-date">
-                      <span>도착 희망일</span>
-                      <em>{item.order_date}</em>
+                      <span>주문일자</span>
+                      <em>{item.orderDate.substr(0, 10)}</em>
                     </span>
                   </Link>
                 </li>

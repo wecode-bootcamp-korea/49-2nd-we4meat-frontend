@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { API } from '../../config';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Button from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal';
@@ -14,11 +15,17 @@ const Order = props => {
   const navigate = useNavigate();
 
   const getOrderData = () => {
-    // fetch(`/data/orderMock.json/order/${id}`)
-    fetch(`/data/orderMock.json`)
+    fetch(`${API.ORDER_DETAIL}?id=${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+    })
       .then(response => response.json())
-      .then(data => {
-        setData(data[Number(id)]);
+      .then(result => {
+        console.log(result?.data[0]);
+        setData(result?.data[0]);
         setLoading(false);
       });
   };
@@ -48,7 +55,7 @@ const Order = props => {
     abc(true);
   };
 
-  const { order, order_date, order_number, order_price, order_summary } = data;
+  // const { PhoneNumber, address, name, orderId, userEmail, orderItems } = data;
 
   const { abc, setIsModal, isModal } = props;
 
@@ -71,22 +78,22 @@ const Order = props => {
             </div>
             <div className="order-list">
               <div className="order-wrap">
-                <span className="order">{order}</span>
+                {/* <span className="order">{orderId}</span> */}
                 <span className="order-number">
                   <span>주문 번호</span>
-                  <em>{order_number}</em>
+                  {/* <em>{orderId}</em> */}
                 </span>
                 <span className="order-summary">
                   <span>주문 요약</span>
-                  <em>{order_summary}</em>
+                  {/* <em>{orderItems[0].productName} 외</em> */}
                 </span>
                 <span className="order-price">
-                  <span>예상 결제 금액</span>
-                  <em>{order_price}</em>
+                  <span>총 결제 금액</span>
+                  <em>?</em>
                 </span>
                 <span className="order-date">
-                  <span>도착 희망일</span>
-                  <em>{order_date}</em>
+                  <span>주문일자</span>
+                  <em>?</em>
                 </span>
                 <span className="order-review">
                   <Button
@@ -125,21 +132,17 @@ const Order = props => {
                 <tbody>
                   <tr>
                     <th>받으시는 분</th>
-                    <td>류창선</td>
+                    {/* <td>{name}</td> */}
                     <th>배송 방법</th>
                     <td>새벽배송 (오전 7시 전 도착)</td>
                   </tr>
                   <tr>
                     <th>연락처</th>
-                    <td colSpan={3}>phoneNumber</td>
+                    {/* <td colSpan={3}>{PhoneNumber}</td> */}
                   </tr>
                   <tr>
                     <th>배송 주소</th>
-                    <td colSpan={3}>address</td>
-                  </tr>
-                  <tr>
-                    <th>도착 희망일</th>
-                    <td colSpan={3}>Expected arrival date</td>
+                    {/* <td colSpan={3}>{address}</td> */}
                   </tr>
                 </tbody>
               </table>
