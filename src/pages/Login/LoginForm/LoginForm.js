@@ -102,7 +102,7 @@ const LoginForm = ({ getAccessToken }) => {
           full="full"
           name="로그인"
           scale="low"
-          onClick={getAccessToken}
+          onClick={postUserInfo}
           disabled={isDisabled}
         />
       </fieldset>
