@@ -14,6 +14,8 @@ import PromotionBanner from './components/PromotionBanner/PromotionBanner';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import TopButton from './components/TopButton/TopButton';
+import Terms from './pages/SignUp/Terms/Terms';
+import SignUp from './pages/SignUp/SignUp';
 import InitializeScroll from './components/InitializeScroll/InitializeScroll';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
@@ -51,6 +53,8 @@ const Router = () => {
         <Route path="/pay-last" element={<PayLast />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order/:id" element={<Order />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/Sign-up" element={<SignUp />} />
       </Routes>
       <Footer />
       <TopButton />
