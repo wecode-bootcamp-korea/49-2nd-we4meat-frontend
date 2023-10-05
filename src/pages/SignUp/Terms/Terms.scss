@@ -1,0 +1,27 @@
+@charset 'utf-8';
+@import '../../../styles/partials/mixin.scss',
+  '../../../styles/partials/variables.scss';
+
+.terms {
+  margin-bottom: 150px;
+  .title {
+    margin: 100px 0;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  form {
+    width: 780px;
+    margin: 46px auto 40px;
+
+    legend {
+      font-size: 0;
+    }
+    .terms-box {
+      margin-bottom: 34px;
+      span {
+        font-size: 15px;
+      }
+    }
+  }
+}
