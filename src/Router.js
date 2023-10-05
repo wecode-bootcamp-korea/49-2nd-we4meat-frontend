@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Main from './pages/Main/Main';
 import List from './pages/List/List';
 import Detail from './pages/Detail/Detail';
@@ -23,6 +23,16 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 const Router = () => {
   const [quantity, setQuantity] = useState('');
   const [isModal, setIsModal] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+
+  const getAccessToken = () => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  };
 
   const getQuantity = num => {
     const changedInt = Number(quantity);
@@ -38,7 +48,7 @@ const Router = () => {
       <InitializeScroll />
       <SkipNavigation />
       <PromotionBanner />
-      <Header quantity={quantity} isModal={isModal} />
+      <Header quantity={quantity} isModal={isModal} isLogin={isLogin} />
       <Routes>
         <Route
           path="/"
@@ -52,7 +62,10 @@ const Router = () => {
           path="/detail/:id"
           element={<Detail getQuantity={getQuantity} quantity={quantity} />}
         />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login getAccessToken={getAccessToken} />}
+        />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/pay" element={<Pay />} />
         <Route path="/pay-coupon" element={<PayCoupon />} />

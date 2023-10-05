@@ -5,7 +5,7 @@ import CATEGORY_IMG_DATA from '../../../data/categoryImgData';
 import './SubNav.scss';
 
 const SubNav = props => {
-  const { handleClose, active } = props;
+  const { handleClose, active, isLogin } = props;
   const subNavRef = useRef(null);
   const navigate = useNavigate();
 
@@ -63,7 +63,7 @@ const SubNav = props => {
         </ul>
       </section>
       <div className="go-mypage-wrap">
-        {/* <Link to="/mypage">마이페이지</Link> */}
+        {isLogin && <Link to="/mypage">마이페이지</Link>}
       </div>
     </div>
   );

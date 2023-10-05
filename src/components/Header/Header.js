@@ -15,7 +15,7 @@ const Header = props => {
     setIsSubnavOn(false);
   };
 
-  const { isModal } = props;
+  const { isModal, isLogin } = props;
 
   return (
     <header className="header" data-modal={isModal}>
@@ -31,7 +31,7 @@ const Header = props => {
           </ul>
         </div>
         <div className="right-wrap">
-          <LoginItemGroup />
+          <LoginItemGroup isLogin={isLogin} />
           <LinkGoIcon
             icon="shopping-cart"
             path="cart"
@@ -43,6 +43,7 @@ const Header = props => {
       {isSubnavOn === true && (
         <SubNav
           active={isSubnavOn}
+          isLogin={isLogin}
           handleOpen={handleOpen}
           handleClose={handleClose}
         />
