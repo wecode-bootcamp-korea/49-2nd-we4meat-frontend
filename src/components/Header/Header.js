@@ -15,8 +15,10 @@ const Header = props => {
     setIsSubnavOn(false);
   };
 
+  const { isModal } = props;
+
   return (
-    <header className="header">
+    <header className="header" data-modal={isModal}>
       <div className="header-wrap inner-wrap">
         <div className="left-wrap">
           <LinkGoIcon icon="logo-white" text="정사각" scale="big" path="" />

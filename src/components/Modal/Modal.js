@@ -18,6 +18,9 @@ const Modal = ({
   setModalOpen,
   getQuantity,
   quantity,
+  abc,
+  setIsModal,
+  isModal,
   wallet,
 }) => {
   // props
@@ -53,7 +56,13 @@ const Modal = ({
         {isReview && <ReviewModal />}
         {isCharge && <ChargeModal title="충천하기" wallet={wallet} />}
         {/* 마이페이지 > 주문 상세 > 리뷰 작성하기 버튼 클릭 시 */}
-        {isReviewCreate && <ReviewCreateModal />}
+        {isReviewCreate && (
+          <ReviewCreateModal
+            abc={abc}
+            setIsModal={setIsModal}
+            isModal={isModal}
+          />
+        )}
       </div>
     </section>
   );

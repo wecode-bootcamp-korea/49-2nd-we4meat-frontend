@@ -1,0 +1,10 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.working {
+  @include FlexCenter;
+  padding: 0 5%;
+  & > div {
+    width: 75%;
+  }
+}

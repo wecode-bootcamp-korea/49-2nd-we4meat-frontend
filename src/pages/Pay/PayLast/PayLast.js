@@ -36,6 +36,7 @@ const PayLast = () => {
     } else {
       setIsValidation(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCheckBox]);
 
   useEffect(() => {

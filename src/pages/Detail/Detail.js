@@ -44,6 +44,7 @@ const Detail = props => {
       });
   };
 
+  const { getQuantity } = props;
   const { product_img, product_name, price, weight } = data;
   const firstCalc = weight / 100;
   const secondCalc = price / firstCalc;
@@ -61,7 +62,7 @@ const Detail = props => {
   };
 
   const setQuantity = () => {
-    props.getQuantity(count);
+    getQuantity(count);
   };
 
   return (
