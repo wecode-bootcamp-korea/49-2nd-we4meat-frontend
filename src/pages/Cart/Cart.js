@@ -39,6 +39,7 @@ const Cart = () => {
     //   method: 'PATCH',
     //   body: JSON.stringify(
     console.log(array);
+    navigate('/pay', { state: { totalPrice } });
     //     ),
     //   headers: {
     //     'Content-Type': 'application/json;charset=utf-8',
@@ -91,22 +92,26 @@ const Cart = () => {
             <li>가격</li>
           </ul>
           <ul className="cart-order-wrap">
-            {orderInfo.map((order, index) => {
-              return (
-                <CartOrder
-                  index={index}
-                  key={order.productId}
-                  item={order.productName}
-                  img={order.productImg}
-                  weight={order.weight}
-                  count={order.quantity}
-                  unitPrice={order.unitPrice}
-                  price={order.totalPrice}
-                  handleMinus={() => handleMinus(order.productId)}
-                  handlePlus={() => handlePlus(order.productId)}
-                />
-              );
-            })}
+            {orderInfo.length === 0 ? (
+              <li className="none-wrap">장바구니가 비었습니다.</li>
+            ) : (
+              orderInfo.map((order, index) => {
+                return (
+                  <CartOrder
+                    index={index}
+                    key={order.productId}
+                    item={order.productName}
+                    img={order.productImg}
+                    weight={order.weight}
+                    count={order.quantity}
+                    unitPrice={order.unitPrice}
+                    price={order.totalPrice}
+                    handleMinus={() => handleMinus(order.productId)}
+                    handlePlus={() => handlePlus(order.productId)}
+                  />
+                );
+              })
+            )}
           </ul>
         </section>
         <section>

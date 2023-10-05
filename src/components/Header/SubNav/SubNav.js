@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
-import LinkGoIcon from '../LinkGoIcon/LinkGoIcon';
+import { Link, useNavigate } from 'react-router-dom';
+// import LinkGoIcon from '../LinkGoIcon/LinkGoIcon';
 import CATEGORY_IMG_DATA from '../../../data/categoryImgData';
 import './SubNav.scss';
 
 const SubNav = props => {
   const { handleClose, active } = props;
-  // const [categoryParams, setCategoryParams] = useSearchParams();
   const subNavRef = useRef(null);
+  const navigate = useNavigate();
 
   const useOutsideClick = ref => {
     useEffect(() => {
@@ -24,18 +24,18 @@ const SubNav = props => {
   };
   useOutsideClick(subNavRef);
 
-  // const toGoCategory = e => {
-  //   categoryParams.set('category', 'meal');
-  //   setCategoryParams(categoryParams);
-  //   console.log(e.target.path);
-  // };
+  const setCategoryURL = e => {
+    const categoryValue = e.currentTarget.getAttribute('data-path');
+    navigate(`/list?category=${categoryValue}`);
+    handleClose();
+  };
 
   return (
     <div className={active ? 'sub-nav active' : 'sub-nav'} ref={subNavRef}>
       <section className="menu-wrap">
         <h1>메뉴</h1>
         <div className="menu-right">
-          <LinkGoIcon icon="shopping-cart-black" path="cart" />
+          {/* <LinkGoIcon icon="shopping-cart-black" path="cart" /> */}
           <button>
             <img
               src={process.env.PUBLIC_URL + `/images/close.png`}
@@ -50,21 +50,20 @@ const SubNav = props => {
         <ul className="category-list-wrap">
           {CATEGORY_IMG_DATA.map(list => {
             return (
-              <li key={list.id}>
-                <Link to={`/list?category=${list.englishText}`}>
-                  <img
-                    src={process.env.PUBLIC_URL + list.img}
-                    alt={list.text}
-                  />
-                  {list.text}
-                </Link>
+              <li
+                key={list.id}
+                data-path={list.englishText}
+                onClick={setCategoryURL}
+              >
+                <img src={process.env.PUBLIC_URL + list.img} alt={list.text} />
+                {list.text}
               </li>
             );
           })}
         </ul>
       </section>
       <div className="go-mypage-wrap">
-        <Link to="/mypage">마이페이지</Link>
+        {/* <Link to="/mypage">마이페이지</Link> */}
       </div>
     </div>
   );

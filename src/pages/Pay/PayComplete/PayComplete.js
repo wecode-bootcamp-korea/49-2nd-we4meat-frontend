@@ -12,8 +12,8 @@ const PayComplete = () => {
       <h5>주문이 완료되었습니다.</h5>
       <Button
         color="bg-black"
-        name="주문 상세 보기"
-        onClick={() => navigation('/order')}
+        name="메인으로 가기"
+        onClick={() => navigation('/')}
       />
     </div>
   );

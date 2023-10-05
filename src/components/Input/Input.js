@@ -7,6 +7,7 @@ function Input({
   name,
   placeholder,
   isValidation,
+  value,
   onChange,
   maxLength,
 }) {
@@ -18,6 +19,7 @@ function Input({
         name={name}
         placeholder={placeholder}
         data-validation={isValidation}
+        value={value}
         onChange={onChange}
         maxLength={maxLength}
       />

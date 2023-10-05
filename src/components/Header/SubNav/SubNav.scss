@@ -9,6 +9,7 @@
   padding: 16px 25px;
   background-color: #fff;
   box-shadow: -1px 0 8px #eee;
+  z-index: 1000;
 
   .menu-wrap {
     display: flex;
@@ -49,6 +50,7 @@
 
       li {
         @include FlexCenter;
+        flex-direction: column;
         padding: 18px 0;
         border-radius: 16px;
 
@@ -56,15 +58,12 @@
           background-color: #eee;
         }
 
-        a {
+        img {
           display: flex;
           align-items: center;
-          flex-direction: column;
-
-          img {
-            width: 52px;
-            padding-bottom: 16px;
-          }
+          // flex-direction: column;
+          width: 52px;
+          padding-bottom: 16px;
         }
       }
 

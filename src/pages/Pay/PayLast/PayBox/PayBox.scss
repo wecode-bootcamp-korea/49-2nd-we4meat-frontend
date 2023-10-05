@@ -7,7 +7,12 @@
   margin-bottom: 22px;
   background-color: #eee;
 
-  ul {
+  .pay-list-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
     li {
       display: flex;
       flex-direction: column;

@@ -54,7 +54,13 @@ const Modal = ({
 
         {/* 제품 상세 > 리뷰 목록 클릭 시 */}
         {isReview && <ReviewModal />}
-        {isCharge && <ChargeModal title="충천하기" wallet={wallet} />}
+        {isCharge && (
+          <ChargeModal
+            title="충천하기"
+            modalHandler={modalHandler}
+            // setModalOpen={setModalOpen}
+          />
+        )}
         {/* 마이페이지 > 주문 상세 > 리뷰 작성하기 버튼 클릭 시 */}
         {isReviewCreate && (
           <ReviewCreateModal

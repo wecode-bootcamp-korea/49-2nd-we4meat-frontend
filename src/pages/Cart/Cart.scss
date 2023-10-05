@@ -21,6 +21,16 @@
       display: flex;
       flex-direction: column;
 
+      .cart-order-wrap {
+        .none-wrap {
+          @include FlexCenter;
+          width: 860px;
+          height: 146px;
+          color: #333;
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
       .item-label-wrap {
         display: grid;
         align-items: center;
