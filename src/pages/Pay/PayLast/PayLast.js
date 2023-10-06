@@ -11,7 +11,7 @@ import './PayLast.scss';
 const PayLast = () => {
   const [orderInfo, setOrderInfo] = useState([]);
   const [userInfo, setUserInfo] = useState({});
-  const [credit, setCredit] = useState(0);
+  const [totalPay, setTotalPay] = useState(0);
   const [isValidation, setIsValidation] = useState(true);
   const [isCheckBox, setIsCheckBox] = useState(false);
   const navigation = useNavigate();
@@ -84,13 +84,13 @@ const PayLast = () => {
         throw new Error('오류입니다.');
       })
       .then(result => {
-        setCredit(result.data);
-        console.log(credit);
+        setTotalPay(result?.data);
       });
   }, []);
 
   useEffect(() => {
-    if (isCheckBox === true && userInfo?.credit >= grandFinal) {
+    const totalPayNDel = Number(totalPay) + 3500;
+    if (isCheckBox === true && userInfo?.credit >= totalPayNDel) {
       setIsValidation(!isValidation);
     } else {
       setIsValidation(true);
@@ -152,7 +152,7 @@ const PayLast = () => {
                   <p className="small-scale-font">…외 {orderCount}개</p>
                 )}
               </div>
-              <PayBox price={grandFinal} wallet={userInfo?.credit} />
+              <PayBox price={totalPay} wallet={userInfo?.credit} />
             </div>
             <Checkbox
               text="
