@@ -9,12 +9,13 @@ const deliveryFee = 3500;
 
 const Cart = () => {
   const [orderInfo, setOrderInfo] = useState([]);
-  const [orderId, setOrderId] = useState(null);
+  const [orderId, setOrderId] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const totalPriceNDelivery = totalPrice + deliveryFee;
   const navigate = useNavigate();
   const location = useLocation();
   const [result, setResult] = useState([]);
+  const [isOrderId, setIsOrderId] = useState(false);
 
   let productId = null;
   let quantity = null;
@@ -129,9 +130,9 @@ const Cart = () => {
         throw new Error('오류입니다.');
       })
       .then(result => {
-        console.log(result);
         if (result.message === 'ORDER_CREATED') {
-          setResult(result?.data);
+          // setResult(result?.data);
+
           // const index = result?.data.length - 1;
           // const indexFinal = result?.data[index];
           // const num = indexFinal?.orderId;
@@ -141,21 +142,25 @@ const Cart = () => {
           //   state: { grandFinal: totalPriceNDelivery, orderId: orderId },
           // });
 
-          aaa();
+          const targetIndex = result?.data.length - 1;
+          const targetOrderId = result?.data[targetIndex].orderId;
+
+          setOrderId(targetOrderId);
+          setIsOrderId(true);
         } else {
           alert('다시 시도해주세요.');
         }
       });
   };
 
-  const targetIndex = result?.length - 1;
-  const targetOrderId = result[targetIndex]?.orderId;
-
-  const aaa = () => {
-    setOrderId(targetOrderId);
-  };
-
-  console.log(orderId);
+  useEffect(() => {
+    if (isOrderId === true) {
+      navigate('/pay', {
+        state: { grandFinal: totalPriceNDelivery, orderId: orderId },
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOrderId]);
 
   const handlePlus = id => {
     const array = [...orderInfo];
