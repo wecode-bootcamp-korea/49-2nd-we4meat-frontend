@@ -29,7 +29,7 @@ const CATEGORY_IMG_DATA = [
   {
     id: 4,
     text: '수산',
-    englishText: 'fish',
+    englishText: 'seafood',
     img: '/images/category-fish.png',
     path: '',
     bannerText: '산지처럼 초신선한 수선',
@@ -38,7 +38,7 @@ const CATEGORY_IMG_DATA = [
   {
     id: 5,
     text: '밀키트',
-    englishText: 'meal',
+    englishText: 'mealkit',
     img: '/images/category-meal.png',
     path: '',
     bannerText: '초신선을 더 맛있게',

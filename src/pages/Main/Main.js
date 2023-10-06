@@ -5,13 +5,13 @@ import Products from '../../components/Products/Products';
 import ListBanner from './ListBanner/ListBanner';
 
 const Main = props => {
-  const { getQuantity, quantity } = props;
+  const { getQuantity, quantity, best } = props;
 
   return (
     <main id="main" className="main">
       <BigBanner />
       <EventBanners />
-      <Products getQuantity={getQuantity} quantity={quantity} />
+      <Products getQuantity={getQuantity} quantity={quantity} best={best} />
       <ListBanner />
     </main>
   );
