@@ -2,12 +2,12 @@ import React, { useRef, useState } from 'react';
 import ProductDescription from '../ProductDescription/ProductDescription';
 import ProductReview from '../ProductReview/ProductReview';
 
-const DetailTab = () => {
+const DetailTab = ({ result }) => {
   const targetRef = useRef(null);
   const [currentTab, setTab] = useState(0);
 
   const TAB_DATA = [
-    { name: '상품설명', content: <ProductDescription /> },
+    { name: '상품설명', content: <ProductDescription result={result} /> },
     { name: '상품리뷰', content: <ProductReview /> },
   ];
 
