@@ -52,7 +52,9 @@ const Router = () => {
       <Routes>
         <Route
           path="/"
-          element={<Main getQuantity={getQuantity} quantity={quantity} />}
+          element={
+            <Main best="best" getQuantity={getQuantity} quantity={quantity} />
+          }
         />
         <Route
           path="/list"

@@ -14,7 +14,7 @@ const Detail = props => {
   const [data, setData] = useState([]);
   const [count, setCount] = useState(1);
   const { id } = useParams();
-  const productId = Number(id) + 1;
+  const productId = Number(id);
 
   const handleMinusCount = () => {
     if (count === 1) {
@@ -34,7 +34,7 @@ const Detail = props => {
   }, []);
 
   const getProductData = () => {
-    fetch(`${API.DETAIL}?productId=${id + 1}`, {
+    fetch(`${API.DETAIL}?productId=${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -44,16 +44,18 @@ const Detail = props => {
         return response.json();
       })
       .then(result => {
+        console.log(result);
         setData(result?.data[0]);
         setLoading(false);
       });
   };
 
   const { getQuantity } = props;
-  const { productImg, productName, price, weight } = data;
-  const firstCalc = weight / 100;
-  const secondCalc = price / firstCalc;
+  // const { productImg, productName, price, weight } = data;
+  const firstCalc = data?.weight / 100;
+  const secondCalc = data?.price / firstCalc;
   const thirdCalc = Math.round(secondCalc).toLocaleString();
+  const productPrice = Math.round(data?.price).toLocaleString();
 
   const buyNow = () => {
     const isLogin = localStorage.getItem('accessToken');
@@ -120,6 +122,8 @@ const Detail = props => {
 
   const result = isOdd(productId);
 
+  console.log(data);
+
   return (
     <>
       {loading && <Loading />}
@@ -127,14 +131,14 @@ const Detail = props => {
         <section className="detail-top">
           <div className="inner-wrap">
             <div className="image-area">
-              <img src={productImg} alt={productName} />
+              <img src={data?.productImg} alt={data?.productName} />
             </div>
             <div className="metadata-area">
               <hgroup>
-                <h2>{productName}</h2>
+                <h2>{data?.productName}</h2>
                 <h4>100g당 {thirdCalc}원</h4>
                 <h3>
-                  기준가 {price?.toLocaleString()}원 ({weight}g)
+                  기준가 {productPrice}원 ({data?.weight}g)
                 </h3>
               </hgroup>
               <OptionSelectBox category="구이용" text="옵션" />
