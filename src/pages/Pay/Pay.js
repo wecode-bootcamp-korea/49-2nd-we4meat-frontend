@@ -20,7 +20,7 @@ const Pay = () => {
     orderId = location.state.orderId;
   }
 
-  console.log(orderId);
+  console.log(grandFinal, orderId);
 
   const backPage = () => {
     navigate(-1);

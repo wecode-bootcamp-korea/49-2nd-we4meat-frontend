@@ -5,8 +5,7 @@ const deliveryFee = 3500;
 
 const PayBox = ({ price, wallet }) => {
   const delivery = Number(price) + deliveryFee;
-  const total = Number(price) - deliveryFee;
-  const totalNum = Number(total)?.toLocaleString();
+  const total = Number(price)?.toLocaleString();
   const walletNum = Number(wallet);
 
   return (
@@ -15,7 +14,7 @@ const PayBox = ({ price, wallet }) => {
         <li>
           <h4>총 상품 금액</h4>
           <p>
-            {totalNum}
+            {total}
             <span className="small-font">원</span>
           </p>
         </li>

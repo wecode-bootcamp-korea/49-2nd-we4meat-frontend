@@ -11,12 +11,11 @@ import './PayLast.scss';
 const PayLast = () => {
   const [orderInfo, setOrderInfo] = useState([]);
   const [userInfo, setUserInfo] = useState({});
+  const [totalPay, setTotalPay] = useState(0);
   const [isValidation, setIsValidation] = useState(true);
   const [isCheckBox, setIsCheckBox] = useState(false);
   const navigation = useNavigate();
   const location = useLocation();
-  // const orderId = localStorage.getItem(orderId);
-  // const { wallet } = userInfo;
   const orderCount = orderInfo.length - 1;
   let grandFinal = null;
   if (location.state != null) {
@@ -27,7 +26,6 @@ const PayLast = () => {
   if (location.state != null) {
     orderId = location.state.orderId;
   }
-  console.log(orderId, grandFinal);
 
   const backPage = () => {
     navigation(-1);
@@ -54,9 +52,7 @@ const PayLast = () => {
       .then(data => {
         setUserInfo(data.data[0]);
       });
-  }, []);
 
-  useEffect(() => {
     fetch(`${API.CART}`, {
       method: 'GET',
       headers: {
@@ -73,10 +69,28 @@ const PayLast = () => {
       .then(data => {
         setOrderInfo(data?.data);
       });
+
+    fetch(`${API.PAYMENT}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(result => {
+        setTotalPay(result?.data);
+      });
   }, []);
 
   useEffect(() => {
-    if (isCheckBox === true && userInfo?.credit >= grandFinal) {
+    const totalPayNDel = Number(totalPay) + 3500;
+    if (isCheckBox === true && userInfo?.credit >= totalPayNDel) {
       setIsValidation(!isValidation);
     } else {
       setIsValidation(true);
@@ -87,10 +101,7 @@ const PayLast = () => {
   const handleSubmit = () => {
     fetch(`${API.PAY}`, {
       method: 'PATCH',
-      body: JSON
-        .stringify
-        // { orderId: orderId, total_Credit: totalPrice }
-        (),
+      body: JSON.stringify({ orderId: orderId }),
       headers: {
         'Content-Type': 'application/json',
         authorization: localStorage.getItem('accessToken'),
@@ -141,7 +152,7 @@ const PayLast = () => {
                   <p className="small-scale-font">…외 {orderCount}개</p>
                 )}
               </div>
-              <PayBox price={grandFinal} wallet={userInfo?.credit} />
+              <PayBox price={totalPay} wallet={userInfo?.credit} />
             </div>
             <Checkbox
               text="
