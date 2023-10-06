@@ -9,33 +9,37 @@ const deliveryFee = 3500;
 
 const Cart = () => {
   const [orderInfo, setOrderInfo] = useState([]);
+  const [orderId, setOrderId] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
   const totalPriceNDelivery = totalPrice + deliveryFee;
   const navigate = useNavigate();
   const location = useLocation();
+  const [result, setResult] = useState([]);
 
-  // 바로구매 시 여기서 두 데이터를 꺼내 쓰시면 됩니다.
-  const { productId, quantity } = location.state;
-  console.log('productId :' + productId);
-  console.log('quantity :' + quantity);
+  let productId = null;
+  let quantity = null;
+
+  if (location.state != null) {
+    const { productId, quantity } = location.state;
+  }
 
   useEffect(() => {
-    // fetch('/data/orderPayMock.json')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     setOrderInfo(data);
-    //   });
-    // fetch(`http://10.58.52.104:8000/cart`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8',
-    //     Authorization: localStorage.getItem('token'),
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setOrderInfo(data);
-    //   });
+    fetch(`${API.CART}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(data => {
+        setOrderInfo(data.data);
+      });
   }, []);
 
   const sumTotal = () => {
@@ -50,22 +54,72 @@ const Cart = () => {
   }, [orderInfo]);
 
   const handleSubmit = () => {
-    // const array = orderInfo.map(item => ({
-    //   productId: item.productId,
-    //   quantity: item.quantity,
-    // }));
-    fetch(`${API.CART}`, {
-      method: 'PATCH',
+    // if (productId === null || quantity === null) {
+    //   const array = orderInfo.map(item => ({
+    //     productId: item.productId,
+    //     quantity: item.quantity,
+    //   }));
 
-      //   array
-      // console.log(array);
-      // navigate('/pay', { state: { totalPrice } });
+    //   fetch(`${API.CART}`, {
+    //     method: 'PATCH',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       authorization: localStorage.getItem('accessToken'),
+    //     },
+    //     body: JSON.stringify({
+    //       products: array,
+    //     }),
+    //   })
+    //     .then(res => {
+    //       if (res.ok === true) {
+    //         return res.json();
+    //       }
+    //       throw new Error('오류입니다.');
+    //     })
+    //     .then(result => {
+    //       if (result.message === 'CART_UPDATED') {
+    //         navigate('/pay', { state: { totalPriceNDelivery } });
+    //         console.log('clear');
+    //         console.log(result);
+    //       } else {
+    //         alert('다시 시도해주세요.');
+    //       }
+    //     });
+    // } else if (productId !== null) {
+    //   fetch(`${API.CART}`, {
+    //     method: 'PATCH',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       authorization: localStorage.getItem('accessToken'),
+    //     },
+    //     body: JSON.stringify({
+    //       products: [{ productId: productId, quantity: quantity }],
+    //     }),
+    //   })
+    //     .then(res => {
+    //       if (res.ok === true) {
+    //         return res.json();
+    //       }
+    //       throw new Error('오류입니다.');
+    //     })
+    //     .then(result => {
+    //       if (result.message === 'CART_UPDATED') {
+    //         navigate('/pay', { state: { totalPrice } });
+    //         console.log('clear222');
+    //       } else {
+    //         alert('다시 시도해주세요.');
+    //       }
+    //     });
+    // }
+
+    fetch(`${API.ORDER}`, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         authorization: localStorage.getItem('accessToken'),
       },
       body: JSON.stringify({
-        products: [{ productId: productId, quantity: quantity }],
+        totalPrice: totalPriceNDelivery,
       }),
     })
       .then(res => {
@@ -75,14 +129,33 @@ const Cart = () => {
         throw new Error('오류입니다.');
       })
       .then(result => {
-        if (result.message === 'CART_UPDATED') {
-          navigate('/pay', { state: { totalPrice } });
-          console.log('clear');
+        console.log(result);
+        if (result.message === 'ORDER_CREATED') {
+          setResult(result?.data);
+          // const index = result?.data.length - 1;
+          // const indexFinal = result?.data[index];
+          // const num = indexFinal?.orderId;
+          // setOrderId(num);
+          // console.log(num, orderId);
+          // navigate('/pay', {
+          //   state: { grandFinal: totalPriceNDelivery, orderId: orderId },
+          // });
+
+          aaa();
         } else {
           alert('다시 시도해주세요.');
         }
       });
   };
+
+  const targetIndex = result?.length - 1;
+  const targetOrderId = result[targetIndex]?.orderId;
+
+  const aaa = () => {
+    setOrderId(targetOrderId);
+  };
+
+  console.log(orderId);
 
   const handlePlus = id => {
     const array = [...orderInfo];
@@ -124,7 +197,7 @@ const Cart = () => {
             {orderInfo.length === 0 ? (
               <li className="none-wrap">장바구니가 비었습니다.</li>
             ) : (
-              orderInfo.map((order, index) => {
+              orderInfo?.map((order, index) => {
                 return (
                   <CartOrder
                     index={index}

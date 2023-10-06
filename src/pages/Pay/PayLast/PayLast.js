@@ -18,16 +18,16 @@ const PayLast = () => {
   // const orderId = localStorage.getItem(orderId);
   // const { wallet } = userInfo;
   const orderCount = orderInfo.length - 1;
-  let totalPrice = null;
+  let grandFinal = null;
   if (location.state != null) {
-    totalPrice = location.state.totalPrice;
-  }
-  let stateWallet = null;
-  if (location.stateWallet != null) {
-    stateWallet = location.state.stateWallet;
+    grandFinal = location.state.grandFinal;
   }
 
-  console.log(stateWallet);
+  let orderId = null;
+  if (location.state != null) {
+    orderId = location.state.orderId;
+  }
+  console.log(orderId, grandFinal);
 
   const backPage = () => {
     navigation(-1);
@@ -38,7 +38,45 @@ const PayLast = () => {
   };
 
   useEffect(() => {
-    if (isCheckBox === true && stateWallet >= totalPrice) {
+    fetch(`${API.USER}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(data => {
+        setUserInfo(data.data[0]);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`${API.CART}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(data => {
+        setOrderInfo(data?.data);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (isCheckBox === true && userInfo?.credit >= grandFinal) {
       setIsValidation(!isValidation);
     } else {
       setIsValidation(true);
@@ -46,12 +84,8 @@ const PayLast = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCheckBox]);
 
-  useEffect(() => {
-    fetch().then().then();
-  }, []);
-
   const handleSubmit = () => {
-    fetch('http://url/payment/complete', {
+    fetch(`${API.PAY}`, {
       method: 'PATCH',
       body: JSON
         .stringify
@@ -59,7 +93,7 @@ const PayLast = () => {
         (),
       headers: {
         'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
+        authorization: localStorage.getItem('accessToken'),
       },
     })
       .then(res => {
@@ -71,6 +105,7 @@ const PayLast = () => {
       .then(result => {
         if (result.message === 'paymentComplete') {
           navigation('/pay-complete');
+          console.log('clear');
         } else {
           alert('다시 시도해주세요.');
         }
@@ -98,15 +133,15 @@ const PayLast = () => {
                     {orderInfo[0]?.productName}
                     <span className="small-gray-font">보통(16mm)</span>
                   </li>
-                  <li>{orderInfo[0]?.weight}</li>
-                  <li>{orderInfo[0]?.quantity}</li>
-                  <li>{totalPrice?.toLocaleString()}원</li>
+                  <li>{orderInfo[0]?.weight}g</li>
+                  <li>{orderInfo[0]?.quantity}개</li>
+                  <li>{orderInfo[0]?.totalPrice.toLocaleString()}원</li>
                 </ul>
                 {orderInfo.length !== 1 && (
                   <p className="small-scale-font">…외 {orderCount}개</p>
                 )}
               </div>
-              <PayBox price={totalPrice} wallet={stateWallet} />
+              <PayBox price={grandFinal} wallet={userInfo?.credit} />
             </div>
             <Checkbox
               text="

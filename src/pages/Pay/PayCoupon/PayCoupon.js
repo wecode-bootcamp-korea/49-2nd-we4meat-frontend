@@ -7,22 +7,28 @@ import { API } from '../../../config';
 import './PayCoupon.scss';
 
 const PayCoupon = () => {
-  const [payment, setPayment] = useState(0);
+  // const [payment, setPayment] = useState(0);
   const navigation = useNavigate();
   const location = useLocation();
   const backPage = () => {
     navigation(-1);
   };
 
-  let wallet = null;
+  let grandFinal = null;
   if (location.state != null) {
-    wallet = location.state.wallet;
+    grandFinal = location.state.grandFinal;
   }
 
-  let totalPrice = null;
+  let orderId = null;
   if (location.state != null) {
-    totalPrice = location.state.totalPrice;
+    orderId = location.state.orderId;
   }
+
+  console.log(orderId, grandFinal);
+  // let totalPrice = null;
+  // if (location.state != null) {
+  //   totalPrice = location.state.totalPrice.totalPrice;
+  // }
 
   // useEffect(() => {
   //   fetch(`${API.PAYMENT}`, {
@@ -53,7 +59,7 @@ const PayCoupon = () => {
       <section className="coupon-inner-wrap">
         <div className="box-wrap">
           <CouponBox name="쿠폰" text="쿠폰을 선택해주세요" />
-          <CouponBox name="적립금" point="point-use" wallet={payment} />
+          <CouponBox name="적립금" point="point-use" />
         </div>
         <div className="btn-wrap">
           <Button
@@ -68,8 +74,7 @@ const PayCoupon = () => {
             name="다음 단계"
             onClick={() =>
               navigation('/pay-last', {
-                state: { totalPrice },
-                stateWallet: { wallet },
+                state: { state: { grandFinal: grandFinal, orderId: orderId } },
               })
             }
           />

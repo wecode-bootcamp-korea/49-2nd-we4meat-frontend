@@ -58,9 +58,9 @@ const ChargeModal = ({ title, modalHandler }) => {
         result => {
           if (result.message === 'WALLET_CHARGED') {
             modalHandler();
-            const wallet = result.data;
-            navigate('/pay-coupon', { state: { wallet } });
-            console.log('clear');
+            // const wallet = result.data;
+            navigate('/pay-coupon');
+            window.location.reload();
           } else {
             alert('다시 시도해주세요.');
           }

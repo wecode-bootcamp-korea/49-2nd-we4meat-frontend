@@ -9,43 +9,40 @@ const Pay = () => {
   const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
   const location = useLocation();
-  let totalPrice = null;
+
+  let grandFinal = null;
   if (location.state != null) {
-    totalPrice = location.state.totalPrice;
+    grandFinal = location.state.grandFinal;
   }
+
+  let orderId = null;
+  if (location.state != null) {
+    orderId = location.state.orderId;
+  }
+
+  console.log(orderId);
 
   const backPage = () => {
     navigate(-1);
   };
 
   useEffect(() => {
-    // fetch(`${API.ORDER}`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //     authorization: localStorage.getItem('accessToken'),
-    //   },
-    // })
-    //   .then(res => {
-    //     if (res.ok === true) {
-    //       return res.json();
-    //     }
-    //     throw new Error('오류입니다.');
-    //   })
-    //   .then(data => {
-    //     setUserInfo(data[0]);
-    //   });
-    // fetch(`http://10.58.52.104:8000/order/detail?Id=`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8',
-    //     Authorization: localStorage.getItem('token'),
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     setUserInfo(result.data);
-    //   });
+    fetch(`${API.USER}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: localStorage.getItem('accessToken'),
+      },
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('오류입니다.');
+      })
+      .then(result => {
+        setUserInfo(result?.data[0]);
+      });
   }, []);
 
   return (
@@ -65,11 +62,11 @@ const Pay = () => {
             <tbody>
               <tr>
                 <th>전화번호</th>
-                <td>{userInfo.userPhone}</td>
+                <td>{userInfo.phoneNumber}</td>
               </tr>
               <tr>
                 <th>이메일</th>
-                <td>{userInfo.userEmail}</td>
+                <td>{userInfo.name}@naver.com</td>
               </tr>
               <tr>
                 <th>주소</th>
@@ -89,7 +86,11 @@ const Pay = () => {
             color="bg-black"
             full="full"
             name="다음 단계"
-            onClick={() => navigate('/pay-coupon', { state: { totalPrice } })}
+            onClick={() =>
+              navigate('/pay-coupon', {
+                state: { grandFinal: grandFinal, orderId: orderId },
+              })
+            }
           />
         </div>
       </section>
