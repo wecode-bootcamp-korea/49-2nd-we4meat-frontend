@@ -54,7 +54,7 @@ const CartModal = ({
     const isLogin = localStorage.getItem('accessToken');
 
     if (isLogin === null) {
-      navigate('/sign-up');
+      navigate('/login');
     } else {
       fetch(`${API.CART}`, {
         method: 'POST',
