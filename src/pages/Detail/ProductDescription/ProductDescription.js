@@ -1,8 +1,6 @@
 import React from 'react';
 
 const ProductDescription = ({ result }) => {
-  console.log(result);
-
   return (
     <div className="product-description">
       {result && (
