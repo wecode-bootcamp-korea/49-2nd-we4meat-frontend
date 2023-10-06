@@ -56,10 +56,36 @@ const Detail = props => {
   const thirdCalc = Math.round(secondCalc).toLocaleString();
 
   const buyNow = () => {
-    setQuantity();
-    navigate('/cart', {
-      state: productData,
-    });
+    const isLogin = localStorage.getItem('accessToken');
+
+    if (isLogin === null) {
+      navigate('/sign-up');
+    } else {
+      fetch(`${API.CART}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: localStorage.getItem('accessToken'),
+        },
+        body: JSON.stringify(productData),
+      })
+        .then(res => {
+          if (res.ok === true) {
+            return res.json();
+          }
+          throw new Error('오류입니다.');
+        })
+        .then(result => {
+          if (result.message === 'ITEM_ADDED') {
+            setQuantity();
+            navigate('/cart', {
+              state: productData,
+            });
+          } else {
+            alert('다시 시도해주세요.');
+          }
+        });
+    }
   };
 
   const productData = {
