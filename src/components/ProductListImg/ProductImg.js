@@ -5,7 +5,7 @@ import './ProductImg.scss';
 function ProductImg({ id, img, title }) {
   return (
     <div className="product-img">
-      <Link to={`/detail/${id - 1}`}>
+      <Link to={`/detail/${id}`}>
         <img src={img} alt={title} />
       </Link>
     </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { API } from '../../config';
 import Loading from '../../pages/Loading/Loading';
 import BestTitle from '../BestTitle/BestTitle';
@@ -10,14 +11,26 @@ import './Products.scss';
 function Products(props) {
   const [loading, setLoading] = useState(true);
   const [productList, setProductList] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const category = searchParams.get('category');
+  const { getQuantity, quantity, best } = props;
 
   useEffect(() => {
     setLoading(true);
     getProductsData();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category]);
+
+  let api_path;
+  if (best) {
+    api_path = `${API.LIST}?category=beef`;
+  } else {
+    api_path = `${API.LIST}?category=${category}`;
+  }
 
   const getProductsData = () => {
-    fetch(`${API.LIST}?category=pork`, {
+    // fetch(`${API.LIST}?category=${category}`, {
+    fetch(api_path, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -31,8 +44,6 @@ function Products(props) {
         setProductList(result?.data);
       });
   };
-
-  const { getQuantity, quantity } = props;
 
   return (
     <section className="products-section">
