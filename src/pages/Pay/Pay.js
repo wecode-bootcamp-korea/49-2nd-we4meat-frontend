@@ -56,21 +56,21 @@ const Pay = () => {
             <thead>
               <tr>
                 <th>이름</th>
-                <td>{userInfo.name}</td>
+                <td>{userInfo?.name}</td>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th>전화번호</th>
-                <td>{userInfo.phoneNumber}</td>
+                <td>{userInfo?.phoneNumber}</td>
               </tr>
               <tr>
                 <th>이메일</th>
-                <td>{userInfo.name}@naver.com</td>
+                <td>{userInfo?.name}@naver.com</td>
               </tr>
               <tr>
                 <th>주소</th>
-                <td>{userInfo.address}</td>
+                <td>{userInfo?.address}</td>
               </tr>
             </tbody>
           </table>
