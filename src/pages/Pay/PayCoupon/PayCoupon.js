@@ -74,7 +74,7 @@ const PayCoupon = () => {
             name="다음 단계"
             onClick={() =>
               navigation('/pay-last', {
-                state: { state: { grandFinal: grandFinal, orderId: orderId } },
+                state: { grandFinal: grandFinal, orderId: orderId },
               })
             }
           />

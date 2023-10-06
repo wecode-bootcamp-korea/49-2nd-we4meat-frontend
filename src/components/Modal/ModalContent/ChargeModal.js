@@ -54,20 +54,15 @@ const ChargeModal = ({ title, modalHandler }) => {
         }
         throw new Error('오류입니다.');
       })
-      .then(
-        result => {
-          if (result.message === 'WALLET_CHARGED') {
-            modalHandler();
-            // const wallet = result.data;
-            navigate('/pay-coupon');
-            window.location.reload();
-          } else {
-            alert('다시 시도해주세요.');
-          }
-        },
-
-        // modalHandler();
-      );
+      .then(result => {
+        if (result.message === 'WALLET_CHARGED') {
+          modalHandler();
+          navigate('/pay-coupon');
+          window.location.reload();
+        } else {
+          alert('다시 시도해주세요.');
+        }
+      });
   };
 
   return (
