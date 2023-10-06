@@ -115,9 +115,6 @@ const CartModal = ({
     getQuantity(count);
   };
 
-  // console.log(getQuantity);
-  console.log(productData);
-
   return (
     <>
       <div className="cart-modal">

@@ -24,7 +24,6 @@ const Order = props => {
     })
       .then(response => response.json())
       .then(result => {
-        console.log(result?.data[0]);
         setData(result?.data[0]);
         setLoading(false);
       });

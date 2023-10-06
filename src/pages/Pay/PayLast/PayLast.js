@@ -116,7 +116,6 @@ const PayLast = () => {
       .then(result => {
         if (result.message === 'paymentComplete') {
           navigation('/pay-complete');
-          console.log('clear');
         } else {
           alert('다시 시도해주세요.');
         }

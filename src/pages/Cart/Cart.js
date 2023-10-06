@@ -80,8 +80,6 @@ const Cart = () => {
     //     .then(result => {
     //       if (result.message === 'CART_UPDATED') {
     //         navigate('/pay', { state: { totalPriceNDelivery } });
-    //         console.log('clear');
-    //         console.log(result);
     //       } else {
     //         alert('다시 시도해주세요.');
     //       }
@@ -106,7 +104,6 @@ const Cart = () => {
     //     .then(result => {
     //       if (result.message === 'CART_UPDATED') {
     //         navigate('/pay', { state: { totalPrice } });
-    //         console.log('clear222');
     //       } else {
     //         alert('다시 시도해주세요.');
     //       }
@@ -137,7 +134,6 @@ const Cart = () => {
           // const indexFinal = result?.data[index];
           // const num = indexFinal?.orderId;
           // setOrderId(num);
-          // console.log(num, orderId);
           // navigate('/pay', {
           //   state: { grandFinal: totalPriceNDelivery, orderId: orderId },
           // });

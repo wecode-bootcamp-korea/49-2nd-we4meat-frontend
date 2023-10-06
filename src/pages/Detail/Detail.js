@@ -44,7 +44,6 @@ const Detail = props => {
         return response.json();
       })
       .then(result => {
-        console.log(result);
         setData(result?.data[0]);
         setLoading(false);
       });
@@ -121,8 +120,6 @@ const Detail = props => {
   };
 
   const result = isOdd(productId);
-
-  console.log(data);
 
   return (
     <>

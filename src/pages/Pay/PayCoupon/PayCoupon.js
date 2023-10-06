@@ -23,8 +23,6 @@ const PayCoupon = () => {
   if (location.state != null) {
     orderId = location.state.orderId;
   }
-
-  console.log(orderId, grandFinal);
   // let totalPrice = null;
   // if (location.state != null) {
   //   totalPrice = location.state.totalPrice.totalPrice;
@@ -48,7 +46,6 @@ const PayCoupon = () => {
   //       if (result.message === 'Payments available') {
   //         setPayment(result.Reserve_balance);
   //       }
-  //       console.log('함수 안됨');
   //     });
   // }, []);
 
