@@ -37,7 +37,6 @@ const Review = () => {
 
   // 더보기 버튼: 4개씩 추가 노출(기본 8개)
   // const aaa = () => {
-  //   console.log('worked!');
   // };
 
   return (

@@ -174,7 +174,6 @@ function UserInfo(props) {
         throw new Error('communication failure');
       })
       .then(result => {
-        console.log(result);
         if (result.message === 'SIGNUP_SUCCESS') {
           setSignUpComplete(true);
         } else {

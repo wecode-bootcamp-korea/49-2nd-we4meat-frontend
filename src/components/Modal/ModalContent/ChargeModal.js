@@ -39,10 +39,7 @@ const ChargeModal = ({ title, modalHandler }) => {
   const pointCharge = () => {
     fetch(`${API.CHARGE}`, {
       method: 'PATCH',
-      body: JSON.stringify(
-        { credit: pointChangeNum },
-        // console.log(pointChange);
-      ),
+      body: JSON.stringify({ credit: pointChangeNum }),
       headers: {
         'Content-Type': 'application/json',
         authorization: localStorage.getItem('accessToken'),
