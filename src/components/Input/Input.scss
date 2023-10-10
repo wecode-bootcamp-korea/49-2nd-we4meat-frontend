@@ -1,0 +1,28 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.input-box {
+  display: block;
+  width: 100%;
+  .input {
+    width: 100%;
+    padding: 0 15px;
+    border: 1px $grayscale-5 solid;
+    &:focus {
+      outline: none;
+    }
+    &.login {
+      height: 48px;
+    }
+    &.sign-up {
+      width: 100px;
+      height: 40px;
+    }
+    &:focus[data-validation='false'] {
+      border-color: $red;
+    }
+    &:focus[data-validation='true'] {
+      border-color: $green;
+    }
+  }
+}

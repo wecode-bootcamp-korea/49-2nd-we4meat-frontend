@@ -1,0 +1,30 @@
+@charset 'utf-8';
+@import '../../styles/partials/mixin.scss',
+  '../../styles/partials/variables.scss';
+
+.register-nav-wrap {
+  @include FlexCenter;
+  width: 1180px;
+  height: 120px;
+  background-color: #eee;
+
+  li {
+    @include FlexCenter;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    opacity: 0.3;
+
+    img {
+      width: 53px;
+    }
+
+    .arrow-img {
+      margin-right: 8px;
+    }
+  }
+
+  .on {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,52 @@
+@charset "utf-8";
+@import '../../../styles/partials/mixin', '../../../styles/partials/variables';
+
+.pagination {
+  @include FlexCenter;
+  gap: 5px;
+  margin-top: 50px;
+  button {
+    width: 40px;
+    height: 40px;
+    &:hover {
+      background-color: $grayscale-6;
+    }
+  }
+  .direction {
+    @include Ir;
+    background-position: center;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    &.first {
+      background-image: url(../../../../public/images/common/first.png);
+    }
+    &.prev {
+      background-image: url(../../../../public/images/common/prev.png);
+    }
+    &.next {
+      background-image: url(../../../../public/images/common/next.png);
+    }
+    &.last {
+      background-image: url(../../../../public/images/common/last.png);
+    }
+    &:disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+    &.first:disabled,
+    &.last:disabled {
+      visibility: hidden;
+    }
+  }
+  .pagination-number {
+    display: flex;
+    button {
+      font-size: 20px;
+      text-align: center;
+      &.selected {
+        background-color: $grayscale-1;
+        color: $grayscale-8;
+      }
+    }
+  }
+}

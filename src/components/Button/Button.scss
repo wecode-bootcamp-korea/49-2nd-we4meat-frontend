@@ -1,0 +1,98 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.btn {
+  @include FlexCenter;
+  width: 180px;
+  height: 60px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: $grayscale-3;
+  color: $grayscale-8;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &[scale='small'] {
+    width: 98px;
+    height: 34px;
+    font-size: 13px;
+    color: $grayscale-1;
+    border: 1px solid $grayscale-5;
+    border-radius: 5px;
+    background-color: $grayscale-7;
+  }
+
+  &[use='review'] {
+    border: none;
+    color: $grayscale-8;
+  }
+
+  &[scale='smallest'] {
+    width: 82px;
+    height: 28px;
+    font-size: 13px;
+    color: $grayscale-1;
+    border: 1px solid $grayscale-5;
+    background-color: $grayscale-7;
+  }
+
+  &[scale='low'] {
+    height: 48px;
+  }
+
+  &[color='bg-black'] {
+    background-color: $grayscale-1;
+  }
+
+  &[color='bg-gray'] {
+    background-color: $grayscale-4;
+  }
+
+  &[color='bg-red'] {
+    background-color: $red;
+  }
+
+  &[icon='sns-talk'] {
+    background-color: $yellow;
+    color: #3c1e1e;
+    border-radius: 4px;
+  }
+
+  &[icon='sns-nav'] {
+    background-color: #1ec800;
+    border-radius: 4px;
+  }
+
+  &[full='full'] {
+    width: 100%;
+  }
+
+  &[line='line'] {
+    border: 1px solid $red;
+    background-color: transparent;
+    border-radius: 4px;
+    color: $red;
+  }
+
+  &[border-radius='border'] {
+    width: 83px;
+    height: 32px;
+    border-radius: 5px;
+  }
+
+  &[disabled] {
+    background-color: $grayscale-5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-group {
+  display: flex;
+  .btn {
+    flex: 1;
+  }
+}

@@ -1,0 +1,15 @@
+@charset "utf-8";
+@import '../../../styles/partials/variables.scss';
+
+.form {
+  legend {
+    font-size: 18px;
+    line-height: 43px;
+    font-weight: 700;
+    color: $grayscale-2;
+  }
+  label + label,
+  label + button {
+    margin-top: 8px;
+  }
+}

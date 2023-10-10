@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "category_id": 1,
+    "inventory_id": 2,
+    "product_name": "초신선 돼지 삼겹살 구이용",
+    "product_img": "/images/category/pork_1.png",
+    "price": 20000,
+    "weight": 600
+  }
+]

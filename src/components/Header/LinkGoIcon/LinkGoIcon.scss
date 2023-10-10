@@ -1,0 +1,34 @@
+@charset "utf-8";
+@import '../../../styles/partials/mixin', '../../../styles/partials/variables';
+
+.icon-wrap {
+  @include FlexCenter;
+  gap: 8px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+
+  img {
+    width: 32px;
+    height: 32px;
+
+    &[data-scale='big'] {
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
+
+.right-wrap {
+  .quantity {
+    @include Position(absolute, $top: -10px, $right: -10px);
+    @include FlexCenter;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #ed0000;
+    font-size: 14px;
+    color: $grayscale-8;
+  }
+}

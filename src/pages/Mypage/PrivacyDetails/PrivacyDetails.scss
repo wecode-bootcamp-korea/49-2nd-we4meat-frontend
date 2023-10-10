@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import '../../../styles/partials/mixin', '../../../styles/partials/variables';
+
+.privacy-details {
+  @include FlexCenter;
+  flex-direction: column;
+  p {
+    font-size: 24px;
+    & + button {
+      margin-top: 50px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@charset "utf-8";
+@import '../../../styles/partials/mixin', '../../../styles/partials/variables';
+
+.user-info-detail {
+  position: relative;
+  padding: 65px 0 100px;
+  .hidden {
+    top: -96px;
+  }
+  .tabs {
+    text-align: center;
+    button {
+      display: inline-block;
+      margin: 0 30px;
+      padding: 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: $grayscale-5;
+      &.selected {
+        border-bottom: 1px $grayscale-1 solid;
+        color: $grayscale-1;
+      }
+    }
+  }
+  .tab-contents {
+    padding-top: 45px;
+  }
+}

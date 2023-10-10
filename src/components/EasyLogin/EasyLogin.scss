@@ -1,0 +1,14 @@
+@charset 'utf-8';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.easy-login {
+  h3 {
+    font-size: 18px;
+    line-height: 43px;
+    font-weight: 700;
+    color: $grayscale-2;
+  }
+  button + button {
+    margin-top: 8px;
+  }
+}

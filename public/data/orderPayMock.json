@@ -1,0 +1,29 @@
+[
+  {
+    "productId": 1,
+    "productName": "흑돼지 삼겹살",
+    "productImg": null,
+    "weight": "600g",
+    "quantity": 2,
+    "unitPrice": 10000,
+    "totalPrice": "20000"
+  },
+  {
+    "productId": 3,
+    "productName": "생닭",
+    "productImg": null,
+    "weight": "1마리",
+    "quantity": 2,
+    "unitPrice": 4000,
+    "totalPrice": "8000"
+  },
+  {
+    "productId": 2,
+    "productName": "투뿔한우",
+    "productImg": null,
+    "weight": "400g",
+    "quantity": 2,
+    "unitPrice": 27000,
+    "totalPrice": "54000"
+  }
+]

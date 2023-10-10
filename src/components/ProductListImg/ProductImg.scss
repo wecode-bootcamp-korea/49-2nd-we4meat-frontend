@@ -1,0 +1,11 @@
+@charset 'utf-8';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.product-img {
+  width: 200px;
+  //cursor: pointer;
+  img {
+    width: 100%;
+    display: block;
+  }
+}

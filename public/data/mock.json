@@ -1,5 +1,65 @@
 [
-    {
-        "category": "pork"
-    }
+  {
+    "id": 1,
+    "category_id": 1,
+    "inventory_id": 2,
+    "product_name": "초신선 돼지 삼겹살 구이용",
+    "product_img": "/images/category/pork_1.png",
+    "price": 20000,
+    "weight": 600
+  },
+  {
+    "id": 2,
+    "category_id": 1,
+    "inventory_id": 1,
+    "product_name": "초신선 돼지 삼겹살 구이용",
+    "product_img": "/images/category/pork_2.png",
+    "price": 20000,
+    "weight": 600
+  },
+  {
+    "id": 3,
+    "category_id": 1,
+    "inventory_id": 1,
+    "product_name": "초신선 무항생제 돼지 삼겹살 구이용",
+    "product_img": "/images/category/beef_1.png",
+    "price": 20000,
+    "weight": 600
+  },
+  {
+    "id": 4,
+    "category_id": 1,
+    "inventory_id": 1,
+    "product_name": "초신선 돼지 삼겹살 구이용",
+    "product_img": "/images/category/beef_2.png",
+    "price": 20000,
+    "weight": 600
+  },
+  {
+    "id": 5,
+    "category_id": 1,
+    "inventory_id": 1,
+    "product_name": "초신선 돼지 삼겹살 구이용",
+    "product_img": "/images/category/chicken_1.png",
+    "price": 20000,
+    "weight": 600
+  },
+  {
+    "id": 6,
+    "category_id": 1,
+    "inventory_id": 1,
+    "product_name": "초신선 돼지 삼겹살 구이용",
+    "product_img": "/images/category/chicken_2.png",
+    "price": 30000,
+    "weight": 600
+  },
+  {
+    "id": 7,
+    "category_id": 1,
+    "inventory_id": 1,
+    "product_name": "초신선 돼지 삼겹살 구이용",
+    "product_img": "/images/category/milk_1.png",
+    "price": 20000,
+    "weight": 600
+  }
 ]

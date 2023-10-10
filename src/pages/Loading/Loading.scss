@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.loading {
+  @include Position(fixed, 0, 0, 0, 0);
+  @include FlexCenter;
+  z-index: 1000;
+  padding: 0 5%;
+  background-color: $grayscale-6;
+  & > div {
+    width: 50%;
+  }
+}

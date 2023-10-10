@@ -1,0 +1,25 @@
+@import '../../styles/partials/mixin.scss';
+
+.category-tab-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  width: 1184px;
+  height: 56px;
+  font-size: 18px;
+  font-weight: bold;
+
+  li {
+    @include FlexCenter;
+    width: 143px;
+    height: 100%;
+    background-color: #eee;
+    cursor: pointer;
+  }
+
+  .on {
+    background-color: #000;
+    color: #fff;
+  }
+}

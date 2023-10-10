@@ -1,0 +1,18 @@
+@charset 'utf-8';
+@import '../../styles/partials/mixin.scss',
+  '../../styles/partials/variables.scss';
+
+.sign-up {
+  margin-bottom: 150px;
+  .title {
+    margin: 100px 0;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .button-group {
+    width: 780px;
+    margin: 0 auto;
+    display: flex;
+  }
+}

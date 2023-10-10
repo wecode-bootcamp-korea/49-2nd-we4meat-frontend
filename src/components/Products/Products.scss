@@ -1,0 +1,11 @@
+@charset 'utf-8';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.products-section {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 28px;
+    row-gap: 60px;
+  }
+}

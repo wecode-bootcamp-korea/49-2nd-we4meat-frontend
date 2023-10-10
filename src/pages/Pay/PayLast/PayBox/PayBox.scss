@@ -1,0 +1,40 @@
+@import '../../../../styles/partials/mixin.scss';
+
+.pay-box-wrap {
+  @include FlexCenter;
+  width: 940px;
+  height: 100px;
+  margin-bottom: 22px;
+  background-color: #eee;
+
+  .pay-list-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 24px;
+      font-weight: bold;
+
+      h4 {
+        color: #888;
+        font-size: 13px;
+        font-weight: bold;
+      }
+
+      .small-font {
+        color: #000;
+        font-size: 13px;
+        font-weight: normal;
+      }
+
+      .red-font {
+        color: red;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+.event-swiper-wrap {
+  width: 592px;
+  height: 176px;
+  .swiper {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    font-size: 13px;
+    line-height: 1;
+    .swiper-slide {
+      a {
+        display: block;
+      }
+    }
+    .controller {
+      position: absolute;
+      left: 8px;
+      bottom: 10px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      height: 30px;
+      background-color: #fff;
+      .event-swiper-pagination {
+        width: 60px;
+        text-align: center;
+        span {
+          font-weight: 700;
+        }
+      }
+      button {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        margin: 0;
+        background-position: center;
+        background-color: transparent;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-size: 1px;
+        color: transparent;
+        &.swiper-prev-btn {
+          background-image: url(../../../../public/images/swiper/swiper_prev.png);
+        }
+        &.swiper-next-btn {
+          background-image: url(../../../../public/images/swiper/swiper_next.png);
+        }
+      }
+    }
+  }
+}

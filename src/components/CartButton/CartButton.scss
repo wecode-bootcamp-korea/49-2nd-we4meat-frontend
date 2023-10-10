@@ -1,0 +1,29 @@
+@charset 'utf-8';
+@import '../../styles/partials/mixin', '../../styles/partials/variables';
+
+.cart-button {
+  width: 70px;
+  height: 70px;
+  background-color: $grayscale-7;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  @include FlexCenter;
+  button {
+    width: 100%;
+    height: 100%;
+    border: 2px solid $grayscale-5;
+    border-radius: 50%;
+    box-shadow: 0px 18px 10px -10px #ccc;
+    svg {
+      width: 70%;
+      height: 70%;
+    }
+    &:hover {
+      background-color: $grayscale-1;
+      svg {
+        fill: $grayscale-8;
+      }
+    }
+  }
+}

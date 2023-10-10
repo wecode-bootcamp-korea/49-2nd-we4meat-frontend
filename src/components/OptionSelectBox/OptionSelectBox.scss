@@ -1,0 +1,81 @@
+@import '../../styles/partials/mixin.scss',
+  '../../styles/partials/variables.scss';
+
+.option-select {
+  @include FlexCenter;
+  flex-direction: column;
+  width: 380px;
+  color: #fff;
+  background-color: #191919;
+  padding-left: 14px;
+  position: relative;
+  z-index: 10;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &[scale='full'] {
+    width: 396px;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .text-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &[scale='full'] {
+      flex-direction: column;
+      width: 100%;
+      gap: 0;
+      padding: 0;
+    }
+
+    .option-img-wrap {
+      @include FlexCenter;
+      width: 317px;
+      border: 1px solid #888;
+      position: relative;
+
+      &[scale='full'] {
+        width: 100%;
+        border: none;
+      }
+
+      img {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        right: 20px;
+        color: #fff;
+      }
+
+      .first-option {
+        @include FlexCenter;
+        width: 317px;
+        height: 50px;
+
+        &[scale='full'] {
+          width: 100%;
+          color: #000;
+          border: 1px solid #dcdcdc;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .text-align {
+      @include FlexCenter;
+      width: 65px;
+
+      &[scale='full'] {
+        justify-content: start;
+        color: #000;
+        font-weight: bold;
+        padding-bottom: 8px;
+      }
+    }
+  }
+}
